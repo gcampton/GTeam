@@ -7,11 +7,13 @@
 
 ## Overview
 
-GTeam is a standalone Claude Code skill system that provides job-based AI orchestration across professional domains — law, accounting, marketing, SEO, content creation, and more. Where gstack gives you a virtual engineering team, GTeam gives you a virtual professional firm.
+GTeam is a standalone Claude Code skill system that provides job-based AI orchestration across professional domains — law, accounting, marketing, SEO, content creation, and more.
+It has borrowed and extended a number of projects notably Gstack, and Skill-Seekers and a few other ideas and concepts from others.
+Where gstack gives you a virtual engineering team, GTeam gives you a virtual professional firm and the ability to create super defined agents via skill scraper.
 
-Unlike gstack's human-in-the-loop model (user invokes each skill manually), GTeam is designed to be **automatically executing**: the user describes a goal, GTeam routes to the right job, and the job runs all required specialists end-to-end with minimal interruption.
+GTeam is designed to be **automatically executing**: the user describes a goal, GTeam routes to the right job, and the job runs all required specialists end-to-end with minimal interruption.
 
-GTeam references gstack in its description and borrows its browse binary and template infrastructure, but is developed and maintained independently.
+GTeam references gstack in its description and borrows its browse binary and template infrastructure, but is developed and maintained independently as it is automation focused.
 
 ---
 
@@ -22,7 +24,7 @@ GTeam uses a two-layer architecture:
 ### Layer 1: Specialists
 Individual professional skills. Each specialist encapsulates deep domain expertise, workflow, and deliverable format for one role. Specialists can be invoked directly for focused tasks, or embedded into jobs.
 
-**v1 Specialists:**
+**v1.0 Specialists:**
 - `lawyer` — contract review, legal risk assessment, redlining
 - `accountant` — financial analysis, bookkeeping review, tax considerations
 - `seo` — technical SEO audit, keyword strategy, on-page recommendations
@@ -30,10 +32,15 @@ Individual professional skills. Each specialist encapsulates deep domain experti
 - `email-marketer` — campaign strategy, copywriting, sequence design
 - `content-creator` — blog posts, landing copy, long-form content
 
+*More to come*
+- `Assistant` - Works with accountant and tools for company finances, spreadsheets, general housekeeping
+- `Email Support` - Answers support emails
+- `Designer` - Web designer, graphical designer, works with social media and dev team.
+
 ### Layer 2: Jobs
 Orchestrated multi-specialist workflows. A job defines a goal and the sequence of specialist methodologies needed to achieve it. Jobs run automatically — Claude executes all steps, only surfacing decisions that genuinely require human input.
 
-**v1 Jobs (initial set, grows over time):**
+**v1.0 Jobs (initial set, grows over time):**
 - `content-campaign` — SEO + Content Creator + Social Media → full campaign package
 - `legal-review` — Lawyer → redlined document + risk report
 - `product-launch` — subset of specialists (SEO + Content Creator + Social Media + Lawyer) → launch package. Does NOT embed all six specialists — accountant and email-marketer are excluded from v1 to keep context length manageable.
@@ -141,7 +148,8 @@ Skills reference the browser via `$B` — same command interface as gstack, pers
 - Reviewing a client site for legal compliance
 - Social media page analysis
 
-**Note:** GTeam's `gen-skill-docs.ts` does **not** generate browse command reference tables (those are a gstack concern). It only uses the browse source for `$B` command validation in Tier 1 tests — confirming that commands used in SKILL.md files exist in the registry.
+**Note:** GTeam's `gen-skill-docs.ts` does **not** generate browse command reference tables (those are a gstack concern). 
+It only uses the browse source for `$B` command validation in Tier 1 tests — confirming that commands used in SKILL.md files exist in the registry.
 
 ---
 
@@ -159,7 +167,9 @@ git submodule update --init   # pulls gstack source (for browse binary)
 1. Check for an existing compiled binary at `~/.claude/skills/gstack/browse/dist/browse`
    - If found and executable: symlink `browse/dist/browse` → existing binary (skip rebuild)
    - If not found: build from submodule source via `bun build --compile`
-2. Verify SKILL.md files exist at `specialists/*/SKILL.md` and `jobs/*/SKILL.md` and print a summary. No explicit Claude Code registration is required — Claude Code reads skills directly from `~/.claude/skills/gteam/**/*.md` because the clone target is the install location.
+2. Verify SKILL.md files exist at `specialists/*/SKILL.md` and `jobs/*/SKILL.md` and print a summary. 
+   - No explicit Claude Code registration is required 
+   - Claude Code reads skills directly from `~/.claude/skills/gteam/**/*.md` because the clone target is the install location.
 
 This means users with gstack already installed skip the ~30s Bun compile step entirely.
 
@@ -252,9 +262,16 @@ The routing decision is shown to the user: "Starting `content-campaign` — this
 - `skill-check.ts` auto-discovers skills by scanning `specialists/*/SKILL.md` and `jobs/*/SKILL.md` — no hardcoded list
 - Runs on every `bun test`
 
-### Tier 3 — LLM-as-judge (~$0.15/run)
+### Tier 3 — LLM-as-judge (no API key required)
 
-Sonnet evaluates each specialist and job SKILL.md on four dimensions (0–100 each, threshold ≥70 to pass):
+GTeam does not require a paid Anthropic API key. The judge runs via one of two backends, selected automatically:
+
+| Backend | How | When used |
+|---|---|---|
+| `claude -p` subprocess | Spawns Claude Code CLI as a subprocess (uses existing Claude subscription) | Default — if `claude` is on PATH |
+| Local LLM via Ollama | HTTP call to `localhost:11434` with a capable model (e.g. `llama3`, `mistral`) | Fallback — if `claude` not available, or `GTEAM_JUDGE=ollama` is set |
+
+The judge evaluates each specialist and job SKILL.md on four dimensions (0–100 each, threshold ≥70 to pass):
 
 | Dimension | What it checks |
 |---|---|
@@ -276,7 +293,7 @@ Results saved to `~/.gteam-dev/evals/`. Run via `bun run test:evals`.
 **Diff-based selection mechanism:** On each eval run, the evaluator computes a SHA-256 hash of each skill's source files (`SKILL.md.tmpl` + `methodology.md` if present) and compares against hashes stored in `~/.gteam-dev/evals/.skill-hashes.json`. Skills whose hash matches the stored value are skipped. Hashes are updated after a passing eval run. Use `EVALS_ALL=1` or `bun run test:evals:all` to force evaluation of all skills regardless of hash.
 
 ### Tier 2 — E2E (deferred)
-Added in a future version once specialists are mature enough for end-to-end session testing via `claude -p`.
+Added in a future version. Will also use `claude -p` subprocess — no API key required.
 
 ---
 
@@ -287,8 +304,6 @@ GTeam skills are designed to **minimise human-in-the-loop interruptions**. The s
 - **Do automatically:** all research, analysis, drafting, formatting, file writes
 - **Ask the user only when:** a decision has meaningful consequences they'd care about (e.g. "I found a high-risk clause — do you want to negotiate it out or flag it as accepted risk?")
 - **Never ask about:** process steps, tool choices, formatting preferences, intermediate results
-
-This contrasts with gstack, where human approval at each phase is intentional. GTeam's target experience: describe a goal, get a complete deliverable.
 
 ---
 
