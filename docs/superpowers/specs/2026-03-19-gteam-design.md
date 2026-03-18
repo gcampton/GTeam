@@ -137,7 +137,7 @@ gteam/
 GTeam uses gstack's `browse` binary for Playwright-powered browser automation. The full gstack repo is added as a git submodule at `browse/`:
 
 ```bash
-git submodule add https://github.com/garrytan/gstack browse
+git submodule add https://github.com/gcampton/gstack browse
 ```
 
 The submodule includes TypeScript source (`browse/src/`), which `gen-skill-docs.ts` imports for browse command validation in Tier 1 static tests. The compiled binary is built from this source during `./setup`.
