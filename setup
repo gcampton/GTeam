@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+GSTACK_BINARY="$HOME/.claude/skills/gstack/browse/dist/browse"
+LOCAL_BINARY_DIR="$SCRIPT_DIR/browse/dist"
+LOCAL_BINARY="$LOCAL_BINARY_DIR/browse"
+
+echo "GTeam setup"
+echo "==========="
+echo ""
+
+# Step 1: Init submodule if needed
+if [ ! -f "$SCRIPT_DIR/browse/browse/src/commands.ts" ]; then
+  echo "Initializing browse submodule..."
+  cd "$SCRIPT_DIR"
+  git submodule update --init
+fi
+
+# Step 2: Build or symlink browse binary
+mkdir -p "$LOCAL_BINARY_DIR"
+
+if [ -f "$GSTACK_BINARY" ] && [ -x "$GSTACK_BINARY" ]; then
+  echo "Found existing gstack browse binary — symlinking (skipping build)"
+  ln -sf "$GSTACK_BINARY" "$LOCAL_BINARY"
+else
+  echo "Building browse binary from submodule source..."
+  cd "$SCRIPT_DIR/browse"
+  bun install --frozen-lockfile 2>/dev/null || bun install
+  bun run build 2>/dev/null || bun build --compile browse/src/cli.ts --outfile dist/browse
+  cd "$SCRIPT_DIR"
+fi
+
+echo "✓ Browse binary ready: $LOCAL_BINARY"
+echo ""
+
+# Step 3: Generate SKILL.md files
+echo "Generating SKILL.md files..."
+bun run build
+echo ""
+
+# Step 4: Verify skills
+echo "Skills installed:"
+FOUND=0
+for skill in "$SCRIPT_DIR/SKILL.md" "$SCRIPT_DIR"/specialists/*/SKILL.md "$SCRIPT_DIR"/jobs/*/SKILL.md; do
+  if [ -f "$skill" ]; then
+    echo "  ✓ ${skill#$SCRIPT_DIR/}"
+    FOUND=$((FOUND + 1))
+  fi
+done
+if [ "$FOUND" -eq 0 ]; then
+  echo "  (none generated yet — run: bun run gen:skill-docs)"
+fi
+
+echo ""
+echo "GTeam is ready. Skills installed at: $SCRIPT_DIR"
+echo "Add to your project: ln -s $SCRIPT_DIR .claude/skills/gteam"
