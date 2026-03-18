@@ -1,0 +1,3 @@
+[submodule "browse"]
+	path = browse
+	url = https://github.com/gcampton/gstack
