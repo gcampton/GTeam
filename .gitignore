@@ -1,0 +1,4 @@
+node_modules/
+browse/dist/
+~/.gteam-dev/
+*.js.map

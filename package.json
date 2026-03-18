@@ -1,0 +1,17 @@
+{
+  "name": "gteam",
+  "version": "1.0.0",
+  "description": "Your AI professional firm — job-based orchestration across law, accounting, marketing, SEO, and more",
+  "scripts": {
+    "gen:skill-docs": "bun scripts/gen-skill-docs.ts",
+    "gen:skill-docs:dry-run": "bun scripts/gen-skill-docs.ts --dry-run",
+    "skill:check": "bun scripts/skill-check.ts",
+    "build": "bun run gen:skill-docs",
+    "test": "bun test test/gen-skill-docs.test.ts test/skill-validation.test.ts",
+    "test:evals": "bun test test/skill-llm-eval.test.ts",
+    "test:evals:all": "EVALS_ALL=1 bun test test/skill-llm-eval.test.ts"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  }
+}
