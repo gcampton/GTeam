@@ -1,8 +1,11 @@
 # GTeam
 
-Your AI professional firm — job-based orchestration across law, accounting, marketing, SEO, and more. Built for Claude Code.
+Your AI professional firm — job-based orchestration across social media marketing, web/document design, law, accounting, SEO, and more. Built for Claude Code.
 
-Where [gstack](https://github.com/gcampton/gstack) gives you a virtual engineering team, GTeam gives you a virtual professional firm.
+Idea spawned from the brilliant [gstack](https://github.com/gcampton/gstack), which gives you a virtual engineering team. 
+Gstack is not just a prompt library, but an actionable set of instructions for Claude.
+
+GTeam expands on that and gives you a virtual professional firm working autonomously, with less human-in-the-loop.
 
 ## Quick start
 
@@ -48,4 +51,4 @@ Tier 3 evaluation uses `claude -p` (your existing Claude subscription) with Olla
 
 See [CLAUDE.md](CLAUDE.md) for commands and contribution guidelines.
 
-Inspired by [gstack](https://github.com/gcampton/gstack) and [agency-agents](https://github.com/gcampton/agency-agents).
+Inspired by and combined: [gstack](https://github.com/gcampton/gstack), [agency-agents](https://github.com/gcampton/agency-agents), and [skill_seekers](https://github.com/yusufkaraaslan/Skill_Seekers).
