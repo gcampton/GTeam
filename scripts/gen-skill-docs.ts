@@ -22,6 +22,7 @@ function tokenToDir(token: string): string | null {
 
 export async function resolveToken(token: string, rootDir: string): Promise<string> {
   if (token === 'PREAMBLE') return resolvePreamble()
+  if (token === 'GTEAM_DIR') return '~/.claude/skills/gteam'
 
   const dir = tokenToDir(token)
   if (!dir) throw new Error(`Unknown token: ${token}`)

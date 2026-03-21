@@ -50,6 +50,11 @@ describe('resolveToken', () => {
     expect(result).toBe('## Social steps')
   })
 
+  test('resolves GTEAM_DIR to install path', async () => {
+    const result = await resolveToken('GTEAM_DIR', tmp)
+    expect(result).toBe('~/.claude/skills/gteam')
+  })
+
   test('throws on unknown token', async () => {
     await expect(resolveToken('UNKNOWN_TOKEN', tmp)).rejects.toThrow('Unknown token: UNKNOWN_TOKEN')
   })
