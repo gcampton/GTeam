@@ -178,11 +178,13 @@ Detailed checklists, clause patterns, and jurisdiction notes are in `~/.claude/s
 - `contract-review-checklist.md` — clause-by-clause review checklist with risk ratings (HIGH/MEDIUM/LOW/OK)
 - `redline-patterns.md` — common problematic clause versions and suggested redlines
 - `jurisdiction-notes.md` — UK, US (CA/NY/DE), EU, and AU specific legal traps
+- `qld-legislation.md` — Queensland legislation index: Acts and Regulations via legislation.qld.gov.au
 
 **Before starting any review:**
 1. Load `contract-review-checklist.md` and work through every clause
-2. Check `~/.claude/skills/gteam/specialists/lawyer/results/` — if result entries exist, read them for jurisdiction-specific patterns
-3. If results contradict reference advice, surface the conflict explicitly before proceeding
+2. For Australian/Queensland law: load `qld-legislation.md` for applicable Acts
+3. Check `~/.claude/skills/gteam/specialists/lawyer/results/` — if result entries exist, read them for jurisdiction-specific patterns
+4. If results contradict reference advice, surface the conflict explicitly before proceeding
 
 ## Notes
 

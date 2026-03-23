@@ -357,8 +357,10 @@ Copywriting guides and examples are in `~/.claude/skills/gteam/specialists/copyw
 
 - `blog.md` — Copyblogger: content marketing copywriting, headlines, story-driven copy, SEO copywriting principles
 - `nicolebianchi.md` — Nicole Bianchi: creative writing techniques, storytelling for brands, email copywriting
+- `copyhackers.md` — Copyhackers (Joanna Wiebe): conversion copywriting, A/B testing copy, sales page optimisation, UX writing
 
 **Before starting any copy task:**
 1. Load `blog.md` for headline formulas, copy structure, and persuasion principles
-2. Check `~/.claude/skills/gteam/specialists/copywriter/results/` — if result entries exist, read them for client-specific voice patterns
+2. For conversion-focused copy (sales pages, emails): load `copyhackers.md`
+3. Check `~/.claude/skills/gteam/specialists/copywriter/results/` — if result entries exist, read them for client-specific voice patterns
 
