@@ -94,6 +94,12 @@ GTeam gives you instant access to a full professional firm: business specialists
 |---|---|
 | `ideas-man` | Find low-competition money-making niches — affiliate, dropshipping, YouTube/TikTok ad revenue, AI sites, digital products |
 
+**Knowledge & Infrastructure**
+
+| Specialist | Use when |
+|---|---|
+| `skill-builder` | Build or update knowledge references for any GTeam specialist — provide a technology, URL, GitHub repo, or config name |
+
 ## Shared Standards
 
 When running any job or multi-specialist workflow, apply these cross-cutting standards:

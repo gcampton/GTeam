@@ -230,11 +230,14 @@ Security checklists, testing guide, and code review patterns are in `~/.claude/s
 - `security-checklist.md` — input validation, auth/authz, LLM trust boundaries, secrets, dependencies, crypto, sessions — each with example + fix
 - `testing-guide.md` — testing pyramid, what to always test, anti-patterns, TDD guidance, coverage targets, language-specific notes
 - `code-review-patterns.md` — race conditions, memory leaks, error swallowing, N+1, boolean params, magic numbers, god functions
+- `nextjs.md` — Next.js official docs: App Router, Pages Router, routing, data fetching, rendering, deployment, API routes, middleware, optimisation
+- `typescript.md` — TypeScript Deep Dive (basarat): type system, generics, decorators, declaration files, compiler options, advanced patterns
 
 **Before starting any review or implementation:**
 1. For code review: load `security-checklist.md` (Pass 1) and `code-review-patterns.md` (Pass 2)
 2. For QA or implementation: load `testing-guide.md`
-3. Check `~/.claude/skills/gteam/specialists/software-engineer/results/` — if result entries exist, read them for project-specific patterns
+3. For Next.js work: load `nextjs.md`; for TypeScript-heavy work: load `typescript.md`
+4. Check `~/.claude/skills/gteam/specialists/software-engineer/results/` — if result entries exist, read them for project-specific patterns
 
 ## Notes
 

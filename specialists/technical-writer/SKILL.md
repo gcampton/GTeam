@@ -104,7 +104,16 @@ Deprecated items include: what's deprecated, what replaces it, and which version
 
 ## Reference Materials
 
-Check `~/.claude/skills/gteam/specialists/technical-writer/results/` — if result entries exist, read them for project-specific documentation patterns and lessons learned.
+Technical writing guides and best practices are in `~/.claude/skills/gteam/specialists/technical-writer/references/`:
+
+- `clickhelp-technical-writing-blog.md` — ClickHelp: documentation structure, API docs, user guides, style guides, docs-as-code workflows, technical writing tools
+- `idratherbewriting.md` — I'd Rather Be Writing (Tom Johnson): API documentation, developer docs, docs-as-code, OpenAPI, static site generators
+- `heroictechwriting.md` — Heroic Technical Writing: technical writing career, tools, processes, best practices
+
+**Before starting any documentation task:**
+1. Load `clickhelp-technical-writing-blog.md` for documentation frameworks and best practices
+2. For API/developer docs: also load `idratherbewriting.md`
+3. Check `~/.claude/skills/gteam/specialists/technical-writer/results/` — if result entries exist, read them for project-specific documentation patterns and lessons learned.
 
 ## Notes
 

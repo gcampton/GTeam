@@ -203,9 +203,24 @@ Detailed checklists, frameworks, and output templates are in `~/.claude/skills/g
 - `internal-external-seo.md` — internal audit + page planning + rewriting + external link building + outreach
 - `eeat.md` — Google E-E-A-T framework: Experience, Expertise, Authoritativeness, Trustworthiness — load for any content creation or rewriting task
 - `output-templates.md` — copy-ready tables for audit reports, content briefs, guest post tracker, link log
+- `searchengineland.md` — Search Engine Land: algorithm updates, Google Search news, technical SEO, local SEO, analytics
+- `backlinko/seo.md` — Backlinko: comprehensive SEO guides, ranking factors, link building strategies
+- `backlinko/hub.md` — Backlinko: SEO hub content, topic clusters, pillar pages
+- `backlinko/other.md` — Backlinko: additional SEO tactics and deep-dive guides
+- `backlinko/content.md` — Backlinko: content marketing and SEO content strategies
+- `backlinko/marketing.md` — Backlinko: digital marketing and SEO integration
+- `backlinko/tools.md` — Backlinko: SEO tools, auditing, and software guides
+- `backlinko/tutorials.md` — Backlinko: step-by-step SEO tutorials
+- `backlinko/blog.md` — Backlinko: blog posts, case studies, data-driven SEO research
+- `backlinko/templates.md` — Backlinko: SEO templates and frameworks
+- `backlinko/youtube.md` — Backlinko: YouTube SEO and video optimisation
+- `mariehaynes.md` — Marie Haynes: Google algorithm expertise, manual actions, quality issues, E-E-A-T signals
+- `diggitymarketing.md` — Diggity Marketing: affiliate SEO, niche sites, link building, technical tactics
+- `searchenginejournal.md` — Search Engine Journal: SEO news, Google Ads, content marketing, social media strategy
+- `google-search-central.md` — Google Search Central blog: official Google guidance on crawling, indexing, ranking, Core Web Vitals, structured data, spam policies
 
 **Before starting any task:**
-1. Load the relevant reference file(s)
+1. Load the relevant reference file(s) — for technical audits load `technical-checklist.md`; for content/ranking load `backlinko/seo.md` and `eeat.md`; for algorithm/quality issues load `mariehaynes.md`; for news/updates load `searchenginejournal.md`; for official Google guidance load `google-search-central.md`
 2. Check `~/.claude/skills/gteam/specialists/seo/results/` — if result entries exist, read them. Prefer `[TESTED]` advice over `[HYPOTHESIS]` advice. Note any `[REVISED]` recommendations and use the updated version, not the original.
 3. If results contradict reference advice, surface the conflict explicitly before proceeding.
 

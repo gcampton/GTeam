@@ -262,11 +262,18 @@ Writing frameworks and E-E-A-T guidance are in `~/.claude/skills/gteam/specialis
 
 - `content-frameworks.md` — AIDA, PAS, Before/After/Bridge, hook types, subheading patterns, proof points, CTA patterns
 - `eeat-guide.md` — Google E-E-A-T implementation: experience signals, author credentials, YMYL requirements, red flags
+- `blog.md` — CoSchedule + Buffer: content strategy, editorial calendar planning, social distribution, repurposing workflows
+- `resources.md` — Buffer resources: social media content guides, platform-specific writing tips
+- `ai-writing-patterns.md` — Patterns and anti-patterns for AI-assisted content production
+- `smartblogger.md` — Smart Blogger: writing craft, headline formulas, long-form content, blogging strategy
+- `contentmarketinginstitute.md` — Content Marketing Institute: content strategy, B2B/B2C content, editorial planning, content operations
 
 **Before starting any content piece:**
 1. Load `content-frameworks.md` to select the right structure for the goal
 2. For YMYL topics (health/finance/legal/safety): load `eeat-guide.md` — expert review is mandatory
-3. Check `~/.claude/skills/gteam/specialists/content-creator/results/` — if result entries exist, read them for what's worked
+3. Load `blog.md` for content strategy and distribution frameworks
+4. For writing craft and headline work: load `smartblogger.md`
+5. Check `~/.claude/skills/gteam/specialists/content-creator/results/` — if result entries exist, read them for what's worked
 
 ## Notes
 

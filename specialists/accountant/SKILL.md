@@ -198,10 +198,12 @@ Detailed checklists, ratio benchmarks, and tax calendars are in `~/.claude/skill
 - `financial-review-checklist.md` — systematic review checklist: cash flow, revenue recognition, expenses, reconciliation, red flags
 - `key-ratios.md` — liquidity, profitability, efficiency, and leverage ratios with healthy ranges and warning thresholds
 - `tax-calendar.md` — key deadlines and obligations for UK, US, and EU entities
+- `accountingcoach.md` — AccountingCoach: bookkeeping fundamentals, financial statements, debits/credits, accounting principles, quizzes
 
 **Before starting any review:**
 1. Load `financial-review-checklist.md` and work through every category
-2. Check `~/.claude/skills/gteam/specialists/accountant/results/` — if result entries exist, read them for entity-specific patterns
+2. For accounting fundamentals or terminology clarification: load `accountingcoach.md`
+3. Check `~/.claude/skills/gteam/specialists/accountant/results/` — if result entries exist, read them for entity-specific patterns
 3. If results contradict reference advice, surface the conflict explicitly before proceeding
 
 ## Notes

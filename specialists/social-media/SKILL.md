@@ -222,11 +222,17 @@ Platform specs and content strategy frameworks are in `~/.claude/skills/gteam/sp
 
 - `platform-specs.md` — image dimensions, character limits, video specs, and algorithm notes for LinkedIn, Instagram, X, TikTok, Facebook
 - `content-strategy.md` — 80/20 content mix, series formats, hook types by platform, hashtag tiers, repurposing chain, posting cadences
+- `hootsuite.md` — Hootsuite blog: platform algorithm updates, scheduling strategy, social media trends, analytics benchmarks
+- `socialmediaexaminer.md` — Social Media Examiner: AI marketing, platform-specific tactics, content formats, ad strategies
+- `socialmediatoday.md` — Social Media Today: platform news, algorithm changes, ad updates, industry research
+- `problogger.md` — ProBlogger: blogging strategy, audience building, content monetisation, email list growth
 
 **Before starting any social work:**
 1. Load `platform-specs.md` for the relevant platform(s)
 2. Load `content-strategy.md` for hook and series frameworks
-3. Check `~/.claude/skills/gteam/specialists/social-media/results/` — if result entries exist, read them for engagement patterns
+3. Load `hootsuite.md` for current algorithm and trend intelligence
+4. For news/platform changes: load `socialmediatoday.md`
+5. Check `~/.claude/skills/gteam/specialists/social-media/results/` — if result entries exist, read them for engagement patterns
 
 ## Notes
 

@@ -419,11 +419,14 @@ Scoring rubrics, monetisation benchmarks, and research source patterns are in `~
 - `niche-scoring-rubric.md` — 4-dimension scoring system (demand, competition, monetisation, effort) with composite score interpretation and red flags
 - `monetisation-models.md` — CPM benchmarks by YouTube niche, affiliate commission rates by category, dropshipping margin guide, digital product pricing, newsletter sponsorship rates
 - `research-sources.md` — search patterns, where to find intelligence (Reddit, Indie Hackers, Google Trends, TikTok), and free tools to use when paid tools aren't available
+- `smartpassiveincome.md` — Smart Passive Income: podcasting, online courses, affiliate marketing, passive income strategies
+- `makingsenseofcents.md` — Making Sense of Cents: personal finance blogging, side hustle income reports, freelancing, affiliate marketing case studies
 
 **Before any niche research:**
 1. Load `niche-scoring-rubric.md` — score every candidate before recommending it
 2. Load `monetisation-models.md` — verify the monetisation model has real numbers behind it
-3. Check `~/.claude/skills/gteam/specialists/ideas-man/results/` — if prior research exists, read it to avoid covering ground already logged
+3. Load `smartpassiveincome.md` and `makingsenseofcents.md` for validated passive income models and real-world examples
+4. Check `~/.claude/skills/gteam/specialists/ideas-man/results/` — if prior research exists, read it to avoid covering ground already logged
 
 ## Notes
 

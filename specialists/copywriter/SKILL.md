@@ -350,3 +350,15 @@ Never: [Words that are off-brand or offensive]
 - 10 example rewrites: before (off-brand) → after (on-brand)
 - Quick-reference card: 1-page version for day-to-day use
 
+
+## Reference Materials
+
+Copywriting guides and examples are in `~/.claude/skills/gteam/specialists/copywriter/references/`:
+
+- `blog.md` — Copyblogger: content marketing copywriting, headlines, story-driven copy, SEO copywriting principles
+- `nicolebianchi.md` — Nicole Bianchi: creative writing techniques, storytelling for brands, email copywriting
+
+**Before starting any copy task:**
+1. Load `blog.md` for headline formulas, copy structure, and persuasion principles
+2. Check `~/.claude/skills/gteam/specialists/copywriter/results/` — if result entries exist, read them for client-specific voice patterns
+
