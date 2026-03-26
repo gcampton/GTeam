@@ -267,10 +267,16 @@ Writing frameworks and E-E-A-T guidance are in `~/.claude/skills/gteam/specialis
 - `ai-writing-patterns.md` — Patterns and anti-patterns for AI-assisted content production
 - `smartblogger.md` — Smart Blogger: writing craft, headline formulas, long-form content, blogging strategy
 - `contentmarketinginstitute.md` — Content Marketing Institute: content strategy, B2B/B2C content, editorial planning, content operations
+- `problogger.md` — ProBlogger tutorials: blogging strategy, content creation, audience building, monetisation
 - `growandconvert.md` — Grow and Convert: content marketing ROI, SEO-driven content strategy, conversion from content
 - `superpath.md` — Superpath: content marketing career, editorial operations, content team management
+- `marketingskills-lead-magnets.md` — Marketingskills: lead magnet types, gating strategy, and measurement
+- `marketingskills-content-strategy.md` — Marketingskills: content planning, pillar/cluster structure, buyer-stage alignment
 
 **Before starting any content piece:**
+Consult `methodology.md` only if the task requires step-by-step execution workflows — skip for simple questions or analysis.
+- For lead magnet creation or strategy: load `marketingskills-lead-magnets.md`
+- For content planning or editorial strategy: load `marketingskills-content-strategy.md`
 1. Load `content-frameworks.md` to select the right structure for the goal
 2. For YMYL topics (health/finance/legal/safety): load `eeat-guide.md` — expert review is mandatory
 3. Load `blog.md` for content strategy and distribution frameworks

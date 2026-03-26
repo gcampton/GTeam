@@ -234,6 +234,7 @@ Security checklists, testing guide, and code review patterns are in `~/.claude/s
 - `typescript.md` — TypeScript Deep Dive (basarat): type system, generics, decorators, declaration files, compiler options, advanced patterns
 
 **Before starting any review or implementation:**
+Consult `methodology.md` only if the task requires step-by-step execution workflows — skip for simple questions or analysis.
 1. For code review: load `security-checklist.md` (Pass 1) and `code-review-patterns.md` (Pass 2)
 2. For QA or implementation: load `testing-guide.md`
 3. For Next.js work: load `nextjs.md`; for TypeScript-heavy work: load `typescript.md`

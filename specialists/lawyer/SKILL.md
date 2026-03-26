@@ -181,6 +181,7 @@ Detailed checklists, clause patterns, and jurisdiction notes are in `~/.claude/s
 - `qld-legislation.md` — Queensland legislation index: Acts and Regulations via legislation.qld.gov.au
 
 **Before starting any review:**
+Consult `methodology.md` only if the task requires step-by-step execution workflows — skip for simple questions or analysis.
 1. Load `contract-review-checklist.md` and work through every clause
 2. For Australian/Queensland law: load `qld-legislation.md` for applicable Acts
 3. Check `~/.claude/skills/gteam/specialists/lawyer/results/` — if result entries exist, read them for jurisdiction-specific patterns

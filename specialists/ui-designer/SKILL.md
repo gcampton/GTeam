@@ -176,11 +176,14 @@ All references are in `~/.claude/skills/gteam/specialists/ui-designer/references
 - `accessibility-wcag.md` — WCAG 2.1 AA checklist: contrast ratios, keyboard nav, screen reader, tap targets, forms, motion
 - `component-patterns.md` — button hierarchy, form validation, cards, nav, empty states, loading states, error states, tables
 - `design-review-rubric.md` — 0–10 scoring rubric for all review dimensions with grade thresholds and issue prioritisation
+- `invision.md` — InVision Inside Design: design process, prototyping, design systems, UX patterns, design thinking
+- `goodui.md` — GoodUI.org: A/B tested UI patterns, conversion-boosting design ideas, evidence-based UX
 
 **Before starting any design task:**
+Consult `methodology.md` only if the task requires step-by-step execution workflows — skip for simple questions or analysis.
 1. Design consultation: run Design Intelligence Setup + load `design-principles.md`
 2. Design review: load `design-review-rubric.md`, `accessibility-wcag.md`, and `ux-rules-priority.md`
-3. Component work: load `component-patterns.md`
+3. Component work: load `component-patterns.md`; for conversion-optimised patterns: load `goodui.md`
 4. Check `~/.claude/skills/gteam/specialists/ui-designer/results/` — read any existing entries for tested patterns
 
 ## Notes

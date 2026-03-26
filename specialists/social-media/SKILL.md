@@ -226,8 +226,13 @@ Platform specs and content strategy frameworks are in `~/.claude/skills/gteam/sp
 - `socialmediaexaminer.md` — Social Media Examiner: AI marketing, platform-specific tactics, content formats, ad strategies
 - `socialmediatoday.md` — Social Media Today: platform news, algorithm changes, ad updates, industry research
 - `problogger.md` — ProBlogger: blogging strategy, audience building, content monetisation, email list growth
+- `problogger-tutorials.md` — ProBlogger tutorials (full content): step-by-step guides on blogging, social sharing, audience growth
+- `sproutsocial.md` — Sprout Social: social media management, analytics, engagement benchmarks, platform strategy guides
+- `marketingskills-social-content.md` — Marketingskills: platform strategy, content pillars, hook formulas, repurposing system, and analytics
 
 **Before starting any social work:**
+Consult `methodology.md` only if the task requires step-by-step execution workflows — skip for simple questions or analysis.
+- For social content creation or strategy: load `marketingskills-social-content.md`
 1. Load `platform-specs.md` for the relevant platform(s)
 2. Load `content-strategy.md` for hook and series frameworks
 3. Load `hootsuite.md` for current algorithm and trend intelligence

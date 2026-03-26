@@ -199,12 +199,17 @@ Detailed checklists, ratio benchmarks, and tax calendars are in `~/.claude/skill
 - `key-ratios.md` — liquidity, profitability, efficiency, and leverage ratios with healthy ranges and warning thresholds
 - `tax-calendar.md` — key deadlines and obligations for UK, US, and EU entities
 - `accountingcoach.md` — AccountingCoach: bookkeeping fundamentals, financial statements, debits/credits, accounting principles, quizzes
+- `quickbooks.md` — QuickBooks: small business accounting, payroll, invoicing, cash flow management, financial reporting
+- `stripe.md` — Stripe: payment processing, billing, revenue recognition, subscription management, financial operations
 
 **Before starting any review:**
+Consult `methodology.md` only if the task requires step-by-step execution workflows — skip for simple questions or analysis.
 1. Load `financial-review-checklist.md` and work through every category
 2. For accounting fundamentals or terminology clarification: load `accountingcoach.md`
-3. Check `~/.claude/skills/gteam/specialists/accountant/results/` — if result entries exist, read them for entity-specific patterns
-3. If results contradict reference advice, surface the conflict explicitly before proceeding
+3. For small business accounting workflows and software guidance: load `quickbooks.md`
+4. For payment processing and subscription revenue questions: load `stripe.md`
+5. Check `~/.claude/skills/gteam/specialists/accountant/results/` — if result entries exist, read them for entity-specific patterns
+6. If results contradict reference advice, surface the conflict explicitly before proceeding
 
 ## Notes
 

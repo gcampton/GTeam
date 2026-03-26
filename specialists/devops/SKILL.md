@@ -117,10 +117,12 @@ Release checklist, CI/CD patterns, and incident response are in `~/.claude/skill
 - `release-checklist.md` — pre/post-ship checklists, semver rules, CHANGELOG format, PR template, emergency rollback decision tree
 - `cicd-patterns.md` — pipeline stages, fail-fast timing, caching strategies, secrets handling, deployment strategies, health check pattern
 - `incident-response.md` — severity levels with SLAs, investigation checklist, rollback decision tree, communication templates, post-mortem structure
+- `circleci.md` — CircleCI blog: CI/CD best practices, Docker, Kubernetes, testing automation, deployment pipelines
 
 **Before starting any task:**
+Consult `methodology.md` only if the task requires step-by-step execution workflows — skip for simple questions or analysis.
 1. For shipping: load `release-checklist.md`
-2. For CI/CD work: load `cicd-patterns.md`
+2. For CI/CD work: load `cicd-patterns.md` and `circleci.md`
 3. For incidents: load `incident-response.md` immediately
 4. Check `~/.claude/skills/gteam/specialists/devops/results/` — if result entries exist, read them for project-specific patterns
 

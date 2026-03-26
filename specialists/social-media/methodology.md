@@ -193,3 +193,5 @@ If `BROWSE NOT AVAILABLE`: skip all `$B` steps and use WebFetch instead.
 - Per-post brief: platform, format, copy, visual, posting time
 - Success metrics: reach / engagement / click / conversion targets per phase
 - Budget allocation (if paid component)
+
+---

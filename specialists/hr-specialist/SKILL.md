@@ -337,3 +337,19 @@ Signatures: Employee ____________  Manager ____________  HR ____________
 - Referral: specific type of specialist required (employment solicitor, HR consultant, ACAS)
 - Resources: links to gov.uk / ACAS / SHRM guidance relevant to the situation (use WebSearch to find current versions)
 
+
+## Reference Materials
+
+HR frameworks, employment law, and people management guides are in `~/.claude/skills/gteam/specialists/hr-specialist/references/`:
+
+- `shrm.md` — SHRM: HR policies, employment law, benefits, performance management, workplace compliance
+- `bamboohr.md` — BambooHR: HR software platform, onboarding, performance reviews, time & attendance, payroll, workforce analytics
+- `lattice.md` — Lattice: performance management, goal tracking, 1-on-1s, employee engagement, compensation planning
+
+**Before starting any HR task:**
+Consult `methodology.md` only if the task requires step-by-step execution workflows — skip for simple questions or analysis.
+1. Load `shrm.md` for HR frameworks, policy templates, and employment law guidance
+2. For performance management and engagement: load `lattice.md`
+3. For HR software workflows and onboarding processes: load `bamboohr.md`
+4. Check `~/.claude/skills/gteam/specialists/hr-specialist/results/` — if result entries exist, read them for jurisdiction-specific patterns
+

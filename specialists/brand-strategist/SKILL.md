@@ -153,11 +153,22 @@ Detailed templates, audit frameworks, and positioning tools are in `~/.claude/sk
 - `brand-discovery-questions.md` — audit questionnaire, competitor positioning 2x2 matrices, white space analysis method
 - `positioning-framework.md` — positioning statement template, differentiation tests, customer validation approach
 - `voice-tone-guide.md` — voice dimension format, tone variation by context, message house structure
+- `brandingmag.md` — Branding Magazine: brand identity, rebranding case studies, brand strategy, visual identity trends
+- `brandingstrategyinsider.md` — Branding Strategy Insider: brand positioning frameworks, brand identity vs. image, differentiation strategy, B2B/B2C brand distinctions
+- `marketingskills-marketing-psychology.md` — Marketingskills: buyer psychology, cognitive biases, persuasion principles applied to marketing
+- `marketingskills-pricing-strategy.md` — Marketingskills: pricing research, value metrics, tier structure, and pricing page CRO
+- `marketingskills-product-marketing-context.md` — Marketingskills: product positioning template (ICP, personas, differentiation, voice, proof points)
 
 **Before starting any brand engagement:**
+Consult `methodology.md` only if the task requires step-by-step execution workflows — skip for simple questions or analysis.
+- For behavioural psychology or persuasion work: load `marketingskills-marketing-psychology.md`
+- For pricing strategy or packaging: load `marketingskills-pricing-strategy.md`
+- For product positioning or messaging foundation: load `marketingskills-product-marketing-context.md`
 1. Load `brand-discovery-questions.md` and complete the audit before writing any positioning or voice guidance
-2. Check `~/.claude/skills/gteam/specialists/brand-strategist/results/` — if result entries exist, read them for industry and maturity-stage patterns
-3. If results contradict reference advice, surface the conflict explicitly before proceeding
+2. For brand strategy frameworks: load `brandingstrategyinsider.md`
+3. For brand identity inspiration and case studies: load `brandingmag.md`
+3. Check `~/.claude/skills/gteam/specialists/brand-strategist/results/` — if result entries exist, read them for industry and maturity-stage patterns
+4. If results contradict reference advice, surface the conflict explicitly before proceeding
 
 ## Notes
 

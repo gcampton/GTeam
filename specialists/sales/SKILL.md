@@ -376,6 +376,26 @@ Never present a single forecast number without a confidence range. Report at all
 - Stage probability is not a forecast methodology — velocity, engagement, and MEDDPICC score drive the real number
 
 
+## Reference Materials
+
+Sales strategy guides and outreach frameworks are in `~/.claude/skills/gteam/specialists/sales/references/`:
+
+- `hubspot-sales.md` — HubSpot Sales blog: prospecting, cold email, objection handling, pipeline management, CRM
+- `close.md` — Close.com blog: sales process, outreach sequences, follow-ups, remote sales, startup sales
+- `stripe.md` — Stripe: payment processing, billing, subscriptions, invoicing, financial infrastructure for online businesses
+- `marketingskills-sales-enablement.md` — Marketingskills: pitch decks, one-pagers, objection handling, demo scripts, and playbooks
+- `marketingskills-revops.md` — Marketingskills: lead lifecycle, scoring, routing, pipeline hygiene, and RevOps metrics
+
+**Before starting any sales task:**
+Consult `methodology.md` only if the task requires step-by-step execution workflows — skip for simple questions or analysis.
+- For sales collateral (decks, one-pagers, objection docs): load `marketingskills-sales-enablement.md`
+- For lead lifecycle, scoring, routing, or CRM workflows: load `marketingskills-revops.md`
+1. Load `hubspot-sales.md` for prospecting frameworks and outreach templates
+2. Load `close.md` for sales process and follow-up cadences
+3. For pricing, billing, and payment integration guidance: load `stripe.md`
+3. Check `~/.claude/skills/gteam/specialists/sales/results/` — if result entries exist, read them for client-specific patterns
+
+
 ## Notes
 
 - Never send generic outreach. Every message must reference a specific signal, trigger, or pain point.

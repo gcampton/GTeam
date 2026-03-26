@@ -111,6 +111,7 @@ Technical writing guides and best practices are in `~/.claude/skills/gteam/speci
 - `heroictechwriting.md` — Heroic Technical Writing: technical writing career, tools, processes, best practices
 
 **Before starting any documentation task:**
+Consult `methodology.md` only if the task requires step-by-step execution workflows — skip for simple questions or analysis.
 1. Load `clickhelp-technical-writing-blog.md` for documentation frameworks and best practices
 2. For API/developer docs: also load `idratherbewriting.md`
 3. Check `~/.claude/skills/gteam/specialists/technical-writer/results/` — if result entries exist, read them for project-specific documentation patterns and lessons learned.

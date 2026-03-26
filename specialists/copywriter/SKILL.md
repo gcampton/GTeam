@@ -355,12 +355,20 @@ Never: [Words that are off-brand or offensive]
 
 Copywriting guides and examples are in `~/.claude/skills/gteam/specialists/copywriter/references/`:
 
-- `blog.md` — Copyblogger: content marketing copywriting, headlines, story-driven copy, SEO copywriting principles
+- `blog.md` — Copyblogger (scraped): content marketing copywriting, headlines, story-driven copy, SEO copywriting principles
+- `copyblogger-llms.md` — Copyblogger (llms.txt): comprehensive copywriting guides, persuasion, storytelling, email marketing
 - `nicolebianchi.md` — Nicole Bianchi: creative writing techniques, storytelling for brands, email copywriting
 - `copyhackers.md` — Copyhackers (Joanna Wiebe): conversion copywriting, A/B testing copy, sales page optimisation, UX writing
+- `marketingskills-copywriting.md` — Marketingskills: persuasive marketing copy frameworks for web pages
+- `marketingskills-copy-editing.md` — Marketingskills: Seven Sweeps editing framework for existing copy
+- `marketingskills-cold-email.md` — Marketingskills: B2B cold outreach writing and sequence frameworks
 
 **Before starting any copy task:**
-1. Load `blog.md` for headline formulas, copy structure, and persuasion principles
+Consult `methodology.md` only if the task requires step-by-step execution workflows — skip for simple questions or analysis.
+- For writing new marketing page copy: load `marketingskills-copywriting.md`
+- For editing or improving existing copy: load `marketingskills-copy-editing.md`
+- For cold email or B2B outreach: load `marketingskills-cold-email.md`
+1. Load `copyblogger-llms.md` for headline formulas, copy structure, and persuasion principles
 2. For conversion-focused copy (sales pages, emails): load `copyhackers.md`
 3. Check `~/.claude/skills/gteam/specialists/copywriter/results/` — if result entries exist, read them for client-specific voice patterns
 

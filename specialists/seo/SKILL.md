@@ -218,9 +218,27 @@ Detailed checklists, frameworks, and output templates are in `~/.claude/skills/g
 - `diggitymarketing.md` — Diggity Marketing: affiliate SEO, niche sites, link building, technical tactics
 - `searchenginejournal.md` — Search Engine Journal: SEO news, Google Ads, content marketing, social media strategy
 - `google-search-central.md` — Google Search Central blog: official Google guidance on crawling, indexing, ranking, Core Web Vitals, structured data, spam policies
+- `ahrefs.md` — Ahrefs blog: keyword research, link building, technical SEO, content marketing, competitor analysis
+- `moz.md` — Moz blog: SEO fundamentals, domain authority, on-page SEO, local SEO, link metrics
+- `semrush.md` — SEMrush blog: SEO strategy, content marketing, PPC, social media, competitor research
+- `seo-audit.md` — Marketingskills: SEO audit diagnosis framework (technical, on-page, content)
+- `ai-seo.md` — Marketingskills: AI search optimisation (AEO, GEO — getting cited by LLMs)
+- `programmatic-seo.md` — Marketingskills: scaled page generation from templates and data
+- `site-architecture.md` — Marketingskills: site hierarchy, URL structure, internal linking planning
+- `competitor-alternatives.md` — Marketingskills: competitor comparison and alternative pages for SEO
+- `schema-markup.md` — Marketingskills: structured data and rich snippet implementation
+- `content-strategy.md` — Marketingskills: content planning, pillar/cluster structure, prioritisation
 
 **Before starting any task:**
-1. Load the relevant reference file(s) — for technical audits load `technical-checklist.md`; for content/ranking load `backlinko/seo.md` and `eeat.md`; for algorithm/quality issues load `mariehaynes.md`; for news/updates load `searchenginejournal.md`; for official Google guidance load `google-search-central.md`
+Consult `methodology.md` only if the task requires step-by-step execution workflows — skip for simple questions or analysis.
+- For SEO audits: load `seo-audit.md`
+- For AI search / LLM visibility work: load `ai-seo.md`
+- For programmatic SEO or scaled page creation: load `programmatic-seo.md`
+- For site structure or URL architecture: load `site-architecture.md`
+- For competitor or alternative comparison pages: load `competitor-alternatives.md`
+- For structured data or schema: load `schema-markup.md`
+- For content planning or strategy: load `content-strategy.md`
+1. Load the relevant reference file(s) — for technical audits load `technical-checklist.md`; for content/ranking load `backlinko/seo.md` and `ahrefs.md`; for algorithm/quality issues load `mariehaynes.md` and `google-search-central.md`; for news/updates load `searchenginejournal.md`
 2. Check `~/.claude/skills/gteam/specialists/seo/results/` — if result entries exist, read them. Prefer `[TESTED]` advice over `[HYPOTHESIS]` advice. Note any `[REVISED]` recommendations and use the updated version, not the original.
 3. If results contradict reference advice, surface the conflict explicitly before proceeding.
 
