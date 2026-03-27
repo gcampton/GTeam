@@ -102,21 +102,7 @@ Retention floor comparison across cohorts is the primary signal that product cha
 
 ## Reference Materials
 
-Analytics frameworks and product data guides are in `~/.claude/skills/gteam/specialists/data-analyst/references/`:
-
-- `posthog.md` — PostHog blog: product analytics, event tracking, funnel analysis, A/B testing, feature flags, session recording
-- `databox.md` — Databox: KPI dashboards, metrics tracking, reporting best practices, data visualisation
-- `supermetrics.md` — Supermetrics: marketing data connectors, cross-channel analytics, BI integration, automated reporting
-- `marketingskills-analytics-tracking.md` — Marketingskills: GA4, GTM, tracking plans, UTM strategy, and event implementation
-- `marketingskills-ab-test-setup.md` — Marketingskills: A/B test hypothesis, sample size, metrics, and result analysis frameworks
-
-**Before starting any analysis:**
-Consult `methodology.md` only if the task requires step-by-step execution workflows — skip for simple questions or analysis.
-- For analytics implementation or tracking setup: load `marketingskills-analytics-tracking.md`
-- For A/B test design or analysis: load `marketingskills-ab-test-setup.md`
-1. For product analytics methodology: load `posthog.md`
-2. For dashboard and KPI design: load `databox.md`
-2. Check `~/.claude/skills/gteam/specialists/data-analyst/results/` — if result entries exist, read them for project-specific analytical patterns and past findings.
+Check `~/.claude/skills/gteam/specialists/data-analyst/results/` — if result entries exist, read them for project-specific analytical patterns and past findings.
 
 ## Notes
 

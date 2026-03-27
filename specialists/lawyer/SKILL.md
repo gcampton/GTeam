@@ -38,7 +38,7 @@ If `BROWSE NOT AVAILABLE`: skip all `$B` steps and use WebFetch instead.
 
 **Gather:** Document (file path or paste). Identify: contract type, parties, governing jurisdiction if visible.
 
-**Load `references/contract-review-checklist.md` before starting.** Work through every clause:
+**Use Grep to search `references/contract-review-checklist.md` for relevant clause types as needed.** Work through every clause:
 
 1. Liability & indemnification — who bears risk, any unlimited liability exposure?
 2. IP ownership — who owns work product, licenses, background IP?
@@ -178,14 +178,11 @@ Detailed checklists, clause patterns, and jurisdiction notes are in `~/.claude/s
 - `contract-review-checklist.md` — clause-by-clause review checklist with risk ratings (HIGH/MEDIUM/LOW/OK)
 - `redline-patterns.md` — common problematic clause versions and suggested redlines
 - `jurisdiction-notes.md` — UK, US (CA/NY/DE), EU, and AU specific legal traps
-- `qld-legislation.md` — Queensland legislation index: Acts and Regulations via legislation.qld.gov.au
 
-**Before starting any review:**
-Consult `methodology.md` only if the task requires step-by-step execution workflows — skip for simple questions or analysis.
-1. Load `contract-review-checklist.md` and work through every clause
-2. For Australian/Queensland law: load `qld-legislation.md` for applicable Acts
-3. Check `~/.claude/skills/gteam/specialists/lawyer/results/` — if result entries exist, read them for jurisdiction-specific patterns
-4. If results contradict reference advice, surface the conflict explicitly before proceeding
+**Searching references:**
+- Do NOT Read entire reference files. Use Grep to search `~/.claude/skills/gteam/specialists/lawyer/references/` for specific keywords relevant to the task (e.g. clause types, jurisdiction, risk ratings).
+- Check `~/.claude/skills/gteam/specialists/lawyer/results/` — if result entries exist, Grep them for jurisdiction-specific patterns.
+- If results contradict reference advice, surface the conflict explicitly before proceeding.
 
 ## Notes
 

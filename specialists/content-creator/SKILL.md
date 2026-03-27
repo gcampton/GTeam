@@ -262,27 +262,11 @@ Writing frameworks and E-E-A-T guidance are in `~/.claude/skills/gteam/specialis
 
 - `content-frameworks.md` — AIDA, PAS, Before/After/Bridge, hook types, subheading patterns, proof points, CTA patterns
 - `eeat-guide.md` — Google E-E-A-T implementation: experience signals, author credentials, YMYL requirements, red flags
-- `blog.md` — CoSchedule + Buffer: content strategy, editorial calendar planning, social distribution, repurposing workflows
-- `resources.md` — Buffer resources: social media content guides, platform-specific writing tips
-- `ai-writing-patterns.md` — Patterns and anti-patterns for AI-assisted content production
-- `smartblogger.md` — Smart Blogger: writing craft, headline formulas, long-form content, blogging strategy
-- `contentmarketinginstitute.md` — Content Marketing Institute: content strategy, B2B/B2C content, editorial planning, content operations
-- `problogger.md` — ProBlogger tutorials: blogging strategy, content creation, audience building, monetisation
-- `growandconvert.md` — Grow and Convert: content marketing ROI, SEO-driven content strategy, conversion from content
-- `superpath.md` — Superpath: content marketing career, editorial operations, content team management
-- `marketingskills-lead-magnets.md` — Marketingskills: lead magnet types, gating strategy, and measurement
-- `marketingskills-content-strategy.md` — Marketingskills: content planning, pillar/cluster structure, buyer-stage alignment
 
-**Before starting any content piece:**
-Consult `methodology.md` only if the task requires step-by-step execution workflows — skip for simple questions or analysis.
-- For lead magnet creation or strategy: load `marketingskills-lead-magnets.md`
-- For content planning or editorial strategy: load `marketingskills-content-strategy.md`
-1. Load `content-frameworks.md` to select the right structure for the goal
-2. For YMYL topics (health/finance/legal/safety): load `eeat-guide.md` — expert review is mandatory
-3. Load `blog.md` for content strategy and distribution frameworks
-4. For writing craft and headline work: load `smartblogger.md`
-5. For content ROI and business case: load `growandconvert.md`
-6. Check `~/.claude/skills/gteam/specialists/content-creator/results/` — if result entries exist, read them for what's worked
+**Searching references:**
+- Do NOT Read entire reference files. Use Grep to search `~/.claude/skills/gteam/specialists/content-creator/references/` for specific keywords relevant to the task.
+- For YMYL topics (health/finance/legal/safety): search `eeat-guide.md` for relevant E-E-A-T requirements — expert review is mandatory.
+- Check `~/.claude/skills/gteam/specialists/content-creator/results/` — if result entries exist, Grep them for what's worked.
 
 ## Notes
 

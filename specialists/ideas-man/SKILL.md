@@ -419,18 +419,10 @@ Scoring rubrics, monetisation benchmarks, and research source patterns are in `~
 - `niche-scoring-rubric.md` — 4-dimension scoring system (demand, competition, monetisation, effort) with composite score interpretation and red flags
 - `monetisation-models.md` — CPM benchmarks by YouTube niche, affiliate commission rates by category, dropshipping margin guide, digital product pricing, newsletter sponsorship rates
 - `research-sources.md` — search patterns, where to find intelligence (Reddit, Indie Hackers, Google Trends, TikTok), and free tools to use when paid tools aren't available
-- `smartpassiveincome.md` — Smart Passive Income: podcasting, online courses, affiliate marketing, passive income strategies
-- `makingsenseofcents.md` — Making Sense of Cents: personal finance blogging, side hustle income reports, freelancing, affiliate marketing case studies
-- `shopify-make-money-online.md` — Shopify: 23 online money-making methods with "best for" profiles, timelines, AI tool tips, and scam red flags
-- `hostinger-make-money-online.md` — Hostinger: 25 methods with concrete income benchmarks (e.g. affiliate avg $8,038/mo, YouTube $18/1k views, freelancing avg $99k/yr US), startup costs, and platform names per method
 
-**Before any niche research:**
-Consult `methodology.md` only if the task requires step-by-step execution workflows — skip for simple questions or analysis.
-1. Load `niche-scoring-rubric.md` — score every candidate before recommending it
-2. Load `monetisation-models.md` — verify the monetisation model has real numbers behind it
-3. Load `hostinger-make-money-online.md` for income benchmarks and startup costs; `shopify-make-money-online.md` for method profiles
-4. Load `smartpassiveincome.md` and `makingsenseofcents.md` for validated passive income models and real-world examples
-4. Check `~/.claude/skills/gteam/specialists/ideas-man/results/` — if prior research exists, read it to avoid covering ground already logged
+**Searching references:**
+- Do NOT Read entire reference files. Use Grep to search `~/.claude/skills/gteam/specialists/ideas-man/references/` for specific keywords relevant to the task (e.g. scoring criteria, monetisation benchmarks).
+- Check `~/.claude/skills/gteam/specialists/ideas-man/results/` — if prior research exists, Grep it to avoid covering ground already logged.
 
 ## Notes
 

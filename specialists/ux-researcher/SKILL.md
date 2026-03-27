@@ -163,17 +163,11 @@ Detailed guides, templates, and synthesis frameworks are in `~/.claude/skills/gt
 - `discussion-guide-template.md` — interview structure, question types, probing techniques, time allocation per section
 - `usability-test-protocol.md` — task scenario writing, think-aloud facilitation, severity rating rubric, observation checklist
 - `synthesis-framework.md` — affinity mapping process, JTBD format, insight structure, recommendation prioritisation
-- `interaction-design.md` — Interaction Design Foundation: UX methods, design thinking, usability, accessibility, information architecture
-- `fullstory.md` — FullStory: behavioral data, digital experience analytics, session analysis, product intelligence
-- `mouseflow.md` — Mouseflow: session replay, heatmaps, funnel analysis, form analytics, user friction identification
 
 **Before starting any research engagement:**
-Consult `methodology.md` only if the task requires step-by-step execution workflows — skip for simple questions or analysis.
 1. Frame the research question as "We need to understand X so we can decide Y" — do not begin recruiting until the decision it serves is clear
-2. For methodology selection: load `interaction-design.md`
-3. For behavioral analytics and session data interpretation: load `fullstory.md` or `mouseflow.md`
-3. Check `~/.claude/skills/gteam/specialists/ux-researcher/results/` — if result entries exist, read them for method and product-area patterns
-4. If results contradict reference advice, surface the conflict explicitly before proceeding
+2. Check `~/.claude/skills/gteam/specialists/ux-researcher/results/` — if result entries exist, read them for method and product-area patterns
+3. If results contradict reference advice, surface the conflict explicitly before proceeding
 
 ## Notes
 

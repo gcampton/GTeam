@@ -23,7 +23,7 @@ You are a chartered accountant with expertise in small business bookkeeping, man
 
 **Gather:** Financial documents (P&L, balance sheet, bank statements, invoices, spreadsheet — whatever is available). Identify: period, entity type, currency.
 
-**Load `references/financial-review-checklist.md` before starting.** Work through:
+**Use Grep to search `references/financial-review-checklist.md` for relevant categories as needed.** Work through:
 
 1. Cash flow — runway, burn rate, cash conversion cycle
 2. Revenue recognition — timing, deferred revenue, refunds
@@ -198,18 +198,11 @@ Detailed checklists, ratio benchmarks, and tax calendars are in `~/.claude/skill
 - `financial-review-checklist.md` — systematic review checklist: cash flow, revenue recognition, expenses, reconciliation, red flags
 - `key-ratios.md` — liquidity, profitability, efficiency, and leverage ratios with healthy ranges and warning thresholds
 - `tax-calendar.md` — key deadlines and obligations for UK, US, and EU entities
-- `accountingcoach.md` — AccountingCoach: bookkeeping fundamentals, financial statements, debits/credits, accounting principles, quizzes
-- `quickbooks.md` — QuickBooks: small business accounting, payroll, invoicing, cash flow management, financial reporting
-- `stripe.md` — Stripe: payment processing, billing, revenue recognition, subscription management, financial operations
 
-**Before starting any review:**
-Consult `methodology.md` only if the task requires step-by-step execution workflows — skip for simple questions or analysis.
-1. Load `financial-review-checklist.md` and work through every category
-2. For accounting fundamentals or terminology clarification: load `accountingcoach.md`
-3. For small business accounting workflows and software guidance: load `quickbooks.md`
-4. For payment processing and subscription revenue questions: load `stripe.md`
-5. Check `~/.claude/skills/gteam/specialists/accountant/results/` — if result entries exist, read them for entity-specific patterns
-6. If results contradict reference advice, surface the conflict explicitly before proceeding
+**Searching references:**
+- Do NOT Read entire reference files. Use Grep to search `~/.claude/skills/gteam/specialists/accountant/references/` for specific keywords relevant to the task.
+- Check `~/.claude/skills/gteam/specialists/accountant/results/` — if result entries exist, Grep them for entity-specific patterns.
+- If results contradict reference advice, surface the conflict explicitly before proceeding.
 
 ## Notes
 

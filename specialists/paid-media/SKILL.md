@@ -218,24 +218,6 @@ Never test hook + CTA + image simultaneously — you can't identify what drove t
 Include one "insight" per channel: what changed, why (if known), and what action is being taken. Reporting without recommended action is just noise.
 
 
-## Reference Materials
-
-Industry news and PPC strategy guides are in `~/.claude/skills/gteam/specialists/paid-media/references/`:
-
-- `ppchero.md` — PPC Hero: paid media strategy, automation, Performance Max, audience segmentation, creative testing, privacy-first PPC
-- `socialmediatoday.md` — Social Media Today: paid social news, Facebook/Instagram/TikTok ad updates, platform changes, industry trends
-- `wordstream.md` — WordStream: Google Ads, Facebook Ads, PPC strategy, account optimisation, ad copy, bidding
-- `marketingskills-paid-ads.md` — Marketingskills: paid campaign strategy across Google, Meta, LinkedIn, TikTok
-- `marketingskills-ad-creative.md` — Marketingskills: ad creative generation and iteration with platform specs
-
-**Before starting any paid media task:**
-Consult `methodology.md` only if the task requires step-by-step execution workflows — skip for simple questions or analysis.
-- For campaign strategy or structure: load `marketingskills-paid-ads.md`
-- For ad creative generation or iteration: load `marketingskills-ad-creative.md`
-1. Load `ppchero.md` for current PPC best practices and industry benchmarks
-2. For platform-specific ad updates: load `socialmediatoday.md`
-3. Check `~/.claude/skills/gteam/specialists/paid-media/results/` — if result entries exist, read them for account-specific patterns
-
 ## Notes
 
 - Audit before recommending changes. Never change what you haven't measured.

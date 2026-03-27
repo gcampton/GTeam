@@ -148,6 +148,25 @@ If `BROWSE NOT AVAILABLE`: skip all `$B` steps and use WebFetch instead for URL 
 - Digital PR — newsworthy angles (funding, data, product launches); target trade press
 - Niche edits — reach out to existing articles; request contextual link insertions
 
+**Google Search Operator Prospecting:**
+
+Use these search patterns to surface link opportunities at scale. Run in Google (not AI search).
+
+| Pattern | Example | Finds |
+|---------|---------|-------|
+| `"brand name" -site:domain.com` | `"Stonehill Dental" -site:stonehilldental.com` | All brand mentions on other sites — outreach to request link |
+| `"business type" inurl:business-directory` | `"Electrician Brisbane" inurl:business-directory` | Business directories accepting submissions |
+| `"keyword" inurl:resources` | `"dental implants" inurl:resources` | Resource pages that curate links in the niche |
+| `"keyword" intitle:"useful links" OR intitle:"recommended links"` | `"accounting software" intitle:"useful links"` | Links/resources pages to pitch for inclusion |
+| `"keyword" "write for us" OR "guest post"` | `"digital marketing" "write for us"` | Sites accepting guest contributions |
+| `"keyword" "sponsored by" OR "proud sponsor"` | `"Brisbane dentist" "proud sponsor"` | Sponsorship opportunities with link credit |
+| `site:edu "keyword" "resources" OR "links"` | `site:edu "orthodontics" "resources"` | Educational resource pages (high authority) |
+| `"keyword" inurl:directory -site:yelp.com -site:yellowpages.com` | `"plumber Sydney" inurl:directory` | Niche directories excluding generic giants |
+| `"[competitor]" "review" OR "vs" -site:[competitor].com` | `"Ahrefs" "review" -site:ahrefs.com` | Review sites and comparison pages linking to competitor — pitch them yours |
+| `"[niche]" "best tools" OR "top resources" OR "roundup"` | `"SEO" "best tools 2025"` | Roundup posts that list tools/resources in the niche |
+
+**Workflow:** Run the pattern → extract domain list → filter for DA > 20 and relevance → add to outreach queue.
+
 **Anchor text distribution target:**
 - Branded (domain/brand name): 40%
 - Naked URL: 20%
@@ -201,46 +220,13 @@ Detailed checklists, frameworks, and output templates are in `~/.claude/skills/g
 - `technical-checklist.md` — prioritised crawl/on-page/CWV/mobile/schema audit checklist
 - `keyword-research.md` — intent classification, research process, quick-win identification, gap analysis
 - `internal-external-seo.md` — internal audit + page planning + rewriting + external link building + outreach
-- `eeat.md` — Google E-E-A-T framework: Experience, Expertise, Authoritativeness, Trustworthiness — load for any content creation or rewriting task
+- `eeat.md` — Google E-E-A-T framework: Experience, Expertise, Authoritativeness, Trustworthiness
 - `output-templates.md` — copy-ready tables for audit reports, content briefs, guest post tracker, link log
-- `searchengineland.md` — Search Engine Land: algorithm updates, Google Search news, technical SEO, local SEO, analytics
-- `backlinko/seo.md` — Backlinko: comprehensive SEO guides, ranking factors, link building strategies
-- `backlinko/hub.md` — Backlinko: SEO hub content, topic clusters, pillar pages
-- `backlinko/other.md` — Backlinko: additional SEO tactics and deep-dive guides
-- `backlinko/content.md` — Backlinko: content marketing and SEO content strategies
-- `backlinko/marketing.md` — Backlinko: digital marketing and SEO integration
-- `backlinko/tools.md` — Backlinko: SEO tools, auditing, and software guides
-- `backlinko/tutorials.md` — Backlinko: step-by-step SEO tutorials
-- `backlinko/blog.md` — Backlinko: blog posts, case studies, data-driven SEO research
-- `backlinko/templates.md` — Backlinko: SEO templates and frameworks
-- `backlinko/youtube.md` — Backlinko: YouTube SEO and video optimisation
-- `mariehaynes.md` — Marie Haynes: Google algorithm expertise, manual actions, quality issues, E-E-A-T signals
-- `diggitymarketing.md` — Diggity Marketing: affiliate SEO, niche sites, link building, technical tactics
-- `searchenginejournal.md` — Search Engine Journal: SEO news, Google Ads, content marketing, social media strategy
-- `google-search-central.md` — Google Search Central blog: official Google guidance on crawling, indexing, ranking, Core Web Vitals, structured data, spam policies
-- `ahrefs.md` — Ahrefs blog: keyword research, link building, technical SEO, content marketing, competitor analysis
-- `moz.md` — Moz blog: SEO fundamentals, domain authority, on-page SEO, local SEO, link metrics
-- `semrush.md` — SEMrush blog: SEO strategy, content marketing, PPC, social media, competitor research
-- `seo-audit.md` — Marketingskills: SEO audit diagnosis framework (technical, on-page, content)
-- `ai-seo.md` — Marketingskills: AI search optimisation (AEO, GEO — getting cited by LLMs)
-- `programmatic-seo.md` — Marketingskills: scaled page generation from templates and data
-- `site-architecture.md` — Marketingskills: site hierarchy, URL structure, internal linking planning
-- `competitor-alternatives.md` — Marketingskills: competitor comparison and alternative pages for SEO
-- `schema-markup.md` — Marketingskills: structured data and rich snippet implementation
-- `content-strategy.md` — Marketingskills: content planning, pillar/cluster structure, prioritisation
 
-**Before starting any task:**
-Consult `methodology.md` only if the task requires step-by-step execution workflows — skip for simple questions or analysis.
-- For SEO audits: load `seo-audit.md`
-- For AI search / LLM visibility work: load `ai-seo.md`
-- For programmatic SEO or scaled page creation: load `programmatic-seo.md`
-- For site structure or URL architecture: load `site-architecture.md`
-- For competitor or alternative comparison pages: load `competitor-alternatives.md`
-- For structured data or schema: load `schema-markup.md`
-- For content planning or strategy: load `content-strategy.md`
-1. Load the relevant reference file(s) — for technical audits load `technical-checklist.md`; for content/ranking load `backlinko/seo.md` and `ahrefs.md`; for algorithm/quality issues load `mariehaynes.md` and `google-search-central.md`; for news/updates load `searchenginejournal.md`
-2. Check `~/.claude/skills/gteam/specialists/seo/results/` — if result entries exist, read them. Prefer `[TESTED]` advice over `[HYPOTHESIS]` advice. Note any `[REVISED]` recommendations and use the updated version, not the original.
-3. If results contradict reference advice, surface the conflict explicitly before proceeding.
+**Searching references:**
+- Do NOT Read entire reference files. Use Grep to search `~/.claude/skills/gteam/specialists/seo/references/` for specific keywords relevant to the task.
+- Check `~/.claude/skills/gteam/specialists/seo/results/` — if result entries exist, Grep them. Prefer `[TESTED]` advice over `[HYPOTHESIS]` advice. Note any `[REVISED]` recommendations and use the updated version, not the original.
+- If results contradict reference advice, surface the conflict explicitly before proceeding.
 
 ## Notes
 

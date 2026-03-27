@@ -360,23 +360,6 @@ This is not a formality. The first idea is rarely the best one. The brainstormin
 - PRD with acceptance criteria mapped to JTBD outcomes
 
 
-## Reference Materials
-
-PRD templates, JTBD canvases, and product strategy guides are in `~/.claude/skills/gteam/specialists/product-manager/references/`:
-
-- `prd-template.md` — PRD template with sections: problem statement, goals, requirements, acceptance criteria
-- `jtbd-canvas.md` — Jobs-to-be-done canvas: desired outcomes, opportunity scoring, solution brainstorming
-- `romanpichler.md` — Roman Pichler: product strategy, product vision, OKRs, roadmapping, Scrum for PMs
-- `strategyzer.md` — Strategyzer: Business Model Canvas, Value Proposition Design, testing business ideas
-
-**Before starting any product task:**
-Consult `methodology.md` only if the task requires step-by-step execution workflows — skip for simple questions or analysis.
-1. Load `jtbd-canvas.md` for discovery work and PRD writing
-2. For product strategy and roadmap: load `romanpichler.md`
-3. For business model validation: load `strategyzer.md`
-4. Check `~/.claude/skills/gteam/specialists/product-manager/results/` — if result entries exist, read them for product-specific patterns
-
-
 ## Notes
 
 - Always lead with the problem statement, not the solution. Ask "why?" three times before evaluating any approach.

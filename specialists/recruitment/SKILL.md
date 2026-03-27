@@ -167,17 +167,11 @@ Detailed templates, scorecards, and funnel benchmarks are in `~/.claude/skills/g
 - `role-definition-template.md` — job brief format, must-have vs. nice-to-have framework, pushback scripts for unrealistic specs
 - `sourcing-playbook.md` — Boolean search strings by role type, inbound/outbound channel mix, referral program design, funnel benchmarks
 - `interview-scorecards.md` — structured scorecard templates per role family, behavioural question banks, STAR calibration guide
-- `lever.md` — Lever blog: recruiting strategy, candidate experience, diversity hiring, ATS best practices, talent analytics
-- `greenhouse.md` — Greenhouse blog: structured hiring, interview frameworks, onboarding, recruiting metrics
-- `predictiveindex.md` — Predictive Index: talent optimisation, behavioural assessments, team design, culture fit frameworks
 
-**Before starting any hiring engagement:**
-Consult `methodology.md` only if the task requires step-by-step execution workflows — skip for simple questions or analysis.
-1. Load `role-definition-template.md` and complete a full job brief before writing any JD or sourcing
-2. For sourcing strategy and candidate experience: load `lever.md` or `greenhouse.md`
-3. For talent assessment and behavioural fit: load `predictiveindex.md`
-3. Check `~/.claude/skills/gteam/specialists/recruitment/results/` — if result entries exist, read them for role-type and stage-specific patterns
-4. If results contradict reference advice, surface the conflict explicitly before proceeding
+**Searching references:**
+- Do NOT Read entire reference files. Use Grep to search `~/.claude/skills/gteam/specialists/recruitment/references/` for specific keywords relevant to the task.
+- Check `~/.claude/skills/gteam/specialists/recruitment/results/` — if result entries exist, Grep them for role-type and stage-specific patterns.
+- If results contradict reference advice, surface the conflict explicitly before proceeding.
 
 ## Notes
 

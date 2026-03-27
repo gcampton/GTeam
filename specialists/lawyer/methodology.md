@@ -16,7 +16,7 @@ If `BROWSE NOT AVAILABLE`: skip all `$B` steps and use WebFetch instead.
 
 **Gather:** Document (file path or paste). Identify: contract type, parties, governing jurisdiction if visible.
 
-**Load `references/contract-review-checklist.md` before starting.** Work through every clause:
+**Use Grep to search `references/contract-review-checklist.md` for relevant clause types as needed.** Work through every clause:
 
 1. Liability & indemnification — who bears risk, any unlimited liability exposure?
 2. IP ownership — who owns work product, licenses, background IP?

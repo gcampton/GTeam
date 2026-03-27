@@ -2,7 +2,7 @@
 
 **Gather:** Financial documents (P&L, balance sheet, bank statements, invoices, spreadsheet — whatever is available). Identify: period, entity type, currency.
 
-**Load `references/financial-review-checklist.md` before starting.** Work through:
+**Use Grep to search `references/financial-review-checklist.md` for relevant categories as needed.** Work through:
 
 1. Cash flow — runway, burn rate, cash conversion cycle
 2. Revenue recognition — timing, deferred revenue, refunds

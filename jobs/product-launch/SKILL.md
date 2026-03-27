@@ -151,6 +151,25 @@ If `BROWSE NOT AVAILABLE`: skip all `$B` steps and use WebFetch instead for URL 
 - Digital PR — newsworthy angles (funding, data, product launches); target trade press
 - Niche edits — reach out to existing articles; request contextual link insertions
 
+**Google Search Operator Prospecting:**
+
+Use these search patterns to surface link opportunities at scale. Run in Google (not AI search).
+
+| Pattern | Example | Finds |
+|---------|---------|-------|
+| `"brand name" -site:domain.com` | `"Stonehill Dental" -site:stonehilldental.com` | All brand mentions on other sites — outreach to request link |
+| `"business type" inurl:business-directory` | `"Electrician Brisbane" inurl:business-directory` | Business directories accepting submissions |
+| `"keyword" inurl:resources` | `"dental implants" inurl:resources` | Resource pages that curate links in the niche |
+| `"keyword" intitle:"useful links" OR intitle:"recommended links"` | `"accounting software" intitle:"useful links"` | Links/resources pages to pitch for inclusion |
+| `"keyword" "write for us" OR "guest post"` | `"digital marketing" "write for us"` | Sites accepting guest contributions |
+| `"keyword" "sponsored by" OR "proud sponsor"` | `"Brisbane dentist" "proud sponsor"` | Sponsorship opportunities with link credit |
+| `site:edu "keyword" "resources" OR "links"` | `site:edu "orthodontics" "resources"` | Educational resource pages (high authority) |
+| `"keyword" inurl:directory -site:yelp.com -site:yellowpages.com` | `"plumber Sydney" inurl:directory` | Niche directories excluding generic giants |
+| `"[competitor]" "review" OR "vs" -site:[competitor].com` | `"Ahrefs" "review" -site:ahrefs.com` | Review sites and comparison pages linking to competitor — pitch them yours |
+| `"[niche]" "best tools" OR "top resources" OR "roundup"` | `"SEO" "best tools 2025"` | Roundup posts that list tools/resources in the niche |
+
+**Workflow:** Run the pattern → extract domain list → filter for DA > 20 and relevance → add to outreach queue.
+
 **Anchor text distribution target:**
 - Branded (domain/brand name): 40%
 - Naked URL: 20%
@@ -641,6 +660,8 @@ If `BROWSE NOT AVAILABLE`: skip all `$B` steps and use WebFetch instead.
 - Success metrics: reach / engagement / click / conversion targets per phase
 - Budget allocation (if paid component)
 
+---
+
 
 ---
 
@@ -666,7 +687,7 @@ If `BROWSE NOT AVAILABLE`: skip all `$B` steps and use WebFetch instead.
 
 **Gather:** Document (file path or paste). Identify: contract type, parties, governing jurisdiction if visible.
 
-**Load `references/contract-review-checklist.md` before starting.** Work through every clause:
+**Use Grep to search `references/contract-review-checklist.md` for relevant clause types as needed.** Work through every clause:
 
 1. Liability & indemnification — who bears risk, any unlimited liability exposure?
 2. IP ownership — who owns work product, licenses, background IP?

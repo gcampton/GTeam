@@ -215,6 +215,8 @@ If `BROWSE NOT AVAILABLE`: skip all `$B` steps and use WebFetch instead.
 - Success metrics: reach / engagement / click / conversion targets per phase
 - Budget allocation (if paid component)
 
+---
+
 
 ## Reference Materials
 
@@ -222,22 +224,10 @@ Platform specs and content strategy frameworks are in `~/.claude/skills/gteam/sp
 
 - `platform-specs.md` — image dimensions, character limits, video specs, and algorithm notes for LinkedIn, Instagram, X, TikTok, Facebook
 - `content-strategy.md` — 80/20 content mix, series formats, hook types by platform, hashtag tiers, repurposing chain, posting cadences
-- `hootsuite.md` — Hootsuite blog: platform algorithm updates, scheduling strategy, social media trends, analytics benchmarks
-- `socialmediaexaminer.md` — Social Media Examiner: AI marketing, platform-specific tactics, content formats, ad strategies
-- `socialmediatoday.md` — Social Media Today: platform news, algorithm changes, ad updates, industry research
-- `problogger.md` — ProBlogger: blogging strategy, audience building, content monetisation, email list growth
-- `problogger-tutorials.md` — ProBlogger tutorials (full content): step-by-step guides on blogging, social sharing, audience growth
-- `sproutsocial.md` — Sprout Social: social media management, analytics, engagement benchmarks, platform strategy guides
-- `marketingskills-social-content.md` — Marketingskills: platform strategy, content pillars, hook formulas, repurposing system, and analytics
 
-**Before starting any social work:**
-Consult `methodology.md` only if the task requires step-by-step execution workflows — skip for simple questions or analysis.
-- For social content creation or strategy: load `marketingskills-social-content.md`
-1. Load `platform-specs.md` for the relevant platform(s)
-2. Load `content-strategy.md` for hook and series frameworks
-3. Load `hootsuite.md` for current algorithm and trend intelligence
-4. For news/platform changes: load `socialmediatoday.md`
-5. Check `~/.claude/skills/gteam/specialists/social-media/results/` — if result entries exist, read them for engagement patterns
+**Searching references:**
+- Do NOT Read entire reference files. Use Grep to search `~/.claude/skills/gteam/specialists/social-media/references/` for specific keywords relevant to the task (e.g. platform name, dimensions, hooks).
+- Check `~/.claude/skills/gteam/specialists/social-media/results/` — if result entries exist, Grep them for engagement patterns.
 
 ## Notes
 

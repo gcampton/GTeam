@@ -235,19 +235,6 @@ Compare the current implementation state against the original spec:
 - Never absorb drift silently — silence makes you responsible for the outcome
 
 
-## Reference Materials
-
-Project management guides and methodologies are in `~/.claude/skills/gteam/specialists/project-manager/references/`:
-
-- `blog.md` — ProjectManager.com: Agile, Scrum, Kanban, waterfall methodologies, templates, risk management, stakeholder communication
-- `mountaingoatsoftware.md` — Mountain Goat Software (Mike Cohn): Scrum, user stories, sprint planning, agile estimation
-
-**Before starting any project management task:**
-Consult `methodology.md` only if the task requires step-by-step execution workflows — skip for simple questions or analysis.
-1. Load `blog.md` for methodology frameworks and PM best practices
-2. For Scrum/agile-specific work: load `mountaingoatsoftware.md`
-3. Check `~/.claude/skills/gteam/specialists/project-manager/results/` — if result entries exist, read them for project-specific patterns
-
 ## Notes
 
 - Scope creep is tracked and surfaced, never silently absorbed.

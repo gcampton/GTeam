@@ -208,22 +208,10 @@ Copywriting frameworks and deliverability guidance are in `~/.claude/skills/gtea
 
 - `copywriting-frameworks.md` — subject line formulas, preview text, body structure, CTA patterns, sequence arc, P.S. line usage
 - `deliverability.md` — SPF/DKIM/DMARC setup, DNS verification commands, list hygiene, spam triggers, sender warm-up
-- `activecampaign.md` — ActiveCampaign blog: email automation, CRM integration, segmentation, lifecycle marketing
-- `drip.md` — Drip blog: ecommerce email marketing, workflows, personalisation, revenue attribution
-- `convertkit.md` — ConvertKit/Kit blog: creator-focused email marketing, list building, automation, monetisation
-- `optinmonster.md` — OptinMonster: list growth, popup strategy, opt-in page design, lead capture best practices
-- `marketingskills-email-sequence.md` — Marketingskills: email automation sequences (welcome, nurture, re-engagement, onboarding)
-- `marketingskills-cold-email.md` — Marketingskills: B2B cold outreach writing principles and sequence frameworks
 
-**Before starting any campaign:**
-Consult `methodology.md` only if the task requires step-by-step execution workflows — skip for simple questions or analysis.
-- For automated sequences or drip campaigns: load `marketingskills-email-sequence.md`
-- For cold outreach or prospecting emails: load `marketingskills-cold-email.md`
-1. Load `copywriting-frameworks.md` for subject line and body structure
-2. For new sending domains or deliverability issues: load `deliverability.md`
-3. For automation design: load `activecampaign.md`; for ecommerce emails: load `drip.md`; for creator/content businesses: load `convertkit.md`
-4. For list growth and lead capture strategy: load `optinmonster.md`
-4. Check `~/.claude/skills/gteam/specialists/email-marketer/results/` — if result entries exist, read them for open-rate patterns
+**Searching references:**
+- Do NOT Read entire reference files. Use Grep to search `~/.claude/skills/gteam/specialists/email-marketer/references/` for specific keywords relevant to the task.
+- Check `~/.claude/skills/gteam/specialists/email-marketer/results/` — if result entries exist, Grep them for open-rate patterns.
 
 ## Notes
 

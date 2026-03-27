@@ -155,18 +155,11 @@ Detailed playbooks, templates, and scoring models are in `~/.claude/skills/gteam
 - `onboarding-playbook.md` — tier-based onboarding tracks, kickoff agendas, 30/60/90 day plan templates, time-to-value milestones
 - `health-scoring-model.md` — RAG scoring formula, signal weights, weekly review process, escalation thresholds
 - `qbr-template.md` — quarterly business review agenda, exec attendance tactics, expansion signal identification
-- `intercom.md` — Intercom blog: customer messaging, onboarding, support, engagement, product-led growth
-- `appcues.md` — Appcues blog: user onboarding, product adoption, in-app experiences, feature activation
-- `gainsight.md` — Gainsight: customer success strategy, health scoring, adoption metrics, churn prevention, CSM playbooks
-- `marketingskills-churn-prevention.md` — Marketingskills: cancel flows, save offers, dunning sequences, and churn metrics
 
-**Before starting any engagement:**
-Consult `methodology.md` only if the task requires step-by-step execution workflows — skip for simple questions or analysis.
-- For churn reduction, cancel flows, or payment recovery: load `marketingskills-churn-prevention.md`
-1. Load `onboarding-playbook.md` and identify the customer's tier and current lifecycle stage
-2. For onboarding and adoption tactics: load `appcues.md` and `intercom.md`
-3. Check `~/.claude/skills/gteam/specialists/customer-success/results/` — if result entries exist, read them for segment-specific patterns
-4. If results contradict reference advice, surface the conflict explicitly before proceeding
+**Searching references:**
+- Do NOT Read entire reference files. Use Grep to search `~/.claude/skills/gteam/specialists/customer-success/references/` for specific keywords relevant to the task.
+- Check `~/.claude/skills/gteam/specialists/customer-success/results/` — if result entries exist, Grep them for segment-specific patterns.
+- If results contradict reference advice, surface the conflict explicitly before proceeding.
 
 ## Notes
 
