@@ -65,12 +65,69 @@ Commit to a specific decision the research will inform and by when.
 - Not hypotheticals: do not ask "Would you use a feature that...?" or "How often do you think you would...?" — people are inaccurate predictors of their own future behaviour
 - Exploratory: "What made you decide to do it that way?", "What happened next?", "What were you hoping to happen?"
 
-**Probing techniques:**
-- "Tell me more about that." (open follow-up — use when an answer is too brief)
-- "What did you do then?" (timeline probe — keeps the story grounded in action)
+**Probing techniques (5-technique system):**
+1. "Tell me more about that..." (open follow-up — use when an answer is too brief)
+2. "Why?" (ask up to 5 layers deep to reach root cause)
+3. "Can you give me a specific example?" (grounds abstract claims in real events)
+4. "What happened next?" (timeline probe — keeps the story grounded in action)
+5. "How did that make you feel?" (emotional probing — surfaces motivation and intensity)
+
+**Additional probing guidance:**
 - Silence: after a participant finishes speaking, wait 3–5 seconds before asking the next question. Most participants will add something important.
 - "You mentioned [X] — can you say more about what you meant by that?" (echo probe)
 - Avoid leading: never say "So it sounds like you found that confusing?" — rephrase as "How did that feel?"
+
+---
+
+### The Mom Test Framework
+
+Apply these rules to every user interview and discovery conversation. They prevent the most common research failure: collecting polite opinions instead of truth.
+
+**Core rules:**
+1. Ask about their life, not your idea
+2. Ask about the past, not hypothetical futures ("Last time you did X, what happened?" not "Would you use X?")
+3. Avoid leading questions and compliment-seeking
+4. Listen 80%, talk 20%
+5. Never pitch during research — if they ask about your product, defer to end
+6. Track emotional intensity — note when voice/energy changes
+
+**Self-check after every interview:** Did you learn something about the participant's life and problems, or did you learn what they think of your idea? If the latter, the interview failed the Mom Test.
+
+---
+
+### Willingness-to-Pay Probing
+
+Use these questions to assess skin-in-the-game. Stated interest without past action is a weak signal.
+
+**Questions:**
+- "How much time do you spend on this problem each week?"
+- "Have you tried to solve this before? What did you try?"
+- "How much did that cost you (time or money)?"
+- "What would you trade off to make this problem go away?"
+- "If this solution existed today at $X, would you sign up right now?"
+
+**Signal strength hierarchy:** past spending > stated willingness > hypothetical interest
+
+If a participant has never spent time or money trying to solve the problem, treat the pain point as low-priority regardless of how enthusiastically they describe it.
+
+---
+
+### Interview Note-Taking Template
+
+Use this structured format to capture each interview. Fill in immediately after the session while memory is fresh.
+
+| Field | Content |
+|---|---|
+| Participant | [ID, segment, role] |
+| Core Job | [What they're trying to accomplish] |
+| Current Solution | [How they solve it today] |
+| Biggest Pain | [Most frustrating part, in their words] |
+| Desired Outcome | [What success looks like to them] |
+| Willingness to Pay | [Time/money they'd invest] |
+| Surprise Finding | [One thing that contradicted your assumptions] |
+| Follow-up | [Questions to explore in next session] |
+
+Review the "Surprise Finding" column across all interviews during synthesis — contradicted assumptions are where the most valuable insights live.
 
 ---
 
@@ -127,6 +184,45 @@ Commit to a specific decision the research will inform and by when.
 
 ---
 
+### Sentiment Measurement
+
+**When to use:** Sample size > 50 responses (surveys, reviews, support tickets, open-text feedback). Not appropriate for small qualitative studies.
+
+**Scoring framework:**
+- Score each response -1.0 (very negative) to +1.0 (very positive)
+- Aggregate by segment for comparison
+- Map to NPS proxy when applicable: promoter > 0.5, passive -0.2 to 0.5, detractor < -0.2
+
+**Segment comparison table:**
+
+| Segment | Avg Sentiment | Top Positive Driver | Top Pain Point | Fit Assessment | Churn Risk |
+|---|---|---|---|---|---|
+| [Segment A] | | | | | |
+| [Segment B] | | | | | |
+
+**Output classification:**
+- Quick wins: < 1 sprint effort, high impact — act immediately
+- Strategic initiatives: > 1 sprint effort, structural change required — add to roadmap with prioritisation
+
+Always pair sentiment scores with representative verbatim quotes. A number without a quote is not actionable.
+
+---
+
+### Product-Segment Fit Assessment
+
+For each persona or segment studied, assess fit using this framework:
+
+| Dimension | Assessment |
+|---|---|
+| Core job alignment | How well does the product address their core job? (Strong / Partial / Weak) |
+| #1 unmet need | What is the single biggest gap between what they need and what the product provides? |
+| Unexpected insight | What is one thing about this segment that contradicted prior assumptions? |
+| Data gaps | What do we still need to research before making confident product decisions for this segment? |
+
+Use this assessment to prioritise which segments to double down on (Strong fit + large market) versus which to deprioritise or redesign for (Weak fit + unclear demand signal).
+
+---
+
 ### Deliverables
 
 **Research report structure:**
@@ -163,6 +259,7 @@ Detailed guides, templates, and synthesis frameworks are in `~/.claude/skills/gt
 - `discussion-guide-template.md` — interview structure, question types, probing techniques, time allocation per section
 - `usability-test-protocol.md` — task scenario writing, think-aloud facilitation, severity rating rubric, observation checklist
 - `synthesis-framework.md` — affinity mapping process, JTBD format, insight structure, recommendation prioritisation
+- `research-templates.md` — interview note-taking template, segment comparison table, research question validation checklist, recommendation urgency matrix
 
 **Before starting any research engagement:**
 1. Frame the research question as "We need to understand X so we can decide Y" — do not begin recruiting until the decision it serves is clear

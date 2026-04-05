@@ -152,16 +152,30 @@ Explicitly state what this initiative will NOT address in this iteration:
 
 A roadmap is a prioritised bet, not a promise. It should answer: what are we working on, in what order, and why?
 
-**RICE scoring:**
+**RICE Prioritisation Framework:**
 
-```
-RICE Score = (Reach × Impact × Confidence) ÷ Effort
-```
+**Formula:** RICE Score = (Reach x Impact x Confidence) / Effort
 
-- **Reach:** Number of users affected per quarter (use analytics, not estimates)
-- **Impact:** Contribution to the goal (0.25 = minimal, 0.5 = low, 1 = medium, 2 = high, 3 = massive)
-- **Confidence:** How certain are you in the above numbers (10%–100%)
-- **Effort:** Total person-months across all functions (engineering, design, PM)
+| Factor | Scale | Description |
+|---|---|---|
+| Reach | # of users/accounts affected per quarter | How many people will this impact? |
+| Impact | 0.25 (minimal), 0.5 (low), 1 (medium), 2 (high), 3 (massive) | How much will it impact each person? |
+| Confidence | 0.5 (low), 0.8 (medium), 1.0 (high) | How confident are we in our estimates? |
+| Effort | Person-months (e.g., 0.5, 1, 2, 3) | How much work is this? |
+
+**Worked example:**
+- Feature: In-app onboarding wizard
+- Reach: 500 new signups/quarter
+- Impact: 2 (high — directly affects activation)
+- Confidence: 0.8 (medium — based on competitor analysis, not own data)
+- Effort: 1.5 person-months
+- RICE = (500 x 2 x 0.8) / 1.5 = **533**
+
+**Rules:**
+- Score all candidate features before committing to a roadmap
+- Rank by RICE score, then apply strategic judgment for tie-breaks
+- Re-score quarterly as data improves (confidence should increase)
+- Confidence < 0.5 → run a discovery spike before building
 
 Score every roadmap candidate. High-RICE items go first. When two items have similar scores, prefer the one that builds a foundation for future work.
 
@@ -358,6 +372,100 @@ This is not a formality. The first idea is rarely the best one. The brainstormin
 - Opportunity score table (desired outcomes ranked by priority)
 - Solution options brief (≥ 3 options with recommendation)
 - PRD with acceptance criteria mapped to JTBD outcomes
+
+---
+
+### Opportunity Solution Tree
+
+Visual framework linking business outcomes to discovery:
+
+```
+Business Outcome (metric to move)
+├── Opportunity 1 (user pain/need from research)
+│   ├── Solution A
+│   │   ├── Experiment 1
+│   │   └── Experiment 2
+│   └── Solution B
+│       └── Experiment 3
+├── Opportunity 2
+│   └── Solution C
+│       └── Experiment 4
+```
+
+**How to build:**
+1. Start with the target outcome (e.g., "Increase activation rate from 25% to 40%")
+2. Map opportunities from user research (JTBD interviews, support tickets, analytics)
+3. Brainstorm 2-3 solutions per opportunity (this satisfies the brainstorming gate: ≥ 3 options)
+4. Design small experiments to validate each solution before building
+
+**Rules:**
+- One tree per business outcome
+- Opportunities come from research, not assumptions
+- Solutions are options, not commitments — validate before building
+- Update the tree weekly as experiments complete
+
+---
+
+### North Star Metric Framework
+
+**Definition:** A single metric that captures the core value your product delivers to customers.
+
+**Criteria for a good North Star:**
+- Measures value delivered (not vanity: not pageviews or signups)
+- Actionable by the product team (not revenue alone — that's a lagging indicator)
+- Measurable weekly (fast enough feedback loop)
+- Leading indicator of revenue (if North Star grows, revenue follows)
+
+**Examples:**
+| Product Type | North Star | Why |
+|---|---|---|
+| SaaS tool | Weekly active users completing core action | Measures habitual value delivery |
+| Marketplace | Transactions completed per week | Measures both-side value |
+| Content platform | Weekly reading/watching time | Measures engagement depth |
+| Developer tool | API calls per week | Measures integration depth |
+
+**Supporting metrics (input metrics):**
+Break the North Star into 3-5 input metrics the team can directly influence:
+- Acquisition: new users reaching activation
+- Activation: users completing first-value action
+- Engagement: frequency/depth of core action
+- Retention: users returning week-over-week
+
+---
+
+### Funnel Analysis Template
+
+| Stage | Metric | Current | Target | Gap | Owner |
+|---|---|---|---|---|---|
+| Awareness | Website visitors/month | | | | Marketing |
+| Acquisition | Signups/month | | | | Growth |
+| Activation | Users completing first-value action (Day 7) | | | | Product |
+| Retention | Users active at Day 30 | | | | Product |
+| Revenue | Paying customers / MRR | | | | Sales/Product |
+| Referral | Users who invite others | | | | Growth |
+
+**Analysis process:**
+1. Fill in current numbers
+2. Calculate conversion rate between each stage
+3. Identify the largest drop-off (this is your biggest lever)
+4. Focus product efforts on the weakest conversion step
+5. Review monthly — the bottleneck shifts as you fix each stage
+
+---
+
+### Feature Success Metrics
+
+For every feature shipped, define success metrics before launch:
+
+| Dimension | Metric | Target | Measurement Method |
+|---|---|---|---|
+| Adoption | % of target users who try the feature (Day 14) | > 30% | Analytics event |
+| Frequency | Uses per user per week | > 2 | Analytics event |
+| Depth | % completing full workflow (not just starting) | > 60% | Funnel analytics |
+| Retention | % still using at Day 30 | > 50% | Cohort analysis |
+| Satisfaction | CSAT or thumbs-up/down rating | > 4.0/5 | In-app survey |
+
+**60-day rule:** Measure for 60 days before deciding to iterate, expand, or sunset. Don't abandon features based on week-1 data.
 
 
 ## Notes

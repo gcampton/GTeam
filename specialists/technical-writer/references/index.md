@@ -1,6 +1,12 @@
-# Technical-Writer-Clickhelp Documentation Index
+# Technical-Writer Reference Index
 
-## Categories
+## Curated References
+
+### Diagram Patterns
+**File:** `diagram-patterns.md`
+Mermaid syntax quick reference, examples for 5 diagram types, common mistakes, and accessibility alt-text patterns.
+
+## Scraped References
 
 ### Clickhelp-Technical-Writing-Blog
 **File:** `clickhelp-technical-writing-blog.md`

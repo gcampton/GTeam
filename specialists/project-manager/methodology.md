@@ -53,6 +53,36 @@ A plan that exists only at the milestone level is not a plan. Break work down un
 
 **Critical path identification:** Map task dependencies visually or in a table. The critical path is the longest chain of dependent tasks — it determines the earliest possible completion date. Any delay on the critical path delays the project. Prioritise unblocking critical path tasks above all else.
 
+#### User Story Templates
+
+Use the appropriate template for the type of work. Every story must have a persona, an action, and an outcome.
+
+**Feature Story:**
+"As a [persona], I want to [action] so that [outcome]."
+
+**Improvement Story:**
+"As a [persona], I want [existing feature] to [improvement] so that [outcome]."
+
+**Bug Story:**
+"As a [persona], when I [action], I expect [expected behaviour] but instead [actual behaviour]."
+
+**Enabler Story (technical):**
+"In order to [technical goal], we need to [technical action] so that [downstream benefit]."
+
+**Integration Story:**
+"As a [persona], I want [System A] to [interaction] with [System B] so that [outcome]."
+
+#### Story Antipatterns
+
+| Antipattern | Example | Fix |
+|---|---|---|
+| Solution story | "As a dev, I want to add a Redis cache" | Reframe: "As a user, I want pages to load in < 2s" |
+| Compound story | "...I want to create, edit, and delete items" | Split into 3 stories |
+| Missing persona | "As a user..." (too generic) | Use specific persona: "As a hiring manager..." |
+| Vague AC | "System handles errors gracefully" | Specify: "Given invalid email, then show 'Enter a valid email' below the field" |
+| Gold-plated | Story includes nice-to-haves mixed with essentials | Split into MVP story + enhancement story |
+| No outcome | "As a user, I want a dashboard" (no "so that") | Add outcome: "...so that I can monitor daily sales at a glance" |
+
 **Milestone definition:** Define no more than 5 milestones per project phase. Each milestone must be a concrete, verifiable state of the project — not a date. Example: "All API endpoints implemented and passing integration tests" is a milestone. "Week 4 complete" is not.
 
 ---
@@ -69,6 +99,48 @@ Sprint planning translates the task list into time-boxed commitments a team can 
 3. The remainder is your available capacity for sprint work — be honest, not optimistic
 
 **Sizing:** Use t-shirt sizes (S/M/L/XL) for initial roadmap estimation, story points or hours for sprint-level commitment. Calibrate against a reference task the team agrees on. Never let a single story exceed 40% of sprint capacity — split it.
+
+#### Estimation with Fibonacci Scale
+
+| Points | Complexity | Uncertainty | Example |
+|---|---|---|---|
+| 1 | Trivial change, single file | None — done it before | Fix typo, update config value |
+| 2 | Small change, clear scope | Minimal | Add validation rule, update copy |
+| 3 | Moderate, 1–2 components | Low | New API endpoint (known pattern) |
+| 5 | Multi-component, some unknowns | Medium | New feature with UI + API + DB |
+| 8 | Complex, cross-cutting | High | New integration with external system |
+| 13 | Very complex, significant unknowns | Very high | Architecture change, new subsystem |
+| 21+ | Epic — must be split | Too high to estimate | Split into smaller stories first |
+
+**Estimation rules:**
+- Use planning poker or async estimation (each team member estimates independently first)
+- If estimates diverge > 2 levels, discuss — the spread reveals hidden assumptions
+- Velocity = rolling average of last 3 sprints (don't use until sprint 2+)
+- Never convert points to hours — they measure complexity, not time
+
+#### Acceptance Criteria Standards
+
+Minimum AC count by story size:
+
+| Story Points | Minimum ACs | Format |
+|---|---|---|
+| 1–2 | 3–4 | Given/When/Then |
+| 3–5 | 4–6 | Given/When/Then |
+| 8 | 5–8 | Given/When/Then + edge cases |
+| 13+ | Split the story first | — |
+
+**Given/When/Then template:**
+```
+Given [precondition/context]
+When [action/trigger]
+Then [expected outcome]
+```
+
+**AC quality checklist:**
+- [ ] Each AC is independently testable
+- [ ] No implementation details (describes what, not how)
+- [ ] Covers happy path + at least one error/edge case
+- [ ] Uses concrete values, not vague terms ("displays error message" not "handles errors")
 
 **Backlog prioritisation (MoSCoW):**
 - **Must:** Non-negotiable for this sprint's goal — without it, the sprint fails

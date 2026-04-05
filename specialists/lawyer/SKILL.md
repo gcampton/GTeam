@@ -148,6 +148,64 @@ Check `references/jurisdiction-notes.md` for jurisdiction-specific traps (UK, US
 
 ---
 
+### Jurisdiction-Tested Confidence Marking
+
+Every legal claim or recommendation must carry a confidence marker:
+
+| Marker | Meaning | When to Use |
+|---|---|---|
+| `[JURISDICTION-TESTED: UK]` | Verified against authoritative source for this jurisdiction | Claim has been checked against legislation or case law |
+| `[JURISDICTION-TESTED: US-CA]` | Verified for specific US state | State-specific rule confirmed |
+| `[HYPOTHESIS]` | Believed correct but not yet verified against source | General legal principle applied without jurisdiction-specific confirmation |
+| `[CROSS-JURISDICTION]` | Applies across multiple jurisdictions | Universal principle (e.g., contract requires offer + acceptance + consideration) |
+
+**Rules:**
+- Never present `[HYPOTHESIS]` as definitive advice
+- If jurisdiction is outside known scope, state that explicitly: "This jurisdiction is outside my verified sources — engage local counsel"
+- When multiple jurisdictions apply, flag conflicts explicitly
+
+---
+
+### Verified Reference Catalog
+
+Primary authoritative sources by jurisdiction:
+
+| Jurisdiction | Primary Source | Secondary Source | URL Pattern |
+|---|---|---|---|
+| UK | legislation.gov.uk | gov.uk guidance | legislation.gov.uk/ukpga |
+| EU | EUR-Lex | N-Lex (national transposition) | eur-lex.europa.eu |
+| US (Federal) | congress.gov, law.cornell.edu | Federal Register | uscode.house.gov |
+| US (State) | State legislature websites | State bar associations | Varies by state |
+| Australia | legislation.gov.au | Federal Register of Legislation | legislation.gov.au |
+| Australia (QLD) | legislation.qld.gov.au | QLD Law Society | legislation.qld.gov.au |
+| Canada | laws-lois.justice.gc.ca | Provincial legislature sites | laws-lois.justice.gc.ca |
+| New Zealand | legislation.govt.nz | NZ Law Society | legislation.govt.nz |
+
+**Verification protocol:**
+1. Identify the claim being made
+2. Look up the relevant act/regulation in primary source
+3. Check currency (is this the latest version?)
+4. Mark with appropriate confidence tag
+5. If source not found, mark as `[HYPOTHESIS]` and note the gap
+
+---
+
+### Side-by-Side Jurisdiction Comparison
+
+When a client operates across jurisdictions, present differences as a comparison table.
+
+Example format:
+
+| Topic | UK | US (General) | AU | EU |
+|---|---|---|---|---|
+| Employment termination | Notice period required (1 week–12 weeks by tenure) | At-will (most states) | Unfair dismissal protection after 6/12 months | Notice + works council consultation |
+| Non-compete | Enforceable if reasonable | Varies by state (banned in CA) | Enforceable if reasonable | Varies by member state |
+| Data privacy (HR) | UK GDPR | State-level (CCPA etc.) | Privacy Act 1988 | GDPR |
+
+Use this format whenever the same legal question has materially different answers across jurisdictions the client operates in. Always note where a jurisdiction gap exists and recommend local counsel for unverified jurisdictions.
+
+---
+
 ### Regulatory & Compliance Check
 
 **Gather:** Business type, jurisdiction(s), specific activity or product being assessed, any existing compliance framework.
@@ -178,6 +236,7 @@ Detailed checklists, clause patterns, and jurisdiction notes are in `~/.claude/s
 - `contract-review-checklist.md` — clause-by-clause review checklist with risk ratings (HIGH/MEDIUM/LOW/OK)
 - `redline-patterns.md` — common problematic clause versions and suggested redlines
 - `jurisdiction-notes.md` — UK, US (CA/NY/DE), EU, and AU specific legal traps
+- `jurisdiction-sources.md` — authoritative source catalog by jurisdiction and legal domain, citation format, verification checklist
 
 **Searching references:**
 - Do NOT Read entire reference files. Use Grep to search `~/.claude/skills/gteam/specialists/lawyer/references/` for specific keywords relevant to the task (e.g. clause types, jurisdiction, risk ratings).
