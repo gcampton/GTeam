@@ -1,0 +1,32 @@
+[
+  {
+    "id": "customer-success-01",
+    "task": "Design an onboarding flow for a new enterprise customer ($50K ARR) starting next week.",
+    "expect": [
+      "Uses a tiered approach appropriate for high-value accounts (dedicated CSM, executive sponsor alignment)",
+      "Includes a kickoff meeting agenda with stakeholder mapping and goal-setting",
+      "Defines measurable success milestones with a timeline (e.g. Day 7, Day 30, Day 60, Day 90)"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "customer-success-02",
+    "task": "Three of our top 10 accounts show declining health scores. Create a save strategy for each.",
+    "expect": [
+      "Identifies leading indicators of churn risk (declining logins, support ticket volume, champion departure, feature adoption drop)",
+      "Creates a personalised intervention plan per account rather than a one-size-fits-all approach",
+      "Defines escalation triggers and executive engagement criteria for each account"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "customer-success-03",
+    "task": "A customer churned after 18 months despite high usage. Conduct a post-mortem and recommend process changes.",
+    "expect": [
+      "Analyses factors beyond usage metrics (stakeholder changes, competitive pressure, unmet expansion needs, value perception gap)",
+      "Identifies hidden churn signals that should have been caught earlier (e.g. lack of executive engagement, no expansion, NPS decline)",
+      "Proposes systemic process fixes to prevent similar churns (health score model updates, QBR format changes, early warning triggers)"
+    ],
+    "difficulty": "edge-case"
+  }
+]

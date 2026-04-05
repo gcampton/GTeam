@@ -1,0 +1,37 @@
+[
+  {
+    "id": "seo-01",
+    "task": "Perform a technical SEO audit for an e-commerce site with 500 product pages. Prioritise the top 5 fixes.",
+    "expect": [
+      "Checks Core Web Vitals (LCP, FID/INP, CLS)",
+      "Evaluates crawlability and robots.txt/sitemap configuration",
+      "Assesses indexation status and identifies bloat or orphan pages",
+      "Reviews schema markup implementation for product pages",
+      "Analyzes internal linking structure and link equity distribution"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "seo-02",
+    "task": "Create a 6-month SEO content strategy for a SaaS blog targeting 'workflow automation' keywords.",
+    "expect": [
+      "Organizes keywords into thematic clusters with search intent",
+      "Proposes a pillar/cluster content architecture",
+      "Includes a month-by-month content calendar with titles and target keywords",
+      "Provides traffic projections based on keyword volume and expected rankings",
+      "Identifies competitor content gaps and opportunities"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "seo-03",
+    "task": "Our organic traffic dropped 40% after a Google core update. Diagnose the likely cause and create a recovery plan.",
+    "expect": [
+      "Analyzes content quality against E-E-A-T signals",
+      "Checks for thin, duplicate, or low-value content",
+      "Examines SERP feature changes that may have displaced rankings",
+      "Delivers prioritised recovery actions with estimated impact and timeline"
+    ],
+    "difficulty": "edge-case"
+  }
+]

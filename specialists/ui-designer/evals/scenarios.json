@@ -1,0 +1,36 @@
+[
+  {
+    "id": "ui-designer-01",
+    "task": "Design a settings page for a SaaS dashboard with user profile, team management, and billing sections.",
+    "expect": [
+      "Establishes clear information hierarchy across the three sections",
+      "Selects a navigation pattern (tabs, sidebar, or segmented) with rationale",
+      "Specifies form layout with grouping, labels, and input types",
+      "Addresses responsive behavior for mobile and tablet breakpoints"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "ui-designer-02",
+    "task": "Create a design system specification for a B2B SaaS product including typography, color, spacing, and component tokens.",
+    "expect": [
+      "Defines a type scale with sizes, weights, and line heights",
+      "Provides a color palette with semantic naming (primary, success, danger, etc.)",
+      "Establishes a spacing grid or scale (4px/8px base unit)",
+      "Lists a component inventory with token mappings",
+      "Includes accessibility requirements (contrast ratios, focus states, ARIA)"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "ui-designer-03",
+    "task": "Users are confused by our navigation — support tickets about 'can't find X' increased 40%. Redesign the information architecture.",
+    "expect": [
+      "Proposes a research method (card sort or tree test) to validate the new IA",
+      "Presents a revised information architecture with grouping rationale",
+      "Recommends navigation patterns suited to the content structure",
+      "Includes a before/after comparison showing the structural changes"
+    ],
+    "difficulty": "edge-case"
+  }
+]

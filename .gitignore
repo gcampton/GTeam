@@ -3,3 +3,4 @@ browse/dist/
 ~/.gteam-dev/
 *.js.map
 .gstack/
+.mcp.json

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "devops-01",
+    "task": "Set up a CI/CD pipeline for a Node.js monorepo with 3 services deploying to AWS ECS.",
+    "expect": [
+      "Defines pipeline stages (lint, test, build, deploy) with a caching strategy for node_modules and Docker layers",
+      "Uses parallel builds for independent services with a defined deployment order for dependent services",
+      "Includes environment promotion strategy (staging to production) with rollback mechanism"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "devops-02",
+    "task": "Our P95 API latency spiked from 200ms to 800ms after yesterday's deploy. Walk me through the investigation and remediation.",
+    "expect": [
+      "Follows a structured debugging approach: check metrics/dashboards, correlate with deploy changes, isolate affected endpoints",
+      "Includes monitoring checks (CPU, memory, DB connections, external dependency latency) and a rollback decision tree",
+      "Provides root cause analysis methodology and post-incident documentation recommendations"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "devops-03",
+    "task": "We need to migrate from a single-region AWS setup to multi-region for compliance. Create a migration plan.",
+    "expect": [
+      "Defines a data replication strategy (RDS read replicas, DynamoDB global tables, or S3 cross-region replication as applicable)",
+      "Includes DNS failover configuration (Route 53 health checks, latency-based routing) with defined RTO/RPO targets",
+      "Proposes a phased rollout plan (infrastructure first, then data sync, then traffic shifting) with validation steps per phase"
+    ],
+    "difficulty": "edge-case"
+  }
+]

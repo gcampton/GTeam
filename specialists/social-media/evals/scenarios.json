@@ -1,0 +1,36 @@
+[
+  {
+    "id": "social-media-01",
+    "task": "Create a 1-month content calendar for a B2B SaaS company's LinkedIn presence.",
+    "expect": [
+      "Defines a posting cadence (frequency and timing)",
+      "Balances content mix across educational, promotional, and engagement posts",
+      "Provides specific post ideas with hooks or headlines",
+      "Includes a hashtag strategy with relevant industry and branded hashtags"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "social-media-02",
+    "task": "Design a social media launch strategy for a new product feature across LinkedIn, Twitter, and YouTube.",
+    "expect": [
+      "Specifies platform-specific content formats (carousel, thread, short-form video, etc.)",
+      "Lays out a launch timeline with pre-launch, launch day, and post-launch phases",
+      "Details engagement tactics to drive conversation and shares",
+      "Suggests influencer or partnership ideas to amplify reach"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "social-media-03",
+    "task": "A negative customer review is going viral on Twitter with 500+ retweets. Create a response strategy.",
+    "expect": [
+      "Provides an immediate public response template that is empathetic and non-defensive",
+      "Defines an escalation process with roles and decision authority",
+      "Covers internal communication to align stakeholders",
+      "Includes a proactive outreach plan to affected and at-risk customers",
+      "Sets up a monitoring plan to track sentiment and spread"
+    ],
+    "difficulty": "edge-case"
+  }
+]

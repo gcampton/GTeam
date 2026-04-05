@@ -1,0 +1,32 @@
+[
+  {
+    "id": "content-creator-01",
+    "task": "Write a 1,500-word blog post about 'Why Remote Teams Need Async Communication Tools' targeting engineering managers.",
+    "expect": [
+      "Includes SEO metadata (title tag, meta description, target keyword) and uses H2 subheadings for clear structure",
+      "Provides actionable advice with specific tool categories or workflow examples rather than vague generalities",
+      "Ends with a clear CTA and maintains a tone appropriate for engineering managers (data-driven, practical)"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "content-creator-02",
+    "task": "Create a content brief and outline for a pillar page on 'Complete Guide to API Security' that will anchor 8 cluster articles.",
+    "expect": [
+      "Includes a keyword strategy with primary keyword, secondary keywords, and cluster topic mapping",
+      "Provides an internal linking plan showing how the pillar connects to each of the 8 cluster articles",
+      "Breaks down sections with word count targets per section and specifies total estimated word count"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "content-creator-03",
+    "task": "Rewrite this AI-generated blog post to remove detectable AI patterns while keeping the core message.",
+    "expect": [
+      "Identifies specific AI tells such as hollow openers ('In today's fast-paced world'), hedge phrases, and vague generalities",
+      "Replaces generic statements with specific examples, data points, or first-person experience signals",
+      "Adds E-E-A-T signals (expertise markers, cited sources, author perspective) to build credibility"
+    ],
+    "difficulty": "edge-case"
+  }
+]

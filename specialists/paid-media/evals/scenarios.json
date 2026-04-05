@@ -1,0 +1,37 @@
+[
+  {
+    "id": "paid-media-01",
+    "task": "Create a Google Ads campaign plan for a $5,000/month budget targeting 'project management software' keywords.",
+    "expect": [
+      "Defines campaign structure with ad groups and keyword themes",
+      "Includes keyword groups with match types and negative keywords",
+      "Provides ad copy variants with headlines and descriptions",
+      "Recommends a bidding strategy with rationale",
+      "Estimates expected CPA or cost-per-conversion range"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "paid-media-02",
+    "task": "Design a multi-channel paid strategy across Google, Meta, and LinkedIn for a B2B SaaS launch with $20K budget.",
+    "expect": [
+      "Allocates budget across channels with clear rationale for the split",
+      "Defines platform-specific tactics (search vs display, feed vs stories, sponsored content vs InMail)",
+      "Specifies audience targeting for each platform",
+      "Recommends an attribution model for cross-channel measurement"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "paid-media-03",
+    "task": "Our Meta Ads CPA doubled last month with no creative or targeting changes. Diagnose and fix.",
+    "expect": [
+      "Checks auction dynamics and competitive landscape changes",
+      "Evaluates frequency and audience saturation metrics",
+      "Considers iOS/ATT attribution signal loss as a factor",
+      "Assesses creative fatigue even without intentional changes",
+      "Recommends specific corrective actions with expected impact"
+    ],
+    "difficulty": "edge-case"
+  }
+]

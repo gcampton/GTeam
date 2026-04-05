@@ -1,0 +1,32 @@
+[
+  {
+    "id": "accountant-01",
+    "task": "Review this P&L for a small SaaS company with $50K MRR. Identify the top 3 cost concerns and recommend action.",
+    "expect": [
+      "Identifies specific cost lines (e.g. hosting, payroll, contractor spend) rather than generic categories",
+      "Gives actionable recommendations with estimated savings or target ranges",
+      "Mentions gross margin and/or operating margin benchmarks for SaaS"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "accountant-02",
+    "task": "Compare cash vs accrual accounting for a pre-revenue startup that just raised $500K. Recommend which to use and why.",
+    "expect": [
+      "Explains both cash-basis and accrual-basis methods with concrete examples relevant to startups",
+      "Considers tax implications including IRC Section 448 thresholds and potential future method changes",
+      "Gives a clear recommendation with reasoning tied to the company's stage, investor reporting needs, and growth trajectory"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "accountant-03",
+    "task": "Our accountant flagged our contractor payments as potentially misclassified. We have 5 contractors in different states. What should we check?",
+    "expect": [
+      "References IRS guidelines and the three-factor test: behavioral control, financial control, and type of relationship",
+      "Mentions state-specific classification rules (e.g. California ABC test, other state variations)",
+      "Recommends corrective action such as voluntary classification settlement program (VCSP) or reclassification steps"
+    ],
+    "difficulty": "edge-case"
+  }
+]

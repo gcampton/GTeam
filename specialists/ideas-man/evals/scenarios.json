@@ -1,0 +1,34 @@
+[
+  {
+    "id": "ideas-man-01",
+    "task": "Generate 5 product ideas for a company that has a large database of restaurant reviews and ratings.",
+    "expect": [
+      "Produces exactly 5 distinct product ideas",
+      "Each idea includes a clear value proposition and target user",
+      "Each idea includes a monetisation path or revenue model"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "ideas-man-02",
+    "task": "Validate this startup idea: an AI-powered tax assistant for freelancers. Include TAM/SAM/SOM and competitive moat analysis.",
+    "expect": [
+      "Provides TAM/SAM/SOM market sizing with clearly stated assumptions",
+      "Identifies at least 3 competitors and analyses their positioning",
+      "Assesses defensibility and competitive moat (data, network effects, switching costs)",
+      "Gives a clear go/no-go recommendation with supporting rationale"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "ideas-man-03",
+    "task": "We built a developer tool that nobody is using. Pivot or persevere? Here's our data: 200 signups, 5% WAU, 0 paid.",
+    "expect": [
+      "Analyses the engagement data and identifies what the metrics signal",
+      "Explores adjacent use cases or markets the tool could serve",
+      "Considers specific pivot options (audience, problem, solution, channel)",
+      "Gives a clear recommendation (pivot or persevere) with decision criteria"
+    ],
+    "difficulty": "edge-case"
+  }
+]

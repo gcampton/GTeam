@@ -1,0 +1,32 @@
+[
+  {
+    "id": "email-marketer-01",
+    "task": "Create a re-engagement campaign for 5,000 subscribers who haven't opened in 90 days.",
+    "expect": [
+      "Defines a segmentation strategy (e.g. 90-120 days vs 120-180 days inactive) with different approaches per segment",
+      "Includes a sequence of at least 3 emails with specific subject lines and content themes for each",
+      "Specifies a sunset policy for subscribers who don't re-engage after the campaign"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "email-marketer-02",
+    "task": "Design a lifecycle email automation from signup through Year 1 for a B2B SaaS product.",
+    "expect": [
+      "Defines lifecycle stages (onboarding, activation, adoption, retention, expansion) with clear transition criteria",
+      "Specifies trigger conditions for each email (time-based, behaviour-based, or milestone-based)",
+      "Includes content themes per stage and key metrics to track per email (open rate, click rate, conversion goal)"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "email-marketer-03",
+    "task": "Our deliverability dropped from 95% to 78% this month. Diagnose and create a recovery plan.",
+    "expect": [
+      "Checks email authentication setup (SPF, DKIM, DMARC) and domain/IP reputation",
+      "Evaluates list hygiene (bounce rates, spam complaints, inactive subscribers) and content issues (spam trigger words, image-to-text ratio)",
+      "Proposes a phased recovery plan addressing sending patterns, list segmentation, and ISP-specific reputation repair"
+    ],
+    "difficulty": "edge-case"
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "id": "hr-specialist-01",
+    "task": "Create a 30-60-90 day onboarding plan for a senior engineer joining a remote team of 15.",
+    "expect": [
+      "Defines clear milestones and goals for each 30-day phase",
+      "Includes buddy or mentor assignment with defined responsibilities",
+      "Specifies check-in cadence (1:1s, team syncs, skip-levels)",
+      "States measurable success criteria for each phase"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "hr-specialist-02",
+    "task": "Design a performance review framework for a 50-person startup that currently has no formal process.",
+    "expect": [
+      "Recommends a review cadence (quarterly, semi-annual, or annual) with rationale",
+      "Defines a rating scale or narrative approach with clear criteria",
+      "Includes a calibration process to ensure fairness across teams",
+      "Ties performance outcomes to compensation or career progression"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "hr-specialist-03",
+    "task": "An employee in Germany wants to transfer to our US office. What employment law considerations should we address?",
+    "expect": [
+      "Identifies risks of changing employment jurisdiction (contract termination and re-hire)",
+      "Covers visa and work authorization requirements for the US",
+      "Highlights benefits and compensation differences between Germany and US",
+      "Addresses contract modifications needed for the transfer",
+      "Flags GDPR implications for transferring employee data"
+    ],
+    "difficulty": "edge-case"
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "id": "project-manager-01",
+    "task": "Create a project plan for building an MVP of a mobile app. Team: 2 engineers, 1 designer. Timeline: 8 weeks.",
+    "expect": [
+      "Includes a work breakdown structure (WBS) with deliverables",
+      "Defines a sprint plan or phased schedule across the 8 weeks",
+      "Sets milestones with clear completion criteria",
+      "Includes a risk register with mitigation strategies",
+      "Shows resource allocation across the 3 team members"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "project-manager-02",
+    "task": "Our project is 3 weeks behind schedule with 2 weeks until deadline. What's the recovery plan?",
+    "expect": [
+      "Assesses current scope and identifies what can be cut or deferred",
+      "Performs critical path analysis to find the minimum viable delivery",
+      "Presents trade-off options across scope, time, and resources",
+      "Includes a stakeholder communication plan for the delay"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "project-manager-03",
+    "task": "Two teams are blocked waiting for each other's deliverables (circular dependency). How do we resolve this?",
+    "expect": [
+      "Identifies and maps the circular dependency clearly",
+      "Proposes interface contracts or API stubs to decouple the teams",
+      "Suggests parallel workstreams that can proceed independently",
+      "Recommends an interim solution to unblock immediate progress"
+    ],
+    "difficulty": "edge-case"
+  }
+]

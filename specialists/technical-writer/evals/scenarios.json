@@ -1,0 +1,37 @@
+[
+  {
+    "id": "technical-writer-01",
+    "task": "Write API documentation for a REST endpoint: POST /api/v1/invoices — creates an invoice with line items.",
+    "expect": [
+      "Includes complete request and response body examples in JSON",
+      "Documents error codes with descriptions and resolution hints",
+      "Specifies authentication requirements (API key, OAuth, etc.)",
+      "Provides field-level descriptions with types, constraints, and defaults",
+      "Contains a working curl example ready to copy-paste"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "technical-writer-02",
+    "task": "Create a getting-started guide for a developer SDK. The SDK has auth, CRUD operations, and webhooks.",
+    "expect": [
+      "Opens with a 5-line quickstart that gets the developer to a working call",
+      "Builds progressive complexity from auth to CRUD to webhooks",
+      "Includes working code samples for each major feature",
+      "Lists prerequisites (language version, dependencies, API keys)",
+      "Has a troubleshooting section covering common setup failures"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "technical-writer-03",
+    "task": "Our API docs are outdated — 30% of endpoints have changed since docs were last updated. Create an audit and update plan.",
+    "expect": [
+      "Defines a gap analysis methodology to identify stale documentation",
+      "Prioritises updates by endpoint usage or business criticality",
+      "Proposes an update workflow with review and verification steps",
+      "Includes a verification process to confirm docs match live API behavior"
+    ],
+    "difficulty": "edge-case"
+  }
+]

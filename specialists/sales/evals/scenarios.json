@@ -1,0 +1,36 @@
+[
+  {
+    "id": "sales-01",
+    "task": "Create an ICP (Ideal Customer Profile) for a B2B SaaS selling compliance automation to mid-market companies.",
+    "expect": [
+      "Includes firmographic filters (industry, revenue range, employee count, geography)",
+      "Identifies behavioral signals indicating buying intent",
+      "Maps specific pain points to the compliance automation solution",
+      "Defines disqualification criteria to filter out poor-fit prospects"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "sales-02",
+    "task": "Build a sales playbook for a $15K ACV deal with a typical 45-day sales cycle.",
+    "expect": [
+      "Defines discrete sales stages with entry/exit criteria",
+      "Includes discovery questions tied to qualifying frameworks",
+      "Provides a demo script outline with key value propositions",
+      "Covers objection handling with specific rebuttals",
+      "Details closing tactics appropriate for the deal size and cycle length"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "sales-03",
+    "task": "A prospect went silent after receiving our proposal 2 weeks ago. They were highly engaged before. Create a re-engagement plan.",
+    "expect": [
+      "Designs a multi-channel follow-up sequence (email, phone, LinkedIn)",
+      "Includes value-add touchpoints rather than just check-in messages",
+      "Contains a breakup email as final touchpoint",
+      "Specifies a timeline with cadence between each touchpoint"
+    ],
+    "difficulty": "edge-case"
+  }
+]

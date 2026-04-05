@@ -1,0 +1,32 @@
+[
+  {
+    "id": "brand-strategist-01",
+    "task": "Create a brand positioning statement for a B2B analytics platform targeting mid-market companies.",
+    "expect": [
+      "Identifies a specific target audience segment within mid-market (e.g. ops leaders, data teams) rather than staying generic",
+      "Articulates clear differentiation from competitors with a specific frame of reference",
+      "Follows a structured positioning format (For [target] who [need], [brand] is the [category] that [benefit] unlike [alternative])"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "brand-strategist-02",
+    "task": "We're rebranding from a consulting firm to a SaaS product. Develop a transition strategy that retains existing client trust.",
+    "expect": [
+      "Addresses both existing consulting clients and new SaaS prospects as distinct audiences with different concerns",
+      "Proposes a phased approach with clear milestones (e.g. soft launch, dual branding period, full cutover)",
+      "Includes a messaging bridge that connects the consulting heritage (expertise, relationships) to the SaaS value (scale, self-serve)"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "brand-strategist-03",
+    "task": "Two of our product lines have conflicting brand identities — one is premium/enterprise, the other is freemium/SMB. How do we handle this?",
+    "expect": [
+      "Analyses house-of-brands vs branded-house vs endorsed-brand architectures with pros and cons for this scenario",
+      "Provides a clear recommendation with specific trade-offs acknowledged (cost of maintaining separate brands vs brand dilution risk)",
+      "Includes a naming strategy or naming convention that resolves the conflict"
+    ],
+    "difficulty": "edge-case"
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "id": "ux-researcher-01",
+    "task": "Create a research plan to understand why trial users aren't converting to paid.",
+    "expect": [
+      "Formulates specific research questions tied to conversion barriers",
+      "Selects appropriate methods (interviews, surveys, analytics review) with justification",
+      "Defines participant criteria including sample size and screening questions",
+      "Provides a discussion guide outline with key topics and probes",
+      "Includes a timeline with milestones from recruitment to final report"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "ux-researcher-02",
+    "task": "Synthesise these 12 user interview transcripts into actionable personas and a journey map.",
+    "expect": [
+      "Produces 3 or more personas grounded in jobs-to-be-done",
+      "Creates a journey map with stages, actions, pain points, and emotions",
+      "Identifies opportunity areas where the product can improve",
+      "Delivers prioritised recommendations linked to research evidence"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "ux-researcher-03",
+    "task": "Stakeholders want to skip user research and go straight to building. Make the case for research and propose a lightweight approach.",
+    "expect": [
+      "Presents an ROI argument with examples of costly build-first failures",
+      "Proposes fast research methods (5 interviews, guerrilla testing, unmoderated tests)",
+      "Fits the research plan into a timeline under 2 weeks",
+      "Commits to specific deliverables stakeholders can act on immediately"
+    ],
+    "difficulty": "edge-case"
+  }
+]

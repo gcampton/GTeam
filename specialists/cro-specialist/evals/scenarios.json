@@ -1,0 +1,32 @@
+[
+  {
+    "id": "cro-specialist-01",
+    "task": "Audit this landing page and provide 5 specific conversion improvements with expected impact.",
+    "expect": [
+      "Addresses at least headline clarity, CTA design/placement, social proof presence, form friction, and page load performance",
+      "Provides expected impact estimates (e.g. percentage lift range) for each recommendation",
+      "Prioritises improvements by effort-to-impact ratio"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "cro-specialist-02",
+    "task": "Design an A/B testing roadmap for our signup funnel. We have 10K monthly visitors.",
+    "expect": [
+      "Calculates minimum sample size requirements and estimated test duration given the traffic volume",
+      "Prioritises tests by expected impact and provides a sequenced roadmap (not everything at once)",
+      "Includes control/variant descriptions with specific hypotheses for each test"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "cro-specialist-03",
+    "task": "Our mobile conversion rate is 60% lower than desktop. Diagnose likely causes and propose fixes.",
+    "expect": [
+      "Checks viewport/responsive issues, form usability on mobile, page load time on cellular networks, and touch target sizes",
+      "Proposes mobile-specific fixes (e.g. simplified forms, thumb-zone CTA placement, progressive disclosure)",
+      "Recommends a measurement plan to validate which fixes have the most impact"
+    ],
+    "difficulty": "edge-case"
+  }
+]

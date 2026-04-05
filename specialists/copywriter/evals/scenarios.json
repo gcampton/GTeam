@@ -1,0 +1,32 @@
+[
+  {
+    "id": "copywriter-01",
+    "task": "Write a sales page for a $99/month project management SaaS targeting freelancers.",
+    "expect": [
+      "Uses a recognisable framework (AIDA, PAS, or BAB) to structure the page flow",
+      "Includes a compelling headline, social proof section, at least one CTA, and objection-handling section",
+      "Speaks to freelancer-specific pain points (juggling clients, invoicing, time tracking) rather than generic project management benefits"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "copywriter-02",
+    "task": "Create a 5-email welcome sequence for a B2B SaaS trial that converts to paid.",
+    "expect": [
+      "Each email has a clear singular purpose and builds on the previous (e.g. welcome, quick win, deeper feature, social proof, conversion)",
+      "Includes specific subject lines for each email and defines send timing/triggers",
+      "Creates urgency without being pushy — uses trial expiry, value realisation, or peer benchmarks rather than artificial scarcity"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "copywriter-03",
+    "task": "Our landing page converts at 0.5%. Here's the current copy. Diagnose what's wrong and rewrite the hero section.",
+    "expect": [
+      "Identifies specific copy problems (weak value prop, feature-focused instead of benefit-focused, unclear CTA, missing urgency)",
+      "Rewrites the hero section with a stronger value proposition tied to a measurable outcome",
+      "Suggests an A/B test variant or testing approach to validate the new copy against the original"
+    ],
+    "difficulty": "edge-case"
+  }
+]

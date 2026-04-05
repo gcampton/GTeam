@@ -1,0 +1,34 @@
+[
+  {
+    "id": "growth-hacker-01",
+    "task": "Identify the top 3 growth levers for a B2B SaaS with 500 users and $20K MRR.",
+    "expect": [
+      "Uses AARRR (pirate metrics) framework to structure the analysis",
+      "Identifies a specific leak or drop-off point in the funnel",
+      "Quantifies the opportunity size for each lever with estimated impact"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "growth-hacker-02",
+    "task": "Design a viral growth loop for a team collaboration tool. Include mechanics, metrics, and projected impact.",
+    "expect": [
+      "Describes the full loop mechanics (trigger, action, reward, investment)",
+      "Identifies viral coefficient (k-factor) and how to measure it",
+      "Includes activation triggers that drive users to invite others",
+      "Projects a growth curve with stated assumptions"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "growth-hacker-03",
+    "task": "We've hit a growth plateau at 2,000 users. Paid acquisition CAC exceeds LTV. What do we do?",
+    "expect": [
+      "Analyses unit economics (CAC vs LTV) and identifies the sustainability gap",
+      "Proposes organic or viral alternatives to paid acquisition",
+      "Considers product-led growth strategies (freemium, self-serve, referrals)",
+      "Delivers a prioritised action plan with expected timeline and impact"
+    ],
+    "difficulty": "edge-case"
+  }
+]

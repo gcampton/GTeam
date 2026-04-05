@@ -1,0 +1,38 @@
+[
+  {
+    "id": "software-engineer-01",
+    "task": "Review this pull request for a REST API endpoint that handles user authentication. Check for security and correctness.",
+    "expect": [
+      "Checks input validation and sanitization",
+      "Identifies SQL injection or other injection vulnerabilities",
+      "Verifies password hashing uses a secure algorithm (bcrypt, argon2)",
+      "Evaluates rate limiting to prevent brute-force attacks",
+      "Reviews error handling to avoid leaking sensitive information"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "software-engineer-02",
+    "task": "Design the architecture for a real-time notification system that needs to handle 10K concurrent users.",
+    "expect": [
+      "Selects technologies with clear rationale for each choice",
+      "Recommends a message broker (e.g. Redis Pub/Sub, Kafka, RabbitMQ) with justification",
+      "Describes a horizontal scaling strategy for handling load growth",
+      "Addresses failure handling, retries, and delivery guarantees",
+      "Includes a data model for notifications, subscriptions, and delivery status"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "software-engineer-03",
+    "task": "Production is returning 500 errors intermittently — happens about 5% of requests, no pattern in logs. Walk me through debugging.",
+    "expect": [
+      "Follows a systematic hypothesis-test approach rather than shotgun debugging",
+      "Suggests log correlation techniques (request IDs, distributed tracing)",
+      "Checks for resource contention (connection pools, memory, file descriptors)",
+      "Proposes a reproduction strategy to isolate the issue",
+      "Recommends monitoring and alerting additions to catch recurrence"
+    ],
+    "difficulty": "edge-case"
+  }
+]

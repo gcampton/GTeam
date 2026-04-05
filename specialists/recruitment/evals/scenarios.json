@@ -1,0 +1,36 @@
+[
+  {
+    "id": "recruitment-01",
+    "task": "Design a hiring process for a senior product designer role. We need someone in 6 weeks.",
+    "expect": [
+      "Produces a job brief with role requirements and ideal candidate profile",
+      "Recommends sourcing channels appropriate for senior design talent",
+      "Defines screening criteria for portfolio and experience review",
+      "Lays out interview stages with timeline fitting the 6-week constraint"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "recruitment-02",
+    "task": "We've had 3 failed hires in engineering this year. Audit our hiring process and recommend fixes.",
+    "expect": [
+      "Analyses each hiring stage (sourcing, screening, interviewing, offer, onboarding)",
+      "Identifies specific failure points or patterns across the 3 failed hires",
+      "Recommends concrete process changes with rationale for each",
+      "Addresses both candidate assessment quality and candidate experience"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "recruitment-03",
+    "task": "We need to hire 10 engineers in 3 months but our employer brand is unknown. Create a rapid hiring strategy.",
+    "expect": [
+      "Proposes employer brand quick wins (content, open-source, events, social proof)",
+      "Designs a multi-channel sourcing plan for volume hiring",
+      "Includes a referral program structure with incentives",
+      "Streamlines the interview process for throughput without sacrificing quality",
+      "Provides a realistic timeline assessment of what is achievable"
+    ],
+    "difficulty": "edge-case"
+  }
+]

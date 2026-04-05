@@ -1,0 +1,36 @@
+[
+  {
+    "id": "lawyer-01",
+    "task": "Review this SaaS Terms of Service and flag the top 5 risk areas.",
+    "expect": [
+      "Checks liability caps and limitation of liability clauses",
+      "Reviews indemnification obligations and mutual vs one-sided terms",
+      "Examines IP ownership and assignment provisions",
+      "Assesses data processing and privacy obligations",
+      "Evaluates termination rights, notice periods, and exit provisions"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "lawyer-02",
+    "task": "We're expanding from Australia to the UK and EU. What regulatory compliance do we need for our HR data platform?",
+    "expect": [
+      "Details EU GDPR requirements (lawful basis, DPO, DPIA, data subject rights)",
+      "Identifies UK GDPR differences from EU GDPR post-Brexit",
+      "Recommends data transfer mechanisms (SCCs, adequacy decisions, BCRs)",
+      "Flags jurisdiction-specific employment data handling requirements"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "lawyer-03",
+    "task": "A competitor is using our open-source library in a way that violates the license. What are our options?",
+    "expect": [
+      "Identifies the license type and the specific nature of the violation",
+      "Discusses cease-and-desist letter as a first step with pros and cons",
+      "Outlines enforcement options (DMCA, litigation, community pressure)",
+      "Provides a risk assessment of each enforcement path"
+    ],
+    "difficulty": "edge-case"
+  }
+]

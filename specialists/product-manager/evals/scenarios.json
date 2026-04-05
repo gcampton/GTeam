@@ -1,0 +1,36 @@
+[
+  {
+    "id": "product-manager-01",
+    "task": "Write a PRD for an in-app notification system. Users currently miss important updates.",
+    "expect": [
+      "Includes a clear problem statement grounded in user impact",
+      "Frames the need using JTBD (Jobs-to-be-Done) or similar user-centric lens",
+      "Defines success metrics (e.g. notification open rate, time-to-action)",
+      "Scopes the feature with explicit in/out boundaries",
+      "Lists acceptance criteria for key functionality"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "product-manager-02",
+    "task": "We have 15 feature requests from customers, 5 internal ideas, and 3 tech debt items. Create a prioritised Q3 roadmap.",
+    "expect": [
+      "Uses RICE, ICE, or similar prioritisation framework with visible scoring",
+      "Shows the scoring or ranking for each item",
+      "Groups items into themes or strategic pillars",
+      "Includes rationale for the top 3 priorities and what was deprioritised"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "product-manager-03",
+    "task": "Our biggest customer wants a custom feature that conflicts with our product vision. How do we handle this?",
+    "expect": [
+      "Analyses revenue impact vs strategic cost of the custom feature",
+      "Proposes alternative solutions (configuration, integration, workaround)",
+      "Includes a communication strategy for the customer",
+      "Provides a decision framework for evaluating similar requests in the future"
+    ],
+    "difficulty": "edge-case"
+  }
+]

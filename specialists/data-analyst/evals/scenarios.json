@@ -1,0 +1,32 @@
+[
+  {
+    "id": "data-analyst-01",
+    "task": "Analyse our monthly KPI dashboard and identify the 3 most important trends to flag to leadership.",
+    "expect": [
+      "Identifies specific metrics with direction and magnitude (e.g. 'CAC increased 15% MoM') rather than vague observations",
+      "Explains the significance and business impact of each trend",
+      "Recommends concrete actions or deeper investigations for each flagged trend"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "data-analyst-02",
+    "task": "Design a metrics framework for a new product feature (in-app messaging). Define North Star, supporting metrics, and instrumentation plan.",
+    "expect": [
+      "Defines a clear metric hierarchy with one North Star metric and 3-5 supporting input/output metrics",
+      "Provides measurable definitions for each metric (what counts, what doesn't, how it's calculated)",
+      "Specifies data collection method for each metric (event tracking, database queries, third-party APIs)"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "data-analyst-03",
+    "task": "Our A/B test shows Feature B wins on clicks but loses on revenue. How should we interpret this and what do we recommend?",
+    "expect": [
+      "Discusses the metric conflict and why optimising for clicks may diverge from revenue outcomes",
+      "Suggests segment analysis to determine if specific user cohorts behave differently",
+      "Addresses statistical considerations (sample size, test duration, multiple comparisons) and gives a clear recommendation with reasoning"
+    ],
+    "difficulty": "edge-case"
+  }
+]
