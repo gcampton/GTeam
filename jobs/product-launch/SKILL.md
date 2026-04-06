@@ -662,6 +662,189 @@ If `BROWSE NOT AVAILABLE`: skip all `$B` steps and use WebFetch instead.
 
 ---
 
+### Crisis Management
+
+**Use when:** Negative content about the brand is gaining traction, a PR incident occurs, or community sentiment shifts sharply negative.
+
+**Severity assessment:**
+
+| Level | Trigger | Response Time | Who's Involved |
+|---|---|---|---|
+| LOW | Isolated complaint, < 10 interactions | 4 hours | Social media manager |
+| MEDIUM | Multiple complaints on same issue, 10-50 interactions, minor press | 1 hour | Social + leadership |
+| HIGH | Viral negative content, 50+ interactions, mainstream press, legal risk | 15 minutes | Social + leadership + legal + PR |
+
+**Rapid response framework:**
+
+1. **Acknowledge** (within response time window):
+   - "We're aware of [issue] and are looking into it"
+   - Do NOT delete negative comments (screenshots exist, deletion amplifies)
+   - Do NOT go silent — silence is interpreted as guilt
+
+2. **Investigate** (parallel to acknowledgement):
+   - What happened? Get facts from internal team
+   - How widespread? Check all platforms, not just where you first saw it
+   - Legal risk? If yes, loop in lawyer specialist before any further public statements
+
+3. **Respond** (once facts are clear):
+   - Own the mistake if it's real: "We got this wrong. Here's what happened and what we're doing about it."
+   - Correct misinformation if it's false: "Here's what actually happened: [facts with evidence]."
+   - Never be defensive, never blame the customer, never use corporate-speak
+
+4. **Monitor** (48 hours post-response):
+   - Track sentiment shift — is the response working?
+   - Respond to follow-up questions promptly
+   - Prepare a post-mortem for internal team
+
+5. **Post-crisis content** (1-2 weeks after):
+   - Transparency post: what changed as a result
+   - Return to normal content cadence gradually
+   - Do NOT pretend it didn't happen
+
+**Pre-prepared assets (create before you need them):**
+- Holding statement template: "We're aware of [X] and taking it seriously. We're investigating and will share an update by [time]."
+- Escalation contact list: who to call at each severity level
+- Platform-specific response templates (X character limit vs LinkedIn long-form)
+
+---
+
+### Influencer & Partnership Strategy
+
+**Use when:** Brand wants to grow through creator collaborations rather than (or alongside) owned content.
+
+**Partnership types:**
+
+| Type | Cost | Scale | Best For |
+|---|---|---|---|
+| Micro-influencer (1K-50K) | £100-500/post or product gifting | Niche, high engagement | Early-stage brands, specific audiences |
+| Mid-tier (50K-500K) | £500-5K/post | Broader reach, still niche credibility | Growing brands, product launches |
+| Macro (500K+) | £5K-50K+/post | Mass awareness | Established brands, major launches |
+| Brand ambassador | Ongoing retainer + perks | Consistent, authentic | Long-term brand building |
+| Content collaboration | Revenue share or cross-promotion | Organic, mutual benefit | Complementary brands |
+
+**Vetting checklist before partnering:**
+- Engagement rate > 2% (fake followers inflate follower count but not engagement)
+- Audience demographics match your target (ask for their analytics screenshot)
+- Content quality and tone align with brand
+- No history of controversy that conflicts with brand values
+- Check comments — are they real conversations or bot spam?
+
+**Campaign structure:**
+1. Brief the creator (brand guidelines, key messages, what NOT to say, creative freedom boundaries)
+2. Review draft content before publishing (one round of feedback, not micromanagement)
+3. Agree on posting schedule and cross-promotion plan
+4. Track with UTM links or promo codes per creator
+5. Measure: reach, engagement, clicks, conversions attributed to each creator
+
+**Deliverables:**
+- Influencer shortlist (10-20 vetted candidates with engagement data)
+- Outreach template (personalised, not mass DM)
+- Campaign brief template
+- ROI tracking spreadsheet (creator → reach → clicks → conversions → cost per acquisition)
+
+---
+
+### Audience Psychology & Messaging
+
+**Use when:** Content is technically correct but not resonating — good information, low engagement.
+
+**Why content fails to land:**
+Content fails not because it's wrong, but because it doesn't connect emotionally. Every piece of social content triggers one of these responses:
+
+| Response | Trigger | Action |
+|---|---|---|
+| "That's me" | Identity validation — content reflects who they are or aspire to be | Like, save |
+| "I need to remember this" | Utility — genuinely useful, reference-worthy | Save, bookmark |
+| "My network needs to see this" | Social currency — sharing makes them look smart/helpful | Share, retweet |
+| "I have something to say about this" | Debate — content invites opinion or challenges a belief | Comment, reply |
+| "I feel seen" | Empathy — content acknowledges a struggle or experience | Like, comment, follow |
+
+**Messaging framework per audience type:**
+
+| Audience | What resonates | What falls flat |
+|---|---|---|
+| Founders/entrepreneurs | Contrarian takes, revenue numbers, "here's what I learned" | Generic motivation, vague success stories |
+| Developers | Technical depth, honest trade-offs, "I built X, here's how" | Marketing-speak, oversimplification |
+| Marketers | Frameworks with examples, campaign results, benchmarks | Theory without data, outdated tactics |
+| Consumers (B2C) | Emotion, identity, entertainment, social proof | Feature lists, technical jargon |
+| Executives | Strategic implications, bottom-line impact, peer examples | Tactical details, how-to content |
+
+**Hot take formula (what makes a take actually hot):**
+A hot take is NOT just a strong opinion. It works when it:
+1. Challenges a widely-held belief ("Everyone says X, but actually Y")
+2. Is backed by specific evidence or experience ("I did X for 6 months and here's what happened")
+3. Has stakes — the reader gains something by changing their mind
+4. Is debatable but defensible — not just contrarian for attention
+
+**Before/after content improvement:**
+- Before: "Remote work has pros and cons" → flat, no engagement trigger
+- After: "I tracked my team's output for 6 months: remote engineers shipped 40% more code but creative collaboration dropped 60%. Here's how we fixed both." → specific, evidence-based, invites discussion
+
+---
+
+### Real-Time Trend Capture
+
+**Use when:** A trending topic, breaking news, or viral moment is relevant to the brand. Speed matters — trends have a 2-6 hour window for maximum impact.
+
+**Detection sources:**
+- X trending topics and Explore tab
+- TikTok Discover page and trending sounds
+- Google Trends (rising searches)
+- Industry Slack/Discord channels
+- Competitor posts getting unusual engagement
+
+**Evaluate before posting (5-minute check):**
+
+| Question | If No → Skip |
+|---|---|
+| Is this relevant to our brand/audience? | Don't force a connection |
+| Can we add genuine value or perspective? | Don't just echo the trend |
+| Is the topic safe? (no tragedy, no political minefield) | Don't risk brand on a hot-button issue |
+| Can we produce quality content in < 2 hours? | Don't rush out low-quality content |
+
+**Execution (if all checks pass):**
+1. Draft content in platform-native format (< 30 mins)
+2. Quick review — brand voice check, sensitivity check (< 15 mins)
+3. Post on primary platform first, adapt to others within 1 hour
+4. Engage heavily in first 60 minutes (reply to every comment)
+5. Monitor sentiment — if response turns negative, pause and assess
+
+**Trend content types:**
+- Commentary: "Here's our take on [trend]" — works for thought leadership accounts
+- Tutorial: "How to [trend-related skill]" — works for educational accounts
+- Meme/humour: Remix the trend with brand relevance — works for consumer brands
+- Data: "We analysed [trend] and here's what we found" — works for analytical brands
+
+---
+
+### Paid-Organic Integration
+
+**Use when:** Budget is available and organic reach alone isn't achieving goals. This supplements (not replaces) organic strategy.
+
+**Note:** For full paid campaign design, audience targeting, and ad platform management, use the paid-media specialist. This section covers the organic-paid handshake only.
+
+**Rule: Only boost winners.** Never pay to amplify content that didn't perform organically.
+
+| Organic Performance | Paid Action |
+|---|---|
+| Engagement rate > 5% | Boost with £5-20/day budget — this content resonates |
+| Engagement rate 3-5% | Test boost with £5/day for 48 hours — evaluate |
+| Engagement rate < 3% | Do NOT boost — fix the content first |
+
+**Organic-to-paid repurposing workflow:**
+1. Identify top-performing organic posts (weekly review)
+2. Adapt for paid format: add CTA, tighten copy, improve visual
+3. Target: lookalike audience based on current followers/engagement
+4. Run for 3-7 days with daily budget, monitor CPA
+5. Kill if CPA exceeds target after 48 hours
+
+**Attribution basics:**
+- UTM tag all links from social: `?utm_source=linkedin&utm_medium=social&utm_campaign=q2-launch`
+- Track in GA4: Acquisition → Traffic Acquisition → filter by utm_source
+- Social-attributed conversions = last-touch attribution (imperfect but actionable)
+
+---
+
 
 ---
 
