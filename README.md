@@ -242,6 +242,7 @@ Built on the shoulders of:
 - **[gstack](https://github.com/gcampton/gstack)** — the original virtual engineering team for Claude Code
 - **[Skill Seekers](https://github.com/yusufkaraaslan/Skill_Seekers)** — documentation scraping for reference libraries
 - **[agency-agents](https://github.com/gcampton/agency-agents)** — coaching and behavioral frameworks
+- **[Skillsmith](https://github.com/gcampton/skillsmith)** — skill scaffolding and standardised skill architecture
 
 ## License
 
