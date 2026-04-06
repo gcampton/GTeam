@@ -85,6 +85,19 @@ Pick 3–5 channels with 5k–100k subs that are growing in the niche:
 - What video topics get 2× their average views? (that's the sweet spot)
 - What are they NOT covering? (content gaps = your opportunity)
 
+**Transcript extraction for deeper analysis:**
+Extract transcripts from competitors' top 3-5 videos to understand their content strategy at depth:
+```bash
+# Extract YouTube subtitles (no video download needed)
+pip install yt-dlp 2>/dev/null
+yt-dlp --write-auto-sub --sub-lang en --skip-download -o "%(title)s" "VIDEO_URL"
+
+# Or use the YouTube transcript API for clean text
+pip install youtube-transcript-api 2>/dev/null
+python3 -c "from youtube_transcript_api import YouTubeTranscriptApi; print('\n'.join(e['text'] for e in YouTubeTranscriptApi.get_transcript('VIDEO_ID')))"
+```
+Analyse transcripts for: pain points addressed, frameworks taught, language patterns, CTAs used, questions left unanswered (= your content gaps). For full transcript analysis methodology, see `content-creator/references/transcript-analysis.md`.
+
 **Step 4 — Faceless channel viability check:**
 
 If user wants faceless (AI voiceover, stock footage, or screen recordings):

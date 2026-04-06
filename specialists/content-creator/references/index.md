@@ -14,5 +14,6 @@
 | resources.md | template | Buffer resources index (493 pages) covering social media scheduling and marketing tactics |
 | smartblogger.md | framework | Raw HTML from Smart Blogger (404 page — broken reference) |
 | superpath.md | framework | Raw HTML from Superpath (404 page — broken reference) |
+| transcript-analysis.md | framework | Video/audio transcript extraction (yt-dlp, Whisper), content repurposing workflows, competitive video analysis |
 
 **Types:** framework = domain knowledge (read-only), template = fill-in output structure, checklist = verification/quality gate
