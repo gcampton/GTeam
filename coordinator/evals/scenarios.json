@@ -1,0 +1,35 @@
+[
+  {
+    "id": "coordinator-01",
+    "task": "I need to review a contract for my SaaS startup. It's a vendor agreement with a cloud hosting provider.",
+    "expect": [
+      "Routes to the lawyer specialist (not accountant, not project-manager)",
+      "Reads the lawyer SKILL.md file before producing output",
+      "Produces contract review output following the lawyer specialist's methodology",
+      "Identifies key risk areas in a vendor agreement context (liability, SLA, data handling, termination)"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "coordinator-02",
+    "task": "Write a blog post about remote team productivity for our company blog, then optimise it for SEO.",
+    "expect": [
+      "Identifies this as a multi-specialist task requiring content-creator and seo",
+      "Loads content-creator SKILL.md first and produces the blog post",
+      "Then loads seo SKILL.md and optimises the content",
+      "Produces a handoff between the two specialists"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "coordinator-03",
+    "task": "Help me set up CI/CD for my project.",
+    "expect": [
+      "Routes to devops specialist",
+      "Reads the devops SKILL.md file",
+      "Follows the devops methodology for CI/CD pipeline design",
+      "Asks about the tech stack and deployment target if not specified"
+    ],
+    "difficulty": "standard"
+  }
+]

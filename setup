@@ -6,6 +6,31 @@ GSTACK_BINARY="$HOME/.claude/skills/gstack/browse/dist/browse"
 LOCAL_BINARY_DIR="$SCRIPT_DIR/browse/dist"
 LOCAL_BINARY="$LOCAL_BINARY_DIR/browse"
 
+# Parse arguments
+MODE="${1:-}"
+
+show_help() {
+  echo "GTeam setup"
+  echo "==========="
+  echo ""
+  echo "Usage: ./setup [MODE]"
+  echo ""
+  echo "Modes:"
+  echo "  lite    Coordinator only — single ~6KB skill file, loads specialists on demand"
+  echo "          Saves ~83K tokens on every conversation. Recommended for most users."
+  echo ""
+  echo "  full    All specialists loaded upfront — original behaviour"
+  echo "          Use if you need instant routing without a Read step."
+  echo ""
+  echo "  (none)  Just build — no symlinks, no install"
+  echo ""
+}
+
+if [ "$MODE" = "--help" ] || [ "$MODE" = "-h" ]; then
+  show_help
+  exit 0
+fi
+
 echo "GTeam setup"
 echo "==========="
 echo ""
@@ -39,19 +64,84 @@ echo "Generating SKILL.md files..."
 bun run build
 echo ""
 
-# Step 4: Verify skills
-echo "Skills installed:"
-FOUND=0
-for skill in "$SCRIPT_DIR/SKILL.md" "$SCRIPT_DIR"/specialists/*/SKILL.md "$SCRIPT_DIR"/jobs/*/SKILL.md; do
-  if [ -f "$skill" ]; then
-    echo "  ✓ ${skill#$SCRIPT_DIR/}"
-    FOUND=$((FOUND + 1))
-  fi
-done
-if [ "$FOUND" -eq 0 ]; then
-  echo "  (none generated yet — run: bun run gen:skill-docs)"
-fi
+# Step 4: Install based on mode
+SKILLS_DIR="$HOME/.claude/skills"
+COMMANDS_DIR="$HOME/.claude/commands"
 
-echo ""
-echo "GTeam is ready. Skills installed at: $SCRIPT_DIR"
-echo "Add to your project: ln -s $SCRIPT_DIR .claude/skills/gteam"
+if [ "$MODE" = "lite" ]; then
+  echo "Installing in LITE mode (coordinator only)..."
+  echo ""
+
+  # Remove full install if it exists
+  if [ -L "$SKILLS_DIR/gteam" ]; then
+    echo "  Removing existing full install: $SKILLS_DIR/gteam"
+    rm "$SKILLS_DIR/gteam"
+  fi
+
+  # Create commands dir if needed
+  mkdir -p "$COMMANDS_DIR"
+
+  # Symlink coordinator as a command
+  ln -sf "$SCRIPT_DIR/coordinator/SKILL.md" "$COMMANDS_DIR/gteam.md"
+  echo "  ✓ Coordinator installed: $COMMANDS_DIR/gteam.md"
+
+  # Also need the skills dir symlink for Read access to specialist files
+  mkdir -p "$SKILLS_DIR"
+  ln -sf "$SCRIPT_DIR" "$SKILLS_DIR/gteam"
+
+  # But prevent Claude from auto-discovering specialist SKILL.md files
+  # by adding a .claudeignore in the skills dir
+  cat > "$SCRIPT_DIR/.claudeskillsignore" <<'IGNORE'
+# GTeam lite mode: only the coordinator is loaded as a skill.
+# Specialist SKILL.md files are read on demand by the coordinator.
+specialists/*/SKILL.md
+jobs/*/SKILL.md
+SKILL.md
+IGNORE
+
+  echo "  ✓ Skill files accessible at: $SKILLS_DIR/gteam/"
+  echo ""
+  echo "  Token cost: ~1,700 tokens (coordinator only)"
+  echo "  Specialists loaded on demand via Read tool"
+  echo ""
+  echo "Done! Use /gteam or just describe your goal."
+
+elif [ "$MODE" = "full" ]; then
+  echo "Installing in FULL mode (all specialists)..."
+  echo ""
+
+  # Remove lite install artifacts
+  if [ -L "$COMMANDS_DIR/gteam.md" ]; then
+    echo "  Removing lite coordinator: $COMMANDS_DIR/gteam.md"
+    rm "$COMMANDS_DIR/gteam.md"
+  fi
+  rm -f "$SCRIPT_DIR/.claudeskillsignore"
+
+  # Symlink whole repo
+  mkdir -p "$SKILLS_DIR"
+  ln -sf "$SCRIPT_DIR" "$SKILLS_DIR/gteam"
+  echo "  ✓ Full install: $SKILLS_DIR/gteam"
+  echo ""
+  echo "  Token cost: ~83K tokens (all specialists pre-loaded)"
+  echo ""
+  echo "Done! All specialists available immediately."
+
+else
+  # No install mode — just build
+  echo "Skills generated. To install, run one of:"
+  echo ""
+  echo "  ./setup lite    # Recommended — coordinator only (~1.7K tokens)"
+  echo "  ./setup full    # All specialists pre-loaded (~83K tokens)"
+  echo ""
+
+  # Show what's built
+  echo "Skills built:"
+  FOUND=0
+  for skill in "$SCRIPT_DIR/coordinator/SKILL.md" "$SCRIPT_DIR/SKILL.md" "$SCRIPT_DIR"/specialists/*/SKILL.md "$SCRIPT_DIR"/jobs/*/SKILL.md; do
+    if [ -f "$skill" ]; then
+      echo "  ✓ ${skill#$SCRIPT_DIR/}"
+      FOUND=$((FOUND + 1))
+    fi
+  done
+  echo "  ($FOUND total)"
+fi

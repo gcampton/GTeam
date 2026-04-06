@@ -59,6 +59,7 @@ if (import.meta.main) {
     'SKILL.md.tmpl',
     'specialists/*/SKILL.md.tmpl',
     'jobs/*/SKILL.md.tmpl',
+    'coordinator/SKILL.md.tmpl',
   ]
 
   let hadDiff = false
