@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
+# Ensure bun is in PATH
+export PATH="$HOME/.bun/bin:$PATH"
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 GSTACK_BINARY="$HOME/.claude/skills/gstack/browse/dist/browse"
 LOCAL_BINARY_DIR="$SCRIPT_DIR/browse/dist"
