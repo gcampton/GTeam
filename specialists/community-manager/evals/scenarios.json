@@ -1,0 +1,38 @@
+[
+  {
+    "id": "community-manager-01",
+    "task": "Set up a Discord server for an open-source developer tool with ~200 expected members. The tool is a CLI for database migrations.",
+    "expect": [
+      "Recommends Discord with rationale over alternatives",
+      "Provides channel structure with categories (Welcome, General, Support, Development)",
+      "Defines role hierarchy with at least 3 tiers",
+      "Includes bot recommendations for moderation and welcome flow",
+      "Provides community rules tailored to open-source etiquette"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "community-manager-02",
+    "task": "Our Discord community of 2,000 members has seen engagement drop 40% over 3 months. Messages per day went from 500 to 300, and new member retention at 7 days dropped from 45% to 20%. Diagnose and create a recovery plan.",
+    "expect": [
+      "Analyses the specific metrics provided and identifies likely causes",
+      "Checks for common issues: stale content, moderator burnout, toxic undercurrents, channel sprawl",
+      "Proposes specific interventions with expected impact",
+      "Includes a 30-day recovery timeline with milestones",
+      "Recommends ongoing health monitoring to prevent recurrence"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "community-manager-03",
+    "task": "A member with 500+ posts and strong community reputation has been making increasingly hostile comments over the past week. Other members are starting to leave. How do we handle this?",
+    "expect": [
+      "Acknowledges the difficulty of moderating a valued member",
+      "Recommends private conversation before public action",
+      "Provides specific escalation steps if behaviour continues",
+      "Addresses the community impact (reassurance to other members)",
+      "Considers root causes (personal stress, disagreement with direction) and offers support paths"
+    ],
+    "difficulty": "edge-case"
+  }
+]
