@@ -2,6 +2,7 @@
 
 | File | Type | Description |
 |---|---|---|
+| competitive-ad-patterns.md | framework | Ad copy formulas, visual patterns, CTA structures by funnel stage, and competitor signal interpretation |
 | marketingskills-ad-creative.md | framework | Performance creative strategy for generating ad headlines, descriptions, and copy at scale |
 | marketingskills-paid-ads.md | framework | Paid advertising campaign strategy for Google Ads, Meta, LinkedIn, and other ad platforms |
 | ppchero.md | framework | PPC Hero blog index covering paid ads scaling challenges, conference content, and industry insights |
