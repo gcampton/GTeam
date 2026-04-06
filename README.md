@@ -40,6 +40,23 @@ Most "prompt libraries" give you a paragraph of instructions and hope for the be
 - **Eval-tested** — every specialist has scored evaluation scenarios with automated LLM-as-judge grading. Average score: 91+ across the board
 - **Coordinator mode** — a single ~1,700-token entry point that lazy-loads specialists on demand, instead of burning ~111K tokens upfront. 99% context reduction
 
+## Stuck for Ideas? Want to Make a Living Online?
+
+GTeam's **Ideas Man** specialist is built for exactly this. Tell it what you're good at, how much time you have, and your risk appetite — and it'll find you real opportunities:
+
+```
+/gteam I want to make money online. I know Python and have 10 hours a week.
+```
+
+It starts by profiling your skills and goals, then runs through five research pipelines:
+
+- **Niche scanning** — finds low-competition, high-demand niches using keyword difficulty, search volume, and monetisation potential
+- **Affiliate & content** — YouTube channels, TikTok pages, and affiliate sites with realistic revenue projections
+- **Digital products & e-commerce** — AI-powered sites, info products, print-on-demand, dropshipping — scored by startup cost and time-to-revenue
+- **Startup validation** — TAM/SAM/SOM analysis, unit economics modeling, competitive moat assessment, and investor-readiness scoring with conservative/base/optimistic projections
+
+Every idea comes with a difficulty rating, estimated monthly revenue range, startup costs, and a concrete first-week action plan. No motivational fluff — just scored opportunities ranked by your specific situation.
+
 ## Quick Start
 
 ```bash
