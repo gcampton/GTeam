@@ -3,7 +3,6 @@
 | File | Type | Description |
 |---|---|---|
 | hubspot-blog.md | framework | HubSpot Blog editorial content covering marketing, sales, and customer service topics |
-| hubspot.md | framework | Broken/empty HTML page (no usable content) |
 | marketingskills-free-tool-strategy.md | framework | Engineering-as-marketing strategy for planning free tools that generate leads and organic traffic |
 | marketingskills-launch-strategy.md | framework | SaaS product launch and feature announcement planning with momentum-building tactics |
 | marketingskills-marketing-ideas.md | framework | Library of 139 proven marketing ideas for SaaS, indexed by stage, channel, and resources |

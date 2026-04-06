@@ -11,7 +11,5 @@
 | paywall-upgrade-cro.md | framework | In-app paywall and upgrade flow optimization for free-to-paid conversion |
 | popup-cro.md | framework | Popup and modal optimization for conversion without damaging brand perception |
 | signup-flow-cro.md | framework | Signup and registration flow optimization to reduce friction and increase completion |
-| unbounce.md | framework | Raw HTML from Unbounce (404 page — broken reference) |
-| vwo.md | framework | Raw HTML from VWO (broken reference — not parsed) |
 
 **Types:** framework = domain knowledge (read-only), template = fill-in output structure, checklist = verification/quality gate

@@ -7,10 +7,8 @@
 | marketingskills-social-content.md | framework | Social content creation skill for LinkedIn, Twitter/X, Instagram, TikTok, and content calendars |
 | platform-specs.md | framework | Social media platform specifications including image sizes, character limits, and algorithm notes |
 | problogger-tutorials.md | framework | Scraped ProBlogger tutorials with 10 pages covering online marketing for bloggers |
-| problogger.md | framework | Broken scrape — raw HTML from ProBlogger |
 | sociallysorted-blog.md | framework | Scraped Socially Sorted blog with 42 pages of social media and content marketing articles |
 | socialmediaexaminer.md | framework | Scraped Social Media Examiner index with speaker pages and marketing insights |
-| socialmediatoday.md | framework | Broken scrape — empty HTML page from Social Media Today |
 | sproutsocial.md | framework | Sprout Social resource hub with AI marketing, analytics, benchmarks, and platform strategy guides |
 
 **Types:** framework = domain knowledge (read-only), template = fill-in output structure, checklist = verification/quality gate
