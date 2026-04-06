@@ -35,7 +35,7 @@ GTEAM_DIR = Path(__file__).resolve().parent.parent
 SPECIALISTS_DIR = GTEAM_DIR / "specialists"
 RESULTS_DIR = Path.home() / ".gteam-dev" / "evals" / "matrix"
 
-SCENARIO_TIMEOUT = 180  # seconds per claude -p call
+SCENARIO_TIMEOUT = 300  # seconds per claude -p call
 VERSION = "2.0.0"
 
 # ---------------------------------------------------------------------------

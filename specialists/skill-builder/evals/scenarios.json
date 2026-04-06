@@ -1,0 +1,38 @@
+[
+  {
+    "id": "skill-builder-01",
+    "task": "I want to enrich the software-engineer specialist with Astro framework knowledge. Walk me through how you'd do this — check for configs, determine the best source, and describe the install steps. Don't actually run anything.",
+    "expect": [
+      "Checks the skill-seekers API for an existing Astro config",
+      "Checks for llms.txt or llms-full.txt on the Astro docs site as a fast alternative",
+      "Describes the scrape or create command with correct flags (-p standard --enhance-level 0)",
+      "Shows the install path into software-engineer/references/astro.md",
+      "Mentions registering the new reference in the specialist's SKILL.md"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "skill-builder-02",
+    "task": "Build a skill from this URL: https://docs.stripe.com/payments. Target specialist: software-engineer. Walk through source reachability checks and the full process. Don't actually run the commands.",
+    "expect": [
+      "Runs source reachability check (llms.txt first, then SSR test)",
+      "Uses skill-seekers scrape (not create) for URL sources due to the known KeyError bug",
+      "Includes --rate-limit 5 flag",
+      "Checks output size and recommends --max-pages 500 if thin",
+      "Describes the install and registration steps"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "skill-builder-03",
+    "task": "I want to enrich the devops specialist with knowledge from the GitHub repo 'pulumi/pulumi'. Describe the process including any gotchas.",
+    "expect": [
+      "Uses skill-seekers create with the owner/repo format",
+      "Mentions --local-repo-path option if repo is already cloned",
+      "Uses correct preset and enhance flags",
+      "Identifies the correct target path in devops/references/",
+      "Notes that output lands in output/<name>/SKILL.md"
+    ],
+    "difficulty": "edge-case"
+  }
+]
