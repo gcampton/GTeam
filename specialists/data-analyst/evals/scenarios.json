@@ -1,10 +1,10 @@
 [
   {
     "id": "data-analyst-01",
-    "task": "Analyse our monthly KPI dashboard and identify the 3 most important trends to flag to leadership.",
+    "task": "Analyse the following monthly KPI dashboard and identify the 3 most important trends to flag to leadership.\n\nSaaS KPIs — March 2026 vs February 2026:\n- MRR: $127,400 → $131,200 (+3.0%)\n- New customers: 48 → 31 (-35.4%)\n- Churned customers: 12 → 19 (+58.3%)\n- Net revenue retention: 108% → 97% (-11pp)\n- CAC: $420 → $580 (+38.1%)\n- LTV: $4,200 → $3,800 (-9.5%)\n- LTV:CAC ratio: 10.0 → 6.6 (-34%)\n- Trial-to-paid conversion: 24% → 18% (-6pp)\n- Monthly active users: 3,400 → 3,150 (-7.4%)\n- Support tickets: 89 → 147 (+65.2%)\n- NPS: 52 → 41 (-11 points)\n- Average deal size: $78 → $84 (+7.7%)\n- Sales pipeline: $285K → $310K (+8.8%)",
     "expect": [
-      "Identifies specific metrics with direction and magnitude (e.g. 'CAC increased 15% MoM') rather than vague observations",
-      "Explains the significance and business impact of each trend",
+      "Identifies specific metrics with direction and magnitude (e.g. 'new customers dropped 35.4% while churn rose 58.3%') rather than vague observations",
+      "Explains the significance and business impact of each trend (e.g. net retention dropping below 100% means the existing customer base is shrinking)",
       "Recommends concrete actions or deeper investigations for each flagged trend"
     ],
     "difficulty": "standard"

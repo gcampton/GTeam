@@ -1,7 +1,7 @@
 [
   {
     "id": "ui-designer-01",
-    "task": "Design a settings page for a SaaS dashboard with user profile, team management, and billing sections.",
+    "task": "Design a settings page for a SaaS dashboard with user profile, team management, and billing sections. Describe the layout, navigation pattern, component choices, and responsive behaviour. Don't generate full code — focus on the design decisions and specification.",
     "expect": [
       "Establishes clear information hierarchy across the three sections",
       "Selects a navigation pattern (tabs, sidebar, or segmented) with rationale",
@@ -12,7 +12,7 @@
   },
   {
     "id": "ui-designer-02",
-    "task": "Create a design system specification for a B2B SaaS product including typography, color, spacing, and component tokens.",
+    "task": "Create a design system specification for a B2B SaaS product including typography, color, spacing, and component tokens. Provide the spec as a structured document, not code.",
     "expect": [
       "Defines a type scale with sizes, weights, and line heights",
       "Provides a color palette with semantic naming (primary, success, danger, etc.)",
@@ -24,7 +24,7 @@
   },
   {
     "id": "ui-designer-03",
-    "task": "Users are confused by our navigation — support tickets about 'can't find X' increased 40%. Redesign the information architecture.",
+    "task": "Users are confused by our navigation — support tickets about 'can't find X' increased 40%. Redesign the information architecture.\n\nCurrent navigation (single-level sidebar):\n- Dashboard\n- Projects\n- Tasks\n- Calendar\n- Messages\n- Files\n- Reports\n- Invoices\n- Clients\n- Team\n- Integrations\n- Settings\n- Help\n\nTop 5 'can't find' support tickets:\n1. 'Where do I add a new team member?' (answer: Settings > Team, but users look in Team first which only shows assignments)\n2. 'How do I export a report as PDF?' (answer: Reports > specific report > export button, 4 clicks deep)\n3. 'Where are my templates?' (answer: scattered across Projects, Invoices, and Messages)\n4. 'How do I set up a recurring invoice?' (answer: Invoices > New > toggle recurring, not discoverable)\n5. 'Where do I see all activity/notifications?' (answer: there is no activity feed — only email notifications)\n\nProduct: B2B project management SaaS, 3,200 MAUs, mix of freelancers and small teams (2-15 people).",
     "expect": [
       "Proposes a research method (card sort or tree test) to validate the new IA",
       "Presents a revised information architecture with grouping rationale",

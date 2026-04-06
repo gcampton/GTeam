@@ -1,13 +1,13 @@
 [
   {
     "id": "software-engineer-01",
-    "task": "Review this pull request for a REST API endpoint that handles user authentication. Check for security and correctness.",
+    "task": "Review the following pull request for a REST API authentication endpoint. Check for security and correctness.\n\n```javascript\n// POST /api/auth/login\napp.post('/api/auth/login', async (req, res) => {\n  const { email, password } = req.body;\n\n  const user = await db.query(`SELECT * FROM users WHERE email = '${email}'`);\n  if (!user) return res.status(401).json({ error: 'User not found: ' + email });\n\n  const valid = password === user.password;\n  if (!valid) return res.status(401).json({ error: 'Wrong password for ' + email });\n\n  const token = jwt.sign(\n    { id: user.id, email: user.email, role: user.role },\n    'my-secret-key-2024',\n    { expiresIn: '30d' }\n  );\n\n  res.json({ token, user: { id: user.id, email: user.email, role: user.role } });\n});\n\n// POST /api/auth/reset-password\napp.post('/api/auth/reset-password', async (req, res) => {\n  const { token, newPassword } = req.body;\n  const decoded = jwt.verify(token, 'my-secret-key-2024');\n  await db.query(`UPDATE users SET password = '${newPassword}' WHERE id = ${decoded.id}`);\n  res.json({ message: 'Password updated' });\n});\n```",
     "expect": [
-      "Checks input validation and sanitization",
-      "Identifies SQL injection or other injection vulnerabilities",
-      "Verifies password hashing uses a secure algorithm (bcrypt, argon2)",
-      "Evaluates rate limiting to prevent brute-force attacks",
-      "Reviews error handling to avoid leaking sensitive information"
+      "Identifies SQL injection vulnerability in the template literal queries",
+      "Flags plaintext password storage and comparison (should use bcrypt/argon2)",
+      "Catches the hardcoded JWT secret key",
+      "Notes error messages leak user existence information",
+      "Identifies missing rate limiting for brute-force protection"
     ],
     "difficulty": "standard"
   },

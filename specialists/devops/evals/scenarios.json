@@ -1,7 +1,7 @@
 [
   {
     "id": "devops-01",
-    "task": "Set up a CI/CD pipeline for a Node.js monorepo with 3 services deploying to AWS ECS.",
+    "task": "Design a CI/CD pipeline configuration for a Node.js monorepo with 3 services (api, worker, web) deploying to AWS ECS. Provide the pipeline stages, caching strategy, and deployment order. Don't write full config files — describe the architecture and key decisions.",
     "expect": [
       "Defines pipeline stages (lint, test, build, deploy) with a caching strategy for node_modules and Docker layers",
       "Uses parallel builds for independent services with a defined deployment order for dependent services",
@@ -21,7 +21,7 @@
   },
   {
     "id": "devops-03",
-    "task": "We need to migrate from a single-region AWS setup to multi-region for compliance. Create a migration plan.",
+    "task": "We need to migrate from a single-region AWS setup (us-east-1) to multi-region (add eu-west-1) for GDPR data residency compliance. Our stack: 2x ECS services (API + worker), RDS PostgreSQL 15, S3 for file storage, ElastiCache Redis, CloudFront CDN. ~500 EU users out of 5,000 total. Create a concise migration plan covering data replication, DNS routing, and phased rollout. Keep it to key decisions and architecture — not full IaC configs.",
     "expect": [
       "Defines a data replication strategy (RDS read replicas, DynamoDB global tables, or S3 cross-region replication as applicable)",
       "Includes DNS failover configuration (Route 53 health checks, latency-based routing) with defined RTO/RPO targets",

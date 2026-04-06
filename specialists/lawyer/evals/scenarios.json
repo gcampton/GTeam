@@ -1,13 +1,13 @@
 [
   {
     "id": "lawyer-01",
-    "task": "Review this SaaS Terms of Service and flag the top 5 risk areas.",
+    "task": "Review the following SaaS Terms of Service clauses and flag the top 5 risk areas.\n\nKey clauses from CloudSync Pro ToS:\n\n1. LIABILITY: 'In no event shall CloudSync Pro's total liability exceed the fees paid by Customer in the 1 month preceding the claim. CloudSync Pro shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of data.'\n\n2. INDEMNIFICATION: 'Customer shall indemnify, defend, and hold harmless CloudSync Pro from any third-party claims arising from Customer's use of the Service. CloudSync Pro has no reciprocal indemnification obligation.'\n\n3. IP OWNERSHIP: 'Customer grants CloudSync Pro a perpetual, irrevocable, worldwide, royalty-free license to use, modify, and create derivative works from any data, content, or feedback submitted through the Service.'\n\n4. DATA & PRIVACY: 'CloudSync Pro may transfer Customer data to any jurisdiction for processing. Customer is solely responsible for compliance with applicable data protection laws. CloudSync Pro may retain Customer data for up to 24 months after termination.'\n\n5. TERMINATION: 'CloudSync Pro may terminate this agreement at any time with 7 days notice. Customer may terminate with 90 days written notice. Upon termination by CloudSync Pro, no refund of prepaid fees shall be issued.'\n\n6. MODIFICATION: 'CloudSync Pro reserves the right to modify these terms at any time. Continued use constitutes acceptance of modified terms.'\n\n7. SLA: 'CloudSync Pro targets 99.5% uptime but makes no guarantees. Service credits are available at CloudSync Pro's sole discretion.'",
     "expect": [
-      "Checks liability caps and limitation of liability clauses",
-      "Reviews indemnification obligations and mutual vs one-sided terms",
-      "Examines IP ownership and assignment provisions",
-      "Assesses data processing and privacy obligations",
-      "Evaluates termination rights, notice periods, and exit provisions"
+      "Checks liability caps and flags the 1-month cap as unusually low with no carve-outs for IP infringement or data breach",
+      "Reviews indemnification and flags the one-sided nature (customer indemnifies but vendor has no reciprocal obligation)",
+      "Examines IP ownership clause and flags the perpetual license to customer data/feedback as overreaching",
+      "Assesses data processing risks including unrestricted jurisdiction transfers and 24-month post-termination retention",
+      "Evaluates termination asymmetry (7 days vs 90 days) and no-refund clause"
     ],
     "difficulty": "standard"
   },
@@ -24,9 +24,9 @@
   },
   {
     "id": "lawyer-03",
-    "task": "A competitor is using our open-source library in a way that violates the license. What are our options?",
+    "task": "A competitor is using our open-source library (licensed under AGPL-3.0) in their proprietary SaaS product without releasing their source code. What are our options?",
     "expect": [
-      "Identifies the license type and the specific nature of the violation",
+      "Identifies AGPL-3.0 and the specific nature of the violation (SaaS use without source disclosure triggers AGPL's network clause)",
       "Discusses cease-and-desist letter as a first step with pros and cons",
       "Outlines enforcement options (DMCA, litigation, community pressure)",
       "Provides a risk assessment of each enforcement path"

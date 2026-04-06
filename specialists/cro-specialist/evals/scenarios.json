@@ -1,7 +1,7 @@
 [
   {
     "id": "cro-specialist-01",
-    "task": "Audit this landing page and provide 5 specific conversion improvements with expected impact.",
+    "task": "Audit the following landing page and provide 5 specific conversion improvements with expected impact.\n\nLanding page details:\n- URL: app.acmehr.com/signup\n- Product: B2B HR software, $49/mo per seat\n- Headline: 'HR Software for Modern Teams'\n- Subheadline: 'Streamline your HR processes today'\n- Hero image: stock photo of people in office\n- CTA button: 'Get Started' (blue, below the fold)\n- Form fields: Full name, Work email, Company name, Phone number, Company size (dropdown), How did you hear about us (dropdown)\n- Social proof: 'Trusted by 500+ companies' (no logos, no testimonials)\n- Page load time: 4.2s on mobile, 2.1s on desktop\n- Current conversion rate: 2.1% desktop, 0.8% mobile\n- Bounce rate: 72%\n- Average time on page: 18 seconds",
     "expect": [
       "Addresses at least headline clarity, CTA design/placement, social proof presence, form friction, and page load performance",
       "Provides expected impact estimates (e.g. percentage lift range) for each recommendation",

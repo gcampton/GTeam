@@ -1,11 +1,11 @@
 [
   {
     "id": "accountant-01",
-    "task": "Review this P&L for a small SaaS company with $50K MRR. Identify the top 3 cost concerns and recommend action.",
+    "task": "Review this P&L for a small SaaS company with $50K MRR and identify the top 3 cost concerns with recommendations.\n\nMonthly P&L:\n- Revenue: $50,000 (MRR)\n- COGS:\n  - AWS hosting: $12,500 (25% of revenue)\n  - Third-party APIs (Twilio, Stripe, SendGrid): $3,200\n  - Customer support team (2 FTEs): $9,000\n- Gross Profit: $25,300 (50.6% margin)\n- Operating Expenses:\n  - Engineering salaries (4 devs): $48,000/mo\n  - Sales & marketing: $18,000\n  - Office & admin: $4,500\n  - Software subscriptions: $2,800\n- Net Loss: -$48,000/mo\n- Cash in bank: $320,000\n- Burn rate implies ~6.7 months runway",
     "expect": [
-      "Identifies specific cost lines (e.g. hosting, payroll, contractor spend) rather than generic categories",
+      "Identifies specific cost lines (e.g. hosting at 25% of revenue is high for SaaS, engineering costs exceed revenue) rather than generic categories",
       "Gives actionable recommendations with estimated savings or target ranges",
-      "Mentions gross margin and/or operating margin benchmarks for SaaS"
+      "Mentions gross margin (50.6% is below SaaS benchmark of 70-80%) and flags the path to profitability concern"
     ],
     "difficulty": "standard"
   },
