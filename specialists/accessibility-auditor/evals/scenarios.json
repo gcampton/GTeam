@@ -1,0 +1,41 @@
+[
+  {
+    "id": "a11y-01",
+    "task": "Audit the following HTML for WCAG 2.2 Level AA compliance and provide a prioritised list of violations with fixes:\n\n```html\n<div onclick=\"navigate('/about')\" style=\"color: #aaa; background: #fff;\">\n  <img src=\"logo.png\">\n  <div style=\"font-size: 14px;\">About Us</div>\n</div>\n<form>\n  <input type=\"email\" placeholder=\"Email\">\n  <div class=\"btn\" onclick=\"submit()\">Submit</div>\n</form>\n```",
+    "expect": [
+      "Identifies missing alt text on the img element",
+      "Flags insufficient colour contrast (light grey on white)",
+      "Notes the div-as-link is not keyboard accessible (needs <a> or role/tabindex)",
+      "Identifies the missing form label (placeholder is not a label)",
+      "Flags the div-as-button is not keyboard accessible (needs <button>)",
+      "Provides specific code fixes for each violation with WCAG criterion numbers"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "a11y-02",
+    "task": "A React modal component opens when a button is clicked but users report they cannot close it with the keyboard, and screen reader users say focus gets lost behind the modal. Diagnose the issues and provide a fully accessible modal implementation.",
+    "expect": [
+      "Identifies need for focus trap inside the modal",
+      "Specifies Escape key handler to close the modal",
+      "Requires focus to move into the modal on open",
+      "Requires focus to return to trigger element on close",
+      "Includes role=\"dialog\", aria-modal=\"true\", and aria-labelledby",
+      "Provides working code example with all fixes"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "a11y-03",
+    "task": "Our e-commerce site just received a demand letter about ADA non-compliance. The site has: custom dropdown menus that only work with mouse hover, a checkout form with error messages shown only as red borders, auto-playing background video on the homepage, and no skip navigation. Create a remediation plan prioritised by legal risk and user impact.",
+    "expect": [
+      "Prioritises by user impact: keyboard-inaccessible dropdowns and missing error text are highest",
+      "Addresses auto-playing video (needs controls or removal)",
+      "Specifies skip navigation implementation",
+      "Provides ARIA patterns for accessible dropdown menus",
+      "Recommends form error messages with aria-describedby",
+      "Structures remediation as a phased plan with effort estimates"
+    ],
+    "difficulty": "edge-case"
+  }
+]

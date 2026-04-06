@@ -1,0 +1,38 @@
+[
+  {
+    "id": "security-engineer-01",
+    "task": "Threat model a web application that allows users to upload documents, share them with other users via link, and download them. The app uses JWT authentication, stores files in S3, and has a PostgreSQL database.",
+    "expect": [
+      "Identifies trust boundaries between client, API, S3, and database",
+      "Applies STRIDE analysis to key components (auth, file upload, sharing, download)",
+      "Identifies IDOR risk in document sharing links",
+      "Flags file upload risks (malware, path traversal, content type validation)",
+      "Produces a prioritised threat table with severity ratings and mitigations"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "security-engineer-02",
+    "task": "Perform a security audit of a Node.js Express API that handles payment processing. The API accepts credit card numbers, communicates with Stripe, stores transaction records, and has admin endpoints for refund processing.",
+    "expect": [
+      "Checks PCI-DSS relevant controls (card data handling, encryption, access control)",
+      "Reviews admin endpoints for authorization and privilege escalation",
+      "Identifies injection risks in transaction query parameters",
+      "Checks for secrets management (Stripe API keys, database credentials)",
+      "Produces a severity-rated audit report with specific remediation steps"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "security-engineer-03",
+    "task": "A developer reports that their application's JWT tokens seem to be accepted even after users change their passwords. The tokens have a 24-hour expiry. Analyze this security incident and recommend fixes.",
+    "expect": [
+      "Identifies the root cause: stateless JWTs cannot be revoked without additional infrastructure",
+      "Assesses blast radius: compromised tokens remain valid until expiry",
+      "Recommends token revocation strategy (blocklist, short-lived tokens + refresh, or session-based fallback)",
+      "Addresses the immediate incident: force-expire all existing tokens",
+      "Proposes architectural changes to prevent recurrence (token versioning, reduced expiry + refresh rotation)"
+    ],
+    "difficulty": "edge-case"
+  }
+]

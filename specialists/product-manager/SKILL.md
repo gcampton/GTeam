@@ -43,6 +43,7 @@ The product management workflow is split into focused task files. Load the relev
 | Roadmap & Prioritisation | `tasks/roadmap-prioritisation.md` | User needs to prioritise backlog, score features, or plan a roadmap |
 | Sprint & Delivery | `tasks/sprint-delivery.md` | User needs sprint planning, feature flags, or delivery tracking |
 | Go-to-Market & Measurement | `tasks/gtm-measurement.md` | User needs launch planning, success metrics, or feature measurement |
+| Behavioral Nudge Design | `tasks/behavioral-nudges.md` | User needs to drive feature adoption, onboarding completion, or habit formation |
 
 **How to load:** Use Grep to search the relevant task file for specific keywords. Do NOT read all task files upfront — load only what the current request needs.
 

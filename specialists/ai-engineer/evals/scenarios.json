@@ -1,0 +1,41 @@
+[
+  {
+    "id": "ai-engineer-01",
+    "task": "Design a RAG system for a customer support chatbot with 500 help articles. The articles are in Markdown, updated weekly, and the chatbot needs to answer questions with source citations in under 3 seconds.",
+    "expect": [
+      "Recommends a chunking strategy appropriate for structured Markdown content",
+      "Selects an embedding model and vector database with justification",
+      "Designs the retrieval pipeline including hybrid search or re-ranking",
+      "Addresses context window management and source attribution",
+      "Includes an evaluation plan with faithfulness and relevance metrics",
+      "Considers the weekly update cycle in the ingestion pipeline design"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "ai-engineer-02",
+    "task": "A production prompt that extracts structured JSON from customer emails is generating inconsistent output. About 20% of responses fail JSON validation. The prompt works fine in testing with curated examples. Evaluate and optimise it.",
+    "expect": [
+      "Investigates the gap between test and production inputs (real emails are messier)",
+      "Reviews the prompt structure for ambiguous instructions or missing edge cases",
+      "Recommends structured output enforcement (JSON mode, tool use, or schema validation)",
+      "Proposes a retry-with-fallback strategy for validation failures",
+      "Designs a prompt regression test suite using production failure examples",
+      "Suggests monitoring to catch future regressions early"
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": "ai-engineer-03",
+    "task": "An AI-powered product recommendation feature works well in testing but fails unpredictably in production — 5% of requests return nonsensical recommendations (wrong category, out-of-stock items, irrelevant to user history). The team cannot reproduce the issue locally. Diagnose and propose a fix.",
+    "expect": [
+      "Identifies potential causes: stale embeddings, data pipeline lag, cache poisoning, model version drift",
+      "Proposes systematic diagnosis: log analysis, request sampling, A/B comparison of failing vs passing requests",
+      "Checks for data quality issues between test and production environments",
+      "Recommends output validation and guardrails before serving recommendations",
+      "Designs monitoring to detect and alert on quality degradation",
+      "Suggests a graceful fallback for when recommendations fail validation"
+    ],
+    "difficulty": "edge-case"
+  }
+]
