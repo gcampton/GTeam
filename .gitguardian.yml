@@ -1,0 +1,14 @@
+version: 2
+ignore-known-secrets: true
+matches-ignore:
+  # Google's own public-facing API keys scraped from developers.google.com JS bundle.
+  # These are not user credentials — they are embedded in Google's own website frontend
+  # and visible to anyone visiting the page.
+  - name: Google public site keys (developers.google.com)
+    match: "AIzaSyAP-jjEJBzmIyKR4F-3XITp8yM9T1gEEI8"
+  - name: Google public site keys (developers.google.com)
+    match: "AIzaSyB6xiKGDR5O3Ak2okS4rLkauxGUG7XP0hg"
+  - name: Google public site keys (developers.google.com)
+    match: "AIzaSyAQk0fBONSGUqCNznf6Krs82Ap1-NV6J4o"
+  - name: Google public site keys (developers.google.com)
+    match: "AIzaSyCCxcqdrZ_7QMeLCRY20bh_SXdAYqy70KY"
