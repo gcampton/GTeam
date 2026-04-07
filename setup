@@ -113,21 +113,22 @@ elif [ "$MODE" = "full" ]; then
   echo "Installing in FULL mode (all specialists)..."
   echo ""
 
-  # Remove lite install artifacts
-  if [ -L "$COMMANDS_DIR/gteam.md" ]; then
-    echo "  Removing lite coordinator: $COMMANDS_DIR/gteam.md"
-    rm "$COMMANDS_DIR/gteam.md"
-  fi
+  # Remove .claudeskillsignore so all specialists are auto-discovered
   rm -f "$SCRIPT_DIR/.claudeskillsignore"
 
   # Symlink whole repo
   mkdir -p "$SKILLS_DIR"
   ln -sf "$SCRIPT_DIR" "$SKILLS_DIR/gteam"
   echo "  ✓ Full install: $SKILLS_DIR/gteam"
+
+  # Install coordinator as the /gteam command entry point
+  mkdir -p "$COMMANDS_DIR"
+  ln -sf "$SCRIPT_DIR/coordinator/SKILL.md" "$COMMANDS_DIR/gteam.md"
+  echo "  ✓ Coordinator installed: $COMMANDS_DIR/gteam.md"
   echo ""
   echo "  Token cost: ~83K tokens (all specialists pre-loaded)"
   echo ""
-  echo "Done! All specialists available immediately."
+  echo "Done! All specialists available immediately. Use /gteam or invoke any specialist directly."
 
 else
   # No install mode — just build
@@ -140,7 +141,7 @@ else
   # Show what's built
   echo "Skills built:"
   FOUND=0
-  for skill in "$SCRIPT_DIR/coordinator/SKILL.md" "$SCRIPT_DIR/SKILL.md" "$SCRIPT_DIR"/specialists/*/SKILL.md "$SCRIPT_DIR"/jobs/*/SKILL.md; do
+  for skill in "$SCRIPT_DIR/coordinator/SKILL.md" "$SCRIPT_DIR"/specialists/*/SKILL.md "$SCRIPT_DIR"/jobs/*/SKILL.md; do
     if [ -f "$skill" ]; then
       echo "  ✓ ${skill#$SCRIPT_DIR/}"
       FOUND=$((FOUND + 1))

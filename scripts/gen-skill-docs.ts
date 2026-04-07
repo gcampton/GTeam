@@ -56,7 +56,6 @@ if (import.meta.main) {
   const rootDir = join(import.meta.dir, '..')
 
   const patterns = [
-    'SKILL.md.tmpl',
     'specialists/*/SKILL.md.tmpl',
     'jobs/*/SKILL.md.tmpl',
     'coordinator/SKILL.md.tmpl',
