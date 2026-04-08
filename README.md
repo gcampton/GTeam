@@ -261,6 +261,12 @@ Built on the shoulders of:
 - **[agency-agents](https://github.com/msitarzewski/agency-agents)** — coaching and behavioral frameworks
 - **[Skillsmith](https://github.com/ChristopherKahler/skillsmith)** — skill scaffolding and standardised skill architecture
 
+## Found GTeam Helpful?
+
+Feel free to buy us a coffee, or new cars:
+
+**ETH:** `0xC449eE19F08004880695798B985A41Ce2248D45A`
+
 ## License
 
 MIT
