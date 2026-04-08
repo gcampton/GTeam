@@ -1,7 +1,7 @@
 ---
 name: gteam-skill-builder
 version: 2.0.0
-description: Build reference libraries and scaffold new GTeam specialists. Scrapes URLs, APIs, and GitHub repos using the bundled browse engine — no external dependencies required.
+description: Build reference libraries and scaffold new GTeam specialists. Uses the Skill-Seekers API for known technologies, falling back to WebFetch and curl for anything else.
 type: standalone
 category: meta
 allowed-tools:
@@ -26,10 +26,10 @@ You are a knowledge architect specialising in building domain-specific reference
 ## Environment
 
 ```
-browse binary:    ~/.claude/skills/gteam/browse/dist/browse
-gteam dir:        ~/.claude/skills/gteam
-specialists dir:  ~/.claude/skills/gteam/specialists/
-rate limit:       3s between page requests (default)
+skill-seekers API:  https://api.skillseekersweb.com/api/
+gteam dir:          ~/.claude/skills/gteam
+specialists dir:    ~/.claude/skills/gteam/specialists/
+rate limit:         3s between curl page requests (WebFetch needs none)
 ```
 
 ## When to Use
@@ -47,40 +47,54 @@ rate limit:       3s between page requests (default)
 
 ## Workflow
 
-### Browse Setup
+### Source Strategy — Check in Order
 
-The browse binary ships with GTeam and is built during `./setup`. Set the path before any browse command:
+Always work through these steps before scraping anything. Each step is faster and more reliable than the next.
 
+**Step 1 — Skill-Seekers API (fastest for known technologies):**
 ```bash
-B=~/.claude/skills/gteam/browse/dist/browse
+# Search for a pre-built config
+curl -s "https://api.skillseekersweb.com/api/configs?tag=<technology>" | python3 -m json.tool
+
+# Or by category
+curl -s "https://api.skillseekersweb.com/api/configs?category=web-frameworks" | python3 -m json.tool
 ```
+If a match exists, get the exact filename and download:
+```bash
+curl -s "https://api.skillseekersweb.com/api/configs/<name>" | python3 -m json.tool
+curl -s "https://api.skillseekersweb.com/api/download/<config_file>.json" \
+  -o /tmp/<name>-config.json
+```
+Then fetch the pre-built SKILL.md if available, or use the config to understand the source structure and proceed to scraping.
 
-**Default rate limit: 3 seconds between page requests.** Use `sleep 3` between every `$B goto` call when crawling multiple pages. Lower values (< 2s) trigger 403s on most production doc sites after ~100 pages.
+Available categories: `ai-ml`, `api-tech`, `build-tools`, `cloud`, `cms`, `css-frameworks`, `databases`, `development-tools`, `devops`, `game-engines`, `languages`, `messaging`, `mobile`, `payments`, `search`, `security`, `testing`, `web-frameworks`
 
----
-
-### Source Reachability — Check First
-
-Before scraping anything, determine the best method:
-
-**Step 1 — Check for llms.txt (fastest, always try first):**
+**Step 2 — Check for llms.txt:**
 ```bash
 curl -s -o /dev/null -w "%{http_code}" "https://<domain>/llms.txt"
 curl -s -o /dev/null -w "%{http_code}" "https://<domain>/llms-full.txt"
 curl -s -o /dev/null -w "%{http_code}" "https://<domain>/docs/llms-full.txt"
 ```
-If `llms-full.txt` returns 200: download directly, no scraping needed:
+If `llms-full.txt` returns 200: download directly — no scraping needed:
 ```bash
 curl -s "https://<domain>/docs/llms-full.txt" -o /tmp/<name>.md
 ```
 
-**Step 2 — Test if WebFetch can get meaningful content:**
+**Step 3 — WebFetch (static/SSR docs):**
 
-Use the WebFetch tool on a sample page. If the result contains readable prose (not just script tags), use WebFetch for the full crawl.
+Use the WebFetch tool on the docs index page. If it returns readable prose, use WebFetch to crawl all doc pages. No rate limiting needed — WebFetch is not a browser and doesn't trigger bot detection.
 
-**Step 3 — Fall back to browse for JS-rendered sites:**
+**Step 4 — curl fallback (if WebFetch unavailable):**
+```bash
+curl -s "https://<domain>/docs/<page>" | python3 -c "
+import sys, re
+text = re.sub(r'<[^>]+>', ' ', sys.stdin.read())
+text = re.sub(r'\s+', ' ', text).strip()
+print(text[:5000])
+"
+```
 
-If WebFetch returns empty or script-heavy HTML, the site is a React/Next.js SPA. Use browse.
+If all four steps fail (JS-rendered SPA with no alternative source), check for a GitHub repo or versioned/legacy docs URL that may be static HTML.
 
 ---
 
@@ -88,31 +102,32 @@ If WebFetch returns empty or script-heavy HTML, the site is a React/Next.js SPA.
 
 **Use when:** User provides a documentation URL to build a reference file from.
 
-**Always run Source Reachability check first.**
+**Always run Source Strategy first.** If Skill-Seekers API or llms.txt resolves it, skip scraping.
 
-**If llms-full.txt available:** Download and skip to "Process into Reference File."
+**WebFetch crawl (preferred):**
 
-**If WebFetch works (static/SSR):**
+1. Fetch the docs index page with WebFetch
+2. Extract all doc page links from the content
+3. Fetch each page with WebFetch, collecting content
+4. Stop when content exceeds 200KB — enough for a strong reference file
 
-Fetch the index page, extract links, then fetch each page. Collect all content into a single file. No rate limit needed — WebFetch is not a browser and doesn't trigger bot detection.
+No delays needed between WebFetch calls.
 
-**If browse required (JS-rendered SPA):**
-
+**curl crawl (fallback):**
 ```bash
-B=~/.claude/skills/gteam/browse/dist/browse
+# Fetch index and extract links
+curl -s "https://<domain>/docs/" | python3 -c "
+import sys, re
+links = re.findall(r'href=[\"\'](/docs/[^\"\']+)[\"\'\ ]', sys.stdin.read())
+for l in sorted(set(links)): print(l)
+"
 
-# Start the browser and navigate to the docs index
-$B goto https://<domain>/docs
-$B text    # capture index page text
-$B links   # get all doc links
-
-# For each doc page (3s rate limit between requests):
+# Fetch each page — add sleep 3 between requests on production sites
 sleep 3
-$B goto https://<domain>/docs/<page>
-$B text    # capture page text — append to running content collection
+curl -s "https://<domain>/docs/<page>"
 ```
 
-Crawl depth: aim for all pages linked from the index. Stop if content exceeds 200KB — that's enough for a strong reference file. If the site has a sidebar nav, get the links from it first using `$B links` on the index, then crawl each one sequentially with `sleep 3` between each.
+Rate limit for curl: **3 seconds between requests** on production doc sites. Lower values trigger 403s after ~100 pages.
 
 ---
 
@@ -120,20 +135,24 @@ Crawl depth: aim for all pages linked from the index. Stop if content exceeds 20
 
 **Use when:** User provides an API to document (REST, GraphQL, OpenAPI spec).
 
-**Step 1 — Check for OpenAPI/Swagger spec:**
+**Step 1 — Check Skill-Seekers API first:**
+```bash
+curl -s "https://api.skillseekersweb.com/api/configs?tag=<api-name>" | python3 -m json.tool
+```
+
+**Step 2 — Check for OpenAPI/Swagger spec:**
 ```bash
 curl -s "https://<domain>/openapi.json" | python3 -m json.tool | head -100
 curl -s "https://<domain>/swagger.json" | python3 -m json.tool | head -100
 curl -s "https://<domain>/api-docs" | head -100
 ```
-
-**Step 2 — If spec found:** Download and parse into reference markdown:
+If found, download and parse into reference markdown:
 ```bash
 curl -s "https://<domain>/openapi.json" -o /tmp/<name>-openapi.json
 ```
-Extract: base URL, authentication method, all endpoints (method + path + description + params + response schema), rate limits, error codes.
+Extract: base URL, auth method, all endpoints (method + path + description + params + response schema), rate limits, error codes.
 
-**Step 3 — If no spec:** Use browse to scrape the API reference docs using the URL scraping workflow above.
+**Step 3 — If no spec:** Use WebFetch to scrape the API reference docs using the URL workflow above.
 
 **Step 4 — For JSON/data dumps provided by the user:** Read the file, extract structure, summarize schemas, document all fields and types.
 
@@ -143,32 +162,36 @@ Extract: base URL, authentication method, all endpoints (method + path + descrip
 
 **Use when:** User provides a `owner/repo` GitHub repository.
 
+**Step 1 — Check Skill-Seekers API:**
 ```bash
-# Fetch README
+curl -s "https://api.skillseekersweb.com/api/configs?tag=<repo-name>" | python3 -m json.tool
+```
+
+**Step 2 — Fetch via GitHub raw:**
+```bash
+# README
 curl -s "https://raw.githubusercontent.com/<owner>/<repo>/main/README.md"
 
 # Discover docs folder
 curl -s "https://api.github.com/repos/<owner>/<repo>/contents/docs" | python3 -m json.tool
 
-# Fetch each doc file
+# Each doc file
 curl -s "https://raw.githubusercontent.com/<owner>/<repo>/main/docs/<file>.md"
 ```
 
-For repos without a docs folder: fetch README + any `.md` files at root. For large repos, prioritize: README → CONTRIBUTING → docs/ → examples/.
-
-Rate limit: GitHub raw content is generally safe without delays. The API (`api.github.com`) allows 60 unauthenticated requests/hour — add `sleep 1` if fetching many files.
+Prioritise: README → CONTRIBUTING → docs/ → examples/. GitHub raw content needs no rate limiting. The GitHub API (`api.github.com`) allows 60 unauthenticated requests/hour — add `sleep 1` if fetching many files.
 
 ---
 
 ### Process into Reference File
 
-After collecting raw content, synthesize it into a clean reference markdown file.
+After collecting raw content, synthesize into a clean reference markdown file.
 
-**Structure for a reference file:**
+**Structure:**
 ```markdown
 # <Technology> Reference
 
-> Source: <url or repo> | Scraped: <date>
+> Source: <url or repo> | Built: <date>
 
 ## Overview
 [What this technology does — 2-3 sentences]
@@ -192,9 +215,9 @@ After collecting raw content, synthesize it into a clean reference markdown file
 [Cheat sheet: key commands, config options, API endpoints]
 ```
 
-Remove: marketing copy, navigation elements, cookie notices, repetitive boilerplate. Keep: technical specifics, code examples, config schemas, API signatures, error handling patterns.
+Remove: marketing copy, nav elements, cookie notices, repetitive boilerplate. Keep: technical specifics, code examples, config schemas, API signatures, error handling.
 
-**Target size:** 20–80KB. If raw content exceeds this, prioritize depth on core concepts over breadth.
+**Target size:** 20–80KB. Prioritise depth on core concepts over breadth.
 
 **Output location:**
 ```bash
@@ -215,12 +238,12 @@ Remove: marketing copy, navigation elements, cookie notices, repetitive boilerpl
 - Security tools → `security-engineer`
 
 **Process:**
-1. Run the appropriate scraping workflow (URL / API / GitHub)
+1. Run Source Strategy (SS API → llms.txt → WebFetch → curl)
 2. Process into a reference file
 3. Install: `cp /tmp/<name>.md ~/.claude/skills/gteam/specialists/<specialist>/references/<name>.md`
 4. Confirm installed file size and one-line summary of coverage
 
-The specialist will load the reference automatically on next invocation.
+The specialist loads the new reference automatically on next invocation.
 
 ---
 
@@ -242,7 +265,7 @@ mkdir -p $GTEAM/specialists/$NAME/results
 
 **Step 2 — Write `methodology.md`:**
 
-Synthesize the scraped reference content (if any was collected) into a structured methodology covering:
+Synthesize collected reference content into a structured methodology covering:
 - Domain workflow (phases, decision points)
 - Quality standards and professional rules
 - Common patterns and anti-patterns
@@ -328,14 +351,14 @@ EOF
 
 ### Rules
 
-- **Rate limit default: 3 seconds** between browse page requests. Never go below 2s on production doc sites.
-- **Always check llms.txt first** — it saves 10+ minutes of crawling when available.
+- **Always try Skill-Seekers API first** — if they have a pre-built config, it's faster and higher quality than scraping from scratch. Some config names require a `_unified` suffix — always check `/api/configs/<name>` for the exact filename before downloading.
+- **Rate limit for curl: 3 seconds** between page requests on production sites. Lower values trigger 403s after ~100 pages. WebFetch needs no rate limiting.
+- **Always check llms.txt** before scraping — saves 10+ minutes when available.
 - **Reference file naming:** `<technology>.md` (lowercase, hyphenated). Example: `stripe-api.md`, `next-js.md`.
 - **methodology.md is the knowledge** — write it as a professional would document their domain workflow, not as a list of facts.
 - **SKILL.md.tmpl is the interface** — keep it thin. Heavy content lives in methodology.md and references/.
 - **Run `bun run gen:skill-docs` after every tmpl change** — never edit SKILL.md directly.
 - **Run `bun run skill:check`** after scaffolding to confirm the new specialist registers cleanly.
-- If browse produces empty text, try `$B html` to inspect raw structure, then target a specific selector with `$B html <selector>`.
 
 
 ## Reference Materials

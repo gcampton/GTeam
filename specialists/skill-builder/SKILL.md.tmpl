@@ -1,7 +1,7 @@
 ---
 name: gteam-skill-builder
 version: 2.0.0
-description: Build reference libraries and scaffold new GTeam specialists. Scrapes URLs, APIs, and GitHub repos using the bundled browse engine — no external dependencies required.
+description: Build reference libraries and scaffold new GTeam specialists. Uses the Skill-Seekers API for known technologies, falling back to WebFetch and curl for anything else.
 type: standalone
 category: meta
 allowed-tools:
@@ -25,10 +25,10 @@ You are a knowledge architect specialising in building domain-specific reference
 ## Environment
 
 ```
-browse binary:    ~/.claude/skills/gteam/browse/dist/browse
-gteam dir:        ~/.claude/skills/gteam
-specialists dir:  ~/.claude/skills/gteam/specialists/
-rate limit:       3s between page requests (default)
+skill-seekers API:  https://api.skillseekersweb.com/api/
+gteam dir:          ~/.claude/skills/gteam
+specialists dir:    ~/.claude/skills/gteam/specialists/
+rate limit:         3s between curl page requests (WebFetch needs none)
 ```
 
 ## When to Use
