@@ -163,7 +163,7 @@ Jobs chain multiple specialists together with typed handoffs. One command runs t
 
 ## Building Skills
 
-GTeam includes a built-in **Skill Builder** specialist that enriches existing specialists with domain knowledge and scaffolds new ones from scratch — no external tools or installs required. It uses the bundled browse engine (Playwright) to scrape any documentation site, API, or GitHub repo.
+GTeam includes a built-in **Skill Builder** specialist that enriches existing specialists with domain knowledge and scaffolds new ones from scratch — no external tools or installs required. It uses the Skill-Seekers API for known technologies, falling back to WebFetch and curl for anything else.
 
 ### Enrich an Existing Specialist
 
@@ -176,8 +176,8 @@ Add domain knowledge to any specialist from a documentation URL:
 The Skill Builder will:
 
 1. Check for `llms.txt` / `llms-full.txt` (instant download if available)
-2. Test whether the site is static (WebFetch) or JS-rendered (browse)
-3. Crawl the docs at a 3-second rate limit — avoids 403s on production sites
+2. Check for `llms.txt` / `llms-full.txt` (instant download if available)
+3. Crawl with WebFetch — no rate limiting needed, won't trigger bot detection
 4. Synthesize content into a structured reference file
 5. Install it to `specialists/devops/references/kubernetes.md`
 
