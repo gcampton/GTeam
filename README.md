@@ -263,7 +263,7 @@ Built on the shoulders of:
 
 ## Found GTeam Helpful?
 
-Feel free to buy us a coffee, or new cars:
+Feel free to buy us a coffee, or a new PC:
 
 **ETH:** `0xC449eE19F08004880695798B985A41Ce2248D45A`
 
