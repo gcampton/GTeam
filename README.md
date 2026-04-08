@@ -161,6 +161,75 @@ Jobs chain multiple specialists together with typed handoffs. One command runs t
 /gteam Run a content campaign for "workflow automation for small teams"
 ```
 
+## Building Skills
+
+GTeam includes a built-in **Skill Builder** specialist that enriches existing specialists with domain knowledge and scaffolds new ones from scratch — no external tools or installs required. It uses the bundled browse engine (Playwright) to scrape any documentation site, API, or GitHub repo.
+
+### Enrich an Existing Specialist
+
+Add domain knowledge to any specialist from a documentation URL:
+
+```
+/gteam Enrich the devops specialist with Kubernetes docs from https://kubernetes.io/docs/
+```
+
+The Skill Builder will:
+
+1. Check for `llms.txt` / `llms-full.txt` (instant download if available)
+2. Test whether the site is static (WebFetch) or JS-rendered (browse)
+3. Crawl the docs at a 3-second rate limit — avoids 403s on production sites
+4. Synthesize content into a structured reference file
+5. Install it to `specialists/devops/references/kubernetes.md`
+
+The specialist loads the new reference automatically on next invocation.
+
+**Other sources work too:**
+
+```
+# From a GitHub repo
+/gteam Add Stripe's Node.js SDK to the software-engineer specialist — github.com/stripe/stripe-node
+
+# From an OpenAPI spec
+/gteam Build a reference for the Notion API — https://developers.notion.com/reference/intro
+
+# From a JSON dump or local file
+/gteam Build a reference from this OpenAPI spec [paste or attach file]
+```
+
+### Scaffold a New Specialist
+
+Create a fully wired specialist directory from scratch:
+
+```
+/gteam Scaffold a new Blockchain specialist — covers smart contracts, DeFi protocols, auditing, and Web3 architecture
+```
+
+The Skill Builder generates:
+
+```
+specialists/blockchain/
+├── SKILL.md.tmpl       — template with role, methodology token, reference list
+├── SKILL.md            — generated (ready to use immediately)
+├── methodology.md      — domain workflow synthesized from scraped sources
+├── references/         — scraped reference files
+├── evals/              — placeholder eval scenarios
+└── results/            — for logged deliverables
+```
+
+Then runs `bun run gen:skill-docs` and `bun run skill:check` to verify it registers cleanly.
+
+### What Gets Created
+
+Each reference file follows a consistent structure:
+
+- **Overview** — what the technology does and when to use it
+- **Core Concepts** — key terminology and mental model
+- **Common Patterns** — recipes, typical usage, config examples
+- **Anti-Patterns** — what to avoid and why
+- **Quick Reference** — cheat sheet of key commands, APIs, or config options
+
+Target size is 20–80KB per file — enough depth to be genuinely useful without bloating context.
+
 ## Coordinator
 
 The GTeam Coordinator is a lightweight router (~1,700 tokens) that replaces loading all 29 specialists into context (~111K tokens). It reads the user's request, picks the right specialist, loads their full SKILL.md via the Read tool, then executes as that specialist.
