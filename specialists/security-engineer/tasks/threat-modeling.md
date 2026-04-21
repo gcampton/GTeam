@@ -59,6 +59,13 @@ For MEDIUM and LOW threats:
 - Document and accept, or schedule for future hardening
 - Never ignore — acknowledged risk is managed risk
 
+**Threat model delivery gate (required):**
+- Enumerate trust boundaries explicitly (at minimum: client<->API, API<->storage, API<->database, external sharing endpoints).
+- Every threat row must include a STRIDE category. Do not leave ad-hoc uncategorised rows.
+- File upload analysis must explicitly cover malware scanning, path traversal, and MIME-vs-magic-byte validation.
+- Publish the complete prioritised threat table in the response (no "see attached/private file" shortcuts).
+- Every HIGH/CRITICAL row must include a concrete mitigation and owner.
+
 **Output — Threat Model Document:**
 
 ```markdown

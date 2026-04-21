@@ -4,3 +4,7 @@ browse/dist/
 *.js.map
 .gstack/
 .mcp.json
+*200+*
+SESSION*
+docs/superpowers/*
+scripts/*paperclip*

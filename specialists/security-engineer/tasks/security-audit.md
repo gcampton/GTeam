@@ -79,6 +79,12 @@ Rate each finding using the severity standard:
 - **MEDIUM** — Requires specific conditions to exploit, fix in normal development cycle
 - **LOW** — Minimal risk, best practice improvement, fix when convenient
 
+**Audit delivery gate (required):**
+- If scope includes payments, include PCI-relevant controls and explicitly cover TLS enforcement and credential/secret handling (Stripe and database).
+- Include a remediation timeline with phases (immediate, pre-release, backlog), not only severity labels.
+- If no codebase is provided, state this as a top-level limitation and mark findings as architecture-level hypotheses.
+- Ensure the final report is complete and not truncated: all severity bands referenced in the summary must be present in findings.
+
 **Output — Security Audit Report:**
 
 ```markdown

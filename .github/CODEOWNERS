@@ -1,0 +1,11 @@
+# Design-system governance owners.
+#
+# Branch protection should require:
+# 1) code owner review, and
+# 2) minimum two approvals
+# so both UX + CTO signoff is enforced on design-system changes.
+
+design-system/** @gcampton
+scripts/validate-design-system.ts @gcampton
+.github/workflows/design-system-contract-validation.yml @gcampton
+.github/pull_request_template.md @gcampton

@@ -6,6 +6,7 @@
     "gen:skill-docs": "bun scripts/gen-skill-docs.ts",
     "gen:skill-docs:dry-run": "bun scripts/gen-skill-docs.ts --dry-run",
     "skill:check": "bun scripts/skill-check.ts",
+    "validate:design-system": "bun scripts/validate-design-system.ts",
     "build": "bun run gen:skill-docs",
     "test": "bun test test/gen-skill-docs.test.ts test/skill-validation.test.ts",
     "test:evals": "bun test test/skill-llm-eval.test.ts",

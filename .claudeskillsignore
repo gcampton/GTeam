@@ -1,0 +1,5 @@
+# GTeam lite mode: only the coordinator is loaded as a skill.
+# Specialist SKILL.md files are read on demand by the coordinator.
+specialists/*/SKILL.md
+jobs/*/SKILL.md
+SKILL.md

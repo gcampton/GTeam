@@ -12,7 +12,119 @@ If `BROWSE NOT AVAILABLE`: skip all `$B` steps and use WebFetch instead for URL 
 
 ---
 
-### Technical SEO Audit
+### Full Site Audit — SEO + GEO (`/gteam seo audit <url>`)
+
+This is the flagship command. Combines traditional SEO depth with GEO's AI-visibility analysis. Produces a composite 0–100 score and a client-ready deliverable.
+
+#### Phase 1: Discovery (Sequential)
+
+1. Fetch homepage (WebFetch or `$B goto <url> && $B snapshot`)
+2. Detect business type from signals:
+
+| Business Type | Detection Signals |
+|---|---|
+| **SaaS** | Pricing page, "Sign up"/"Free trial", app.domain.com, feature tables, integration pages |
+| **Local Business** | Physical address, Google Maps embed, "Near me" content, LocalBusiness schema |
+| **E-commerce** | Product listings, shopping cart, price displays, "Add to cart" |
+| **Publisher** | Blog-heavy nav, article schema, author pages, date archives, RSS |
+| **Agency** | Case studies, portfolio, client logos, service pages, team page |
+| **Hybrid** | Classify by dominant pattern |
+
+3. Crawl sitemap (`/sitemap.xml`, `/sitemap_index.xml`) or follow homepage links up to 2 levels deep. Max 50 pages. Respect robots.txt. Record per page: URL, title, meta description, canonical, H1–H6, word count, schema types, image alt coverage, internal/external link counts, response status.
+
+#### Phase 2: Parallel Analysis (Delegate to GEO Subagents)
+
+Launch these 5 subagents simultaneously via Agent tool. Pass each subagent: the target URL, list of crawled pages, and detected business type.
+
+| Subagent | Agent File | Responsibility |
+|---|---|---|
+| geo-ai-visibility | `~/.claude/skills/gteam/specialists/seo/geo-agents/geo-ai-visibility.md` | Citability scoring, AI crawler access, llms.txt, brand mentions |
+| geo-platform-analysis | `~/.claude/skills/gteam/specialists/seo/geo-agents/geo-platform-analysis.md` | Platform-specific optimization (ChatGPT, Perplexity, Google AIO, Gemini, Bing Copilot) |
+| geo-technical | `~/.claude/skills/gteam/specialists/seo/geo-agents/geo-technical.md` | Technical SEO: Core Web Vitals, crawlability, mobile, security, SSR |
+| geo-content | `~/.claude/skills/gteam/specialists/seo/geo-agents/geo-content.md` | Content quality, E-E-A-T, readability, freshness, original data |
+| geo-schema | `~/.claude/skills/gteam/specialists/seo/geo-agents/geo-schema.md` | Schema.org detection, validation, JSON-LD generation |
+
+#### Phase 3: Traditional SEO Layer
+
+While subagents run (or after collecting results), apply traditional SEO depth:
+- Full 14-point technical checklist (see Technical SEO Audit section below)
+- Keyword gap analysis against 2–3 key competitors via WebSearch
+- Internal linking audit — identify orphan pages, anchor text diversity
+- Link profile assessment — estimate authority, check for thin or duplicate-content issues
+
+#### Phase 4: Score Aggregation + Report
+
+Collect all subagent results, combine with traditional SEO findings, compute composite score (see Scoring Methodology), and write output to `~/geo-seo-projects/[domain]/SEO-GEO-AUDIT-REPORT.md`.
+
+---
+
+### AI Visibility Analysis (`/gteam seo ai <url>`)
+
+Deep-dive into AI-era signals only. No traditional keyword research or link building.
+
+**1. AI Citability Scoring**
+
+For each key page, assess:
+- Does the opening paragraph directly answer a likely query? (Featured snippet / AI answer block targeting)
+- Are there clear question-based H2s and direct answers below them?
+- Is content structured for extraction (short paragraphs, lists, tables)?
+- Does the page cite authoritative external sources?
+- Is there original data or research that AI would want to quote?
+
+Score each page 0–100 for citability. Flag top 5 most citable and bottom 5 least citable with specific rewrite suggestions.
+
+**2. AI Crawler Access**
+
+Fetch `/robots.txt`. Check access for:
+
+| Crawler | Platform |
+|---|---|
+| GPTBot | ChatGPT / OpenAI |
+| ClaudeBot | Anthropic Claude |
+| PerplexityBot | Perplexity AI |
+| Google-Extended | Gemini / Google AI |
+| Bingbot | Bing Copilot / ChatGPT |
+| Googlebot | Google AIO |
+| Applebot-Extended | Apple Intelligence |
+
+For each: Allowed / Blocked / Partial. Flag blocks as Critical or High severity.
+
+**3. llms.txt Audit / Generation**
+
+Fetch `<domain>/llms.txt` and `<domain>/llms-full.txt`.
+- If present: validate structure (title, description, key sections, file links). Flag gaps.
+- If absent: generate a complete llms.txt and llms-full.txt. Write to `~/geo-seo-projects/[domain]/llms.txt` and `~/geo-seo-projects/[domain]/llms-full.txt`. If a `public/` directory exists in the current working directory, also copy there for immediate deployment.
+
+**4. Brand Mention Scan**
+
+Search for brand presence on AI-cited platforms:
+- Wikipedia: `WebSearch "site:en.wikipedia.org <brand>"`
+- Reddit: `WebSearch "site:reddit.com <brand>"` — check volume, sentiment, top subreddits
+- YouTube: `WebSearch "site:youtube.com <brand>"` — official channel + mentions
+- LinkedIn: `WebSearch "site:linkedin.com/company <brand>"`
+- Wikidata: `WebSearch "site:wikidata.org <brand>"`
+- Crunchbase / GitHub / G2 as applicable
+
+Score brand authority 0–100 based on presence depth and authority-platform coverage.
+
+**5. Platform-Specific Readiness**
+
+Assess each AI platform:
+
+| Platform | Key Factors |
+|---|---|
+| Google AI Overviews | Schema.org markup, E-E-A-T signals, structured direct-answer passages, Core Web Vitals |
+| ChatGPT / Perplexity | GPTBot/PerplexityBot allowed, Reddit/Wikipedia presence, direct-answer content, llms.txt |
+| Google Gemini | Google-Extended allowed, YouTube presence, Knowledge Panel, structured data |
+| Bing Copilot | Bingbot allowed, IndexNow protocol, Bing Webmaster Tools, LinkedIn presence |
+
+Score each platform 0–100 and flag the top action for each.
+
+**Output:** `~/geo-seo-projects/[domain]/GEO-AI-VISIBILITY.md`
+
+---
+
+### Technical SEO Audit (`/gteam seo technical <url>`)
 
 **Gather:** URL of the site. Use `$B goto <url>` then `$B snapshot` to inspect rendering. If not browseable, ask user to paste page source or describe the stack.
 
@@ -38,9 +150,11 @@ If `BROWSE NOT AVAILABLE`: skip all `$B` steps and use WebFetch instead for URL 
 - Estimated effort per fix (< 1 hour / half day / sprint)
 - Quick wins list: P1 issues fixable in under 1 hour
 
+**Output:** `~/geo-seo-projects/[domain]/SEO-TECHNICAL-AUDIT.md`
+
 ---
 
-### Keyword Research & Content Gap Analysis
+### Keyword Research & Content Gap Analysis (`/gteam seo keyword <domain>`)
 
 **Gather:** Domain, primary topic/niche, target audience, 3–5 competitor domains if known. Use WebSearch to research competitor content.
 
@@ -73,7 +187,7 @@ If `BROWSE NOT AVAILABLE`: skip all `$B` steps and use WebFetch instead for URL 
 
 ---
 
-### On-Page Optimisation
+### On-Page Optimisation (`/gteam seo page <url>`)
 
 **Gather:** URL(s) to optimise, target keyword per page, existing content. Load with `$B goto <url>` if available.
 
@@ -100,7 +214,7 @@ If `BROWSE NOT AVAILABLE`: skip all `$B` steps and use WebFetch instead for URL 
 
 ---
 
-### Link Building Strategy
+### Link Building Strategy (`/gteam seo links <domain>`)
 
 **Gather:** Domain, niche, current authority level if known, content assets available (tools, studies, guides), budget (organic only vs outreach).
 
@@ -158,7 +272,58 @@ Use these search patterns to surface link opportunities at scale. Run in Google 
 
 ---
 
-### SEO Reporting & Tracking
+### Client Deliverables
+
+#### Client-Ready Report (`/gteam seo report <url>`)
+
+Aggregate all audit data (run audit first if not done) into `~/geo-seo-projects/[domain]/SEO-GEO-CLIENT-REPORT.md`. Written for business owners and marketing leaders — no unexplained jargon, every finding connected to business impact.
+
+**Report structure:**
+1. **Executive Summary** — 4–6 sentences: what was analyzed, composite score, single most impactful finding, top 3 priorities, estimated business impact ($X/month)
+2. **Composite Score Dashboard** — overall score + 6 category breakdowns in a table
+3. **AI Visibility Dashboard** — per-platform scores (Google AIO, ChatGPT, Perplexity, Gemini, Bing Copilot)
+4. **AI Crawler Access** — table of each crawler: Allowed/Blocked, impact, recommendation
+5. **Brand Authority** — presence on Wikipedia, Reddit, YouTube, LinkedIn, Wikidata
+6. **Top 5 Most / Least Citable Pages** — URLs + why + one specific improvement each
+7. **Traditional SEO Summary** — Core Web Vitals, mobile, HTTPS, canonical, sitemap
+8. **Schema & Structured Data** — what's present, what's missing, ready-to-use JSON-LD if needed
+9. **llms.txt Status** — present/missing + generated file if needed
+10. **Keyword Opportunities** — quick wins (ranking 4–20), content gaps vs competitors
+11. **Prioritized Action Plan:**
+    - Quick Wins (this week, < 4 hours each): action, impact, effort, platforms affected
+    - Medium-Term (this month, days of work): action, impact, effort
+    - Strategic (this quarter, weeks of effort): action, impact, effort
+    - Estimated impact: score improvement + revenue value
+12. **Competitor Comparison** (if competitor URLs provided)
+13. **Appendix** — methodology, pages analyzed, data sources, glossary
+
+**Tone:** Confident and direct. "Your site does / does not…" not "it appears that…". Business-impact focus throughout.
+
+#### PDF Report (`/gteam seo report-pdf <url>`)
+
+Generates a professional branded PDF. Run the audit and collect all scores into a JSON structure, then execute:
+
+```bash
+python3 ~/.claude/skills/gteam/specialists/seo/scripts/generate_pdf_report.py data.json GEO-REPORT.pdf
+```
+
+**PDF includes:** Cover page with score gauge, score breakdown bar charts, AI platform readiness dashboard, crawler access status table, key findings by severity, prioritized action plan, methodology appendix.
+
+**Output:** `~/geo-seo-projects/[domain]/SEO-GEO-REPORT-[domain].pdf`
+
+#### Client Proposal (`/gteam seo proposal <domain>`)
+
+Auto-generate a proposal from audit data. **Output:** `~/.geo-prospects/proposals/[domain]-proposal-[date].md`
+
+**Proposal structure:** Executive summary of findings → proposed scope of work → deliverables and timeline → investment (tiered pricing) → ROI projection → next steps.
+
+#### Monthly Delta Report (`/gteam seo compare <domain>`)
+
+Compare current audit to previous report in `~/geo-seo-projects/[domain]/`. Show score movements, ranking wins/losses, and new/resolved issues. **Output:** `~/geo-seo-projects/[domain]/SEO-GEO-DELTA-[YYYY-MM].md`
+
+---
+
+### SEO Reporting & Tracking (`/gteam seo reporting`)
 
 **Gather:** Tools in use (Google Search Console, GA4, Ahrefs, SEMrush, etc.), reporting period, KPIs the team cares about.
 

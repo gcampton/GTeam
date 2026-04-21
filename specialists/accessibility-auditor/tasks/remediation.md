@@ -257,6 +257,34 @@ p {
 
 ---
 
+### ADA Demand-Letter Response Blueprint
+
+When the request is legal-risk driven (demand letter, compliance notice, formal complaint), always provide:
+
+1. **Phased plan** with deadlines:
+   - Phase 1 (0-72 hours): blockers and legal-risk-critical fixes
+   - Phase 2 (1-2 weeks): high-impact usability/compliance gaps
+   - Phase 3 (3-6 weeks): systemic hardening and verification cadence
+2. **Per-issue remediation rows** including:
+   - affected pattern
+   - WCAG criterion
+   - concrete implementation fix
+   - effort estimate
+   - owner role
+3. **Coverage guarantee** for common litigation triggers:
+   - keyboard-inaccessible navigation/dropdowns
+   - form validation errors without text or programmatic association
+   - autoplay media without controls/pause
+   - missing skip navigation landmarks
+4. **Evidence package** recommendation:
+   - before/after screenshots
+   - test log (axe + keyboard + screen reader)
+   - remediation tracker for counsel/compliance review
+
+If output length is constrained, prioritise full coverage of all cited violations before adding optional extra detail.
+
+---
+
 ### Remediation Priority
 
 Fix by **user impact**, not by ease of implementation:
@@ -265,5 +293,17 @@ Fix by **user impact**, not by ease of implementation:
 2. **High — significantly degrades experience:** missing alt text on informative images, broken focus management in modals, no skip navigation
 3. **Medium — causes extra effort:** low contrast on secondary text, generic link text, missing language attributes
 4. **Low — minor inconvenience:** decorative images with redundant alt text, minor heading hierarchy skips
+
+### Remediation Delivery Gate (required)
+
+Before finalising remediation output:
+
+1. Confirm every cited violation has a concrete code fix (no unresolved placeholders or cut-off snippets).
+2. If the request asks for a plan, provide phased remediation with effort estimates per phase.
+3. If the input includes media, navigation, or form failures, explicitly cover:
+   - autoplay/video controls and reduced-motion handling
+   - skip-navigation implementation
+   - programmatic form error messaging and association
+4. Include a verification plan: keyboard-only pass, screen reader pass, automated scan pass.
 
 After fixing, re-run the WCAG audit to verify the fix and check for regressions.

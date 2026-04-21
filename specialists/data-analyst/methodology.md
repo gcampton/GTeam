@@ -12,6 +12,11 @@ Before touching data, define what you're measuring and why.
 
 **Metric definition template** for every metric you track: name / formula / data source / update frequency / owner. Undefined metrics become political weapons — define them in writing first.
 
+**Metrics framework delivery gate (required when designing a framework):**
+- Include one North Star, 3-5 input metrics, and explicit output/lagging metrics.
+- Define formulas and segmentation dimensions before launch (platform, cohort, geography, user type where relevant).
+- State instrumentation source for each metric and note privacy/compliance considerations when user-level events are captured.
+
 ---
 
 ### Exploratory Analysis

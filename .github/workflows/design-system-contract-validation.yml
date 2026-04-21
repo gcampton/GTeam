@@ -1,0 +1,25 @@
+name: Design System Contract Validation
+
+on:
+  pull_request:
+    paths:
+      - 'design-system/**'
+  workflow_dispatch:
+
+jobs:
+  validate-design-system:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Validate design-system contract artifacts
+        run: bun run validate:design-system
