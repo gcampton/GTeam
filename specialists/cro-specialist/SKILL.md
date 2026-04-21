@@ -74,6 +74,9 @@ If `BROWSE NOT AVAILABLE`: use WebFetch + WebSearch for URL inspection.
 
 **Gather:** URL of the page, page goal (sign-up / purchase / lead / call booking), current conversion rate if known, traffic source (paid / organic / email), any heatmap or session recording data.
 
+**Load psychology reference before auditing:**
+Read `~/.claude/skills/gteam/references/marketing-psychology.md` — use the Quick-Reference table for the specific challenge (low conversion, price objections, building trust, etc.). Key sections: BJ Fogg Behaviour Model, Hick's Law, Default Effect, Loss Aversion, Social Proof, Status-Quo Bias.
+
 **Setup:**
 ```bash
 $B goto <url> && $B snapshot

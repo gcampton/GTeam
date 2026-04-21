@@ -1,0 +1,36 @@
+[
+  {
+    "id": "product-context-01",
+    "task": "Create a product context file for the following product:\n\nProduct: TaskFlow — a project management tool for remote engineering teams.\nTarget customer: Engineering managers at 20–100 person startups.\nKey differentiator: Real-time dependency mapping that auto-updates when tasks slip.\nMain competitor: Linear and Jira.\nCustomer quote from G2: 'I used to spend every Monday morning manually updating our roadmap after the weekend sprint. TaskFlow does it automatically — I got that hour back every week.'\nCurrent conversion action: Free trial signup.\nCurrent MRR goal: Grow trial-to-paid from 15% to 25%.",
+    "expect": [
+      "Produces a complete product-context.md file covering all 12 sections (overview, category, audience, personas, pain points, competitive positioning, differentiators, objections, customer language, brand voice, proof points, business goals)",
+      "Customer language section includes the verbatim G2 quote and identifies it as high-value copy asset",
+      "Competitive positioning table compares to Linear and Jira with specific differentiators",
+      "Business goal section reflects the trial-to-paid conversion target"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "product-context-02",
+    "task": "The following product-context.md file exists but is incomplete. Audit it and identify the gaps, then ask clarifying questions to fill the most important ones.\n\n```\n# Product Marketing Context\n## Product Overview\nInvoicing software for freelancers.\n## Target Audience\nFreelancers and small business owners.\n## Pain Points\nInvoicing is painful.\n## Customer Language\n[None yet]\n```",
+    "expect": [
+      "Identifies that customer language section is empty (the most critical gap)",
+      "Notes that 'freelancers and small business owners' is too broad — asks for behavioural specificity",
+      "Notes that 'invoicing is painful' is too vague — asks for specific pain scenarios",
+      "Proposes at least 2 methods to find customer language (G2 reviews, Reddit mining, customer interviews)",
+      "Asks focused, one-at-a-time clarifying questions rather than dumping all questions at once"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "product-context-03",
+    "task": "A marketing specialist discovered these new customer quotes during a recent campaign and wants to update the product context file. The quotes are:\n1. 'We switched from HubSpot because we were paying for features our team of 5 would never use'\n2. 'Setup took 20 minutes — our old CRM took 3 weeks to configure'\n3. 'The Slack integration means I never have to log into the CRM to see deal status'\n\nThe current context file has customer language section but no quotes about setup speed or the Slack integration.",
+    "expect": [
+      "Adds all three verbatim quotes to the customer language section of the context file",
+      "Updates the competitive positioning section to reflect the HubSpot comparison (switching from HubSpot)",
+      "Notes setup speed (20 minutes vs. 3 weeks) as a new differentiator and adds it to the differentiators section",
+      "Notes the Slack integration as a key feature and checks whether it's reflected in the feature/differentiators section"
+    ],
+    "difficulty": "edge-case"
+  }
+]

@@ -1,0 +1,39 @@
+[
+  {
+    "id": "revops-01",
+    "task": "We're a B2B SaaS company ($2M ARR, 15 paying customers, $130K average ACV). We have an inbound SDR team of 2 and 3 AEs. Marketing generates leads but sales says the leads are low quality. Marketing says sales doesn't follow up. We have HubSpot. Design a lead lifecycle and handoff process to fix this.",
+    "expect": [
+      "Identifies the classic marketing-sales misalignment problem and names it: no agreed MQL definition",
+      "Proposes specific stage definitions for this company's size and ACV (Lead → MQL → SAL → SQL → Opportunity)",
+      "Defines clear MQL criteria (not vague — specific score or behaviour trigger) that both teams can agree on",
+      "Includes an SLA for SDR follow-up (4 business hours for standard MQLs, 5 minutes for demo requests)",
+      "Proposes a handoff record format so sales receives enough context to have a meaningful first conversation",
+      "Addresses the accountability gap: who owns what stage and what the consequence of SLA breach is"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "revops-02",
+    "task": "Build a lead scoring model for a DevOps tooling company (CI/CD platform). ICP: engineering teams at 50–500 person tech companies. Champion: DevOps engineers or platform engineers. Economic buyer: VP Engineering or CTO. Key signals that predict purchase: trial signup, pricing page visit, documentation visits (suggests active evaluation), GitHub integration page view.",
+    "expect": [
+      "Produces both a fit scoring table (company size 50-500: full points; company size range with tiered scores; title DevOps/Platform Engineer: full champion points; VP Eng/CTO: economic buyer points) and engagement scoring table",
+      "Trial signup and pricing page visit should be among the highest-point actions (20+ points each)",
+      "Documentation visits and GitHub integration page should be medium-high scoring (8–15 points) given the technical evaluation signal they represent",
+      "Proposes a MQL threshold with rationale",
+      "Addresses negative scoring (personal email domains, student titles, competitor's company domain)"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "revops-03",
+    "task": "Our RevOps metrics show: MQL→SQL conversion rate is 55% (healthy). SQL→Opportunity rate is 45% (below benchmark of 70-85%). Opportunity→Close rate is 28% (at benchmark). Average sales cycle is 67 days. ACV is $18K. We have 8 AEs and 4 SDRs. Where is the revenue leak and what should we fix?",
+    "expect": [
+      "Correctly identifies SQL→Opportunity as the primary leak (45% vs. 70-85% benchmark — significant gap)",
+      "Diagnoses likely root causes: SDRs are booking discovery calls but AEs aren't creating opportunities (qualification not happening), or discovery calls are revealing disqualifiers that aren't being caught at SQL stage",
+      "Recommends tightening the SQL definition (ensure BANT/MEDDPICC basics are confirmed before SQL is created)",
+      "Calculates the revenue impact: improving SQL→Opp from 45% to 65% with the given pipeline volume",
+      "Does NOT over-rotate on the opportunity→close rate (28%) since it's within benchmark — focuses the recommendation on the actual bottleneck"
+    ],
+    "difficulty": "advanced"
+  }
+]

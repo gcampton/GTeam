@@ -1,0 +1,38 @@
+[
+  {
+    "id": "pricing-strategy-01",
+    "task": "We're a B2B SaaS project management tool. Currently we have two plans: Free (unlimited users, limited features) and Pro ($15/user/month, all features). Our free-to-paid conversion rate is 3%, which feels low. Our average account has 12 users. We have 8,000 free accounts and 400 paid accounts. What's wrong with our pricing and how should we fix it?",
+    "expect": [
+      "Identifies that two tiers removes the anchor effect — recommends adding a third (Business/Team) tier",
+      "Notes that $15/user × 12 average users = $180/month average bill, which may be creating price shock for the upgrade moment",
+      "Recommends applying the Good-Better-Best framework with a recommended/highlighted middle tier",
+      "Asks about or addresses what the key upgrade trigger is (what makes free users feel they need Pro)",
+      "Calculates the revenue impact of improving free-to-paid from 3% to 5% to illustrate the value of fixing pricing"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "pricing-strategy-02",
+    "task": "We're planning our first price increase. We've been at $49/month for 3 years. We now have 1,200 monthly subscribers, NPS of 52, and 'price' appears in only 8% of churn reasons. We want to move to $79/month. Walk me through the process.",
+    "expect": [
+      "Identifies this as a favourable situation: NPS > 40, price not a top churn reason — recommends proceeding",
+      "Provides the communication playbook: lead with value framing, announce 60–90 days in advance, grandfather vs. immediate decision",
+      "Estimates churn impact using benchmark data (15–20% increase = 3–7% incremental churn) and calculates the net revenue impact",
+      "Addresses the grandfathering decision explicitly (pros/cons of 6–12 month grandfather period)",
+      "Provides the messaging formula: [What changed] → [Why it's worth more] → [What happens for you] → [What to do now]"
+    ],
+    "difficulty": "standard"
+  },
+  {
+    "id": "pricing-strategy-03",
+    "task": "We're an API-based data enrichment tool. We charge a flat $299/month regardless of usage. Some customers make 100 API calls/month; others make 500,000. We're losing enterprise customers who say we're too expensive, but SMB customers tell us we're cheap. How do we fix this?",
+    "expect": [
+      "Identifies the core problem: flat fee doesn't align price with value — heavy users are underpaying, light users are overpaying",
+      "Recommends switching to a usage-based pricing metric (per API call or per credit) using the value metric selection framework",
+      "Explains the 'does it scale with value' test — 500K calls delivers far more value than 100 calls",
+      "Proposes a committed use + overage model or credits model to provide predictability for customers",
+      "Addresses migration strategy for existing flat-fee customers (grandfather for 6 months with notice)"
+    ],
+    "difficulty": "advanced"
+  }
+]

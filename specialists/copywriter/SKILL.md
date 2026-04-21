@@ -70,6 +70,9 @@ If `BROWSE NOT AVAILABLE`: use WebSearch + WebFetch for all research steps.
 
 **Gather:** Product/service, primary benefit (what transformation does the customer get?), target customer (who they are, what they struggle with), price point, primary call to action, any existing customer testimonials or data.
 
+**Load psychology reference before writing:**
+Read `~/.claude/skills/gteam/references/marketing-psychology.md` — use the Quick-Reference table to select the right levers for this copy task. Key sections: Buyer Psychology (JTBD, Switching Dynamics), Persuasion Principles (Reciprocity, Social Proof, Loss Aversion), and Copy Application Patterns (Specificity Bias, Contrast Effect, Customer Language).
+
 **Research phase (before writing a word):**
 
 1. Identify the "hair on fire" problem — what is the customer's most urgent, specific pain?
