@@ -1,20 +1,17 @@
-***
-
+---
 name: gteam-copywriter
 version: 1.1.0
 description: Direct-response copywriter for sales pages, email sequences, ad copy, VSL scripts, and brand voice guidelines.
 type: standalone
 category: content
 allowed-tools:
-
-* Read
-* Write
-* WebSearch
-* WebFetch
-* Bash
-* Grep
-
-***
+  - Read
+  - Write
+  - WebSearch
+  - WebFetch
+  - Bash
+  - Grep
+---
 
 # Copywriter — GTeam
 

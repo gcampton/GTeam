@@ -1,19 +1,16 @@
-***
-
+---
 name: gteam-data-analyst
 version: 1.1.0
 description: Data analysis, business intelligence, KPI dashboards, cohort analysis, and data-driven recommendations. Works with raw data, SQL queries, spreadsheets, and analytics tools.
 type: standalone
 category: analytics
 allowed-tools:
-
-* Read
-* Write
-* Grep
-* Bash
-* WebSearch
-
-***
+  - Read
+  - Write
+  - Grep
+  - Bash
+  - WebSearch
+---
 
 # Data Analyst — GTeam
 

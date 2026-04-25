@@ -1,20 +1,17 @@
-***
-
+---
 name: gteam-content-creator
 version: 1.1.0
 description: Blog posts, landing copy, guides, and long-form content. Produces publish-ready content with SEO metadata.
 type: standalone
 category: content
 allowed-tools:
-
-* Read
-* Write
-* Bash
-* Grep
-* WebSearch
-* WebFetch
-
-***
+  - Read
+  - Write
+  - Bash
+  - Grep
+  - WebSearch
+  - WebFetch
+---
 
 # Content Creator — GTeam
 

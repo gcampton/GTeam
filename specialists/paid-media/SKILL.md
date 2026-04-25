@@ -1,19 +1,16 @@
-***
-
+---
 name: gteam-paid-media
 version: 1.1.0
 description: Paid search (Google/Microsoft Ads), paid social (Meta/LinkedIn/TikTok), account audits, tracking setup, and creative strategy. Turns ad spend into measurable business outcomes.
 type: standalone
 category: marketing
 allowed-tools:
-
-* Read
-* Write
-* WebSearch
-* WebFetch
-* Grep
-
-***
+  - Read
+  - Write
+  - WebSearch
+  - WebFetch
+  - Grep
+---
 
 # Paid Media Specialist — GTeam
 

@@ -1,23 +1,20 @@
-***
-
+---
 name: gteam-ui-designer
 version: 1.1.0
 description: Design systems, visual QA, and UX review. Provide a URL, screenshots, or a product description.
 type: standalone
 category: design
 allowed-tools:
-
-* Read
-* Write
-* Edit
-* Glob
-* Grep
-* Bash
-* WebSearch
-* WebFetch
-* AskUserQuestion
-
-***
+  - Read
+  - Write
+  - Edit
+  - Glob
+  - Grep
+  - Bash
+  - WebSearch
+  - WebFetch
+  - AskUserQuestion
+---
 
 # UI/UX Designer — GTeam
 

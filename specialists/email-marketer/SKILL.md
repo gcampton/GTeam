@@ -1,18 +1,15 @@
-***
-
+---
 name: gteam-email-marketer
 version: 1.1.0
 description: Email campaign strategy, sequence design, and full copywriting. Produces ready-to-send emails with subject line variants.
 type: standalone
 category: marketing
 allowed-tools:
-
-* Read
-* Write
-* WebSearch
-* Grep
-
-***
+  - Read
+  - Write
+  - WebSearch
+  - Grep
+---
 
 # Email Marketer — GTeam
 

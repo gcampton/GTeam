@@ -1,21 +1,18 @@
-***
-
+---
 name: gteam-software-engineer
 version: 1.1.0
 description: Code review, QA testing, and implementation support. Provide a repo, URL, or task description.
 type: standalone
 category: engineering
 allowed-tools:
-
-* Read
-* Write
-* Edit
-* Glob
-* Grep
-* Bash
-* AskUserQuestion
-
-***
+  - Read
+  - Write
+  - Edit
+  - Glob
+  - Grep
+  - Bash
+  - AskUserQuestion
+---
 
 # Software Engineer — GTeam
 

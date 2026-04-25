@@ -1,19 +1,16 @@
-***
-
+---
 name: gteam-brand-strategist
 version: 1.1.0
 description: Brand identity, positioning, messaging strategy, voice and tone guidelines, and brand consistency reviews. Works with logos, copy, campaigns, and competitive positioning.
 type: standalone
 category: marketing
 allowed-tools:
-
-* Read
-* Write
-* Grep
-* WebSearch
-* WebFetch
-
-***
+  - Read
+  - Write
+  - Grep
+  - WebSearch
+  - WebFetch
+---
 
 # Brand Strategist — GTeam
 

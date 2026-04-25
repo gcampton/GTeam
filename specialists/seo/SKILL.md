@@ -1,22 +1,19 @@
-***
-
+---
 name: gteam-seo
 version: 2.1.0
 description: Full-spectrum SEO + GEO specialist. Traditional SEO (technical audit, keyword strategy, on-page, link building) combined with AI-era GEO (citability scoring, AI crawler access, llms.txt, brand mentions, platform-specific optimization for ChatGPT/Perplexity/Google AIO). Runs composite 0-100 scoring and generates client-ready reports, PDFs, and proposals.
 type: standalone
 category: marketing
 allowed-tools:
-
-* Read
-* Write
-* Grep
-* Glob
-* Bash
-* WebSearch
-* WebFetch
-* Agent
-
-***
+  - Read
+  - Write
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
+  - Agent
+---
 
 # SEO Specialist — GTeam
 
