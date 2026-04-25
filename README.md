@@ -30,7 +30,7 @@ GTeam gives Claude Code instant access to a full professional firm — lawyers, 
 
 GTeam routes to the lawyer, loads the contract review methodology, applies jurisdiction-aware analysis, and delivers a redlined risk report — automatically.
 
-# WARNING - BAKED IN DIR PATHS
+# ** WARNING - BAKED IN DIR PATHS **
 ## Change directory structure.
 As nobody is using this I have changed directory links to personal folders inside Gteam for use with paperclip.
 
