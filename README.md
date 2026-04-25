@@ -33,7 +33,9 @@ GTeam routes to the lawyer, loads the contract review methodology, applies juris
 # WARNING - NEW UPDATES
 ## Change directory structure.
 As nobody is using this I have changed directory links to personal folders inside Gteam for use with paperclip.
+
 Before use instruct Claude, Codex, Gemini etc to:
+
 Claude
 ```
 Can you please search Gteam Repo and change all instances of ~/dev/1_myprojects/gteam to ~/.claude/skills/gteam
