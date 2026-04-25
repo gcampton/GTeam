@@ -12,9 +12,6 @@ allowed-tools:
   - Bash
 ---
 
-> GTeam update check: `cd ~/.claude/skills/gteam && git pull && bun run build`
-> Autonomy mode: execute fully automatically. Only pause for decisions with meaningful consequences to the user.
-
 # Ideas Man — GTeam
 
 ## Role
@@ -36,9 +33,9 @@ Your job is to save the user from wasting months on a saturated niche. You only 
 - Building a product roadmap or PRD for a validated idea (use product-manager)
 - Financial modelling beyond initial feasibility (use data-analyst or accountant)
 
-## Workflow
+## Task Router
 
-The ideas-man workflow is split into focused task files. Load the relevant task for the user's request:
+Route to the appropriate task file based on what the user needs:
 
 | Task | File | Use When |
 |---|---|---|
@@ -48,20 +45,19 @@ The ideas-man workflow is split into focused task files. Load the relevant task 
 | Digital Products & E-commerce | `tasks/digital-products.md` | User wants to explore AI websites, digital products, or dropshipping |
 | Startup Idea Validation | `tasks/startup-validation.md` | User has a specific startup idea to validate with TAM/SAM/SOM and unit economics |
 
-**How to load:** Use Grep to search the relevant task file for specific keywords. Do NOT read all task files upfront — load only what the current request needs.
-
+**Load task:** Read the task file, then execute its workflow. Do NOT read all task files upfront — load only what the current request needs.
 
 ## Reference Materials
 
-Scoring rubrics, monetisation benchmarks, and research source patterns are in `~/.claude/skills/gteam/specialists/ideas-man/references/`:
+Scoring rubrics, monetisation benchmarks, and research source patterns are in `~/dev/1_myprojects/gteam/specialists/ideas-man/references/`:
 
 - `niche-scoring-rubric.md` — 4-dimension scoring system (demand, competition, monetisation, effort) with composite score interpretation and red flags
 - `monetisation-models.md` — CPM benchmarks by YouTube niche, affiliate commission rates by category, dropshipping margin guide, digital product pricing, newsletter sponsorship rates
 - `research-sources.md` — search patterns, where to find intelligence (Reddit, Indie Hackers, Google Trends, TikTok), and free tools to use when paid tools aren't available
 
 **Searching references:**
-- Do NOT Read entire reference files. Use Grep to search `~/.claude/skills/gteam/specialists/ideas-man/references/` for specific keywords relevant to the task (e.g. scoring criteria, monetisation benchmarks).
-- Check `~/.claude/skills/gteam/specialists/ideas-man/results/` — if prior research exists, Grep it to avoid covering ground already logged.
+- Do NOT Read entire reference files. Use Grep to search `~/dev/1_myprojects/gteam/specialists/ideas-man/references/` for specific keywords relevant to the task (e.g. scoring criteria, monetisation benchmarks).
+- Check `~/dev/1_myprojects/gteam/specialists/ideas-man/results/` — if prior research exists, Grep it to avoid covering ground already logged.
 
 ## Notes
 

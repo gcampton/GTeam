@@ -9,9 +9,6 @@ allowed-tools:
   - WebFetch
 ---
 
-> GTeam update check: `cd ~/.claude/skills/gteam && git pull && bun run build`
-> Autonomy mode: execute fully automatically. Only pause for decisions with meaningful consequences to the user.
-
 # Content Campaign — GTeam Job
 
 This job runs three specialists in sequence. No human input required between steps unless a decision has material consequences.
@@ -24,67 +21,7 @@ This job runs three specialists in sequence. No human input required between ste
 
 Analyse the topic/URL for keyword opportunities and technical requirements. This informs the content strategy.
 
-### Browse Setup
-
-When a URL is provided, run this setup block before any browse step:
-
-```bash
-export PATH="$HOME/.bun/bin:$PATH"
-B=~/.claude/skills/gteam/browse/dist/browse
-[ -x "$B" ] && echo "READY: $B" || echo "BROWSE NOT AVAILABLE"
-```
-
-If `BROWSE NOT AVAILABLE`: skip all `$B` steps and use WebFetch instead for URL inspection.
-
----
-
-### Full Site Audit — SEO + GEO (`/gteam seo audit <url>`)
-
-This is the flagship command. Combines traditional SEO depth with GEO's AI-visibility analysis. Produces a composite 0–100 score and a client-ready deliverable.
-
-#### Phase 1: Discovery (Sequential)
-
-1. Fetch homepage (WebFetch or `$B goto <url> && $B snapshot`)
-2. Detect business type from signals:
-
-| Business Type | Detection Signals |
-|---|---|
-| **SaaS** | Pricing page, "Sign up"/"Free trial", app.domain.com, feature tables, integration pages |
-| **Local Business** | Physical address, Google Maps embed, "Near me" content, LocalBusiness schema |
-| **E-commerce** | Product listings, shopping cart, price displays, "Add to cart" |
-| **Publisher** | Blog-heavy nav, article schema, author pages, date archives, RSS |
-| **Agency** | Case studies, portfolio, client logos, service pages, team page |
-| **Hybrid** | Classify by dominant pattern |
-
-3. Crawl sitemap (`/sitemap.xml`, `/sitemap_index.xml`) or follow homepage links up to 2 levels deep. Max 50 pages. Respect robots.txt. Record per page: URL, title, meta description, canonical, H1–H6, word count, schema types, image alt coverage, internal/external link counts, response status.
-
-#### Phase 2: Parallel Analysis (Delegate to GEO Subagents)
-
-Launch these 5 subagents simultaneously via Agent tool. Pass each subagent: the target URL, list of crawled pages, and detected business type.
-
-| Subagent | Agent File | Responsibility |
-|---|---|---|
-| geo-ai-visibility | `~/.claude/skills/gteam/specialists/seo/geo-agents/geo-ai-visibility.md` | Citability scoring, AI crawler access, llms.txt, brand mentions |
-| geo-platform-analysis | `~/.claude/skills/gteam/specialists/seo/geo-agents/geo-platform-analysis.md` | Platform-specific optimization (ChatGPT, Perplexity, Google AIO, Gemini, Bing Copilot) |
-| geo-technical | `~/.claude/skills/gteam/specialists/seo/geo-agents/geo-technical.md` | Technical SEO: Core Web Vitals, crawlability, mobile, security, SSR |
-| geo-content | `~/.claude/skills/gteam/specialists/seo/geo-agents/geo-content.md` | Content quality, E-E-A-T, readability, freshness, original data |
-| geo-schema | `~/.claude/skills/gteam/specialists/seo/geo-agents/geo-schema.md` | Schema.org detection, validation, JSON-LD generation |
-
-#### Phase 3: Traditional SEO Layer
-
-While subagents run (or after collecting results), apply traditional SEO depth:
-- Full 14-point technical checklist (see Technical SEO Audit section below)
-- Keyword gap analysis against 2–3 key competitors via WebSearch
-- Internal linking audit — identify orphan pages, anchor text diversity
-- Link profile assessment — estimate authority, check for thin or duplicate-content issues
-
-#### Phase 4: Score Aggregation + Report
-
-Collect all subagent results, combine with traditional SEO findings, compute composite score (see Scoring Methodology), and write output to `~/geo-seo-projects/[domain]/SEO-GEO-AUDIT-REPORT.md`.
-
----
-
-### AI Visibility Analysis (`/gteam seo ai <url>`)
+## AI Visibility Analysis (`/gteam seo ai <url>`)
 
 Deep-dive into AI-era signals only. No traditional keyword research or link building.
 
@@ -148,39 +85,109 @@ Score each platform 0–100 and flag the top action for each.
 
 **Output:** `~/geo-seo-projects/[domain]/GEO-AI-VISIBILITY.md`
 
----
-
-### Technical SEO Audit (`/gteam seo technical <url>`)
-
-**Gather:** URL of the site. Use `$B goto <url>` then `$B snapshot` to inspect rendering. If not browseable, ask user to paste page source or describe the stack.
-
-**Technical audit checklist:**
-
-1. **Title tags** — 50–60 chars, primary keyword near front, unique per page, no truncation
-2. **Meta descriptions** — 150–160 chars, compelling copy with implicit CTA, unique per page
-3. **Heading structure** — single H1, logical H2/H3 hierarchy, keywords in headings naturally
-4. **Core Web Vitals** — LCP < 2.5s, CLS < 0.1, INP < 200ms. Search for PageSpeed report if URL available: `WebSearch "<url> PageSpeed Core Web Vitals"`
-5. **Mobile** — viewport meta present, tap targets ≥ 48px, no horizontal scroll, readable font size
-6. **Canonical tags** — self-referencing on primary pages, no conflicting canonicals, correct on paginated content
-7. **Robots.txt** — accessible at /robots.txt, no accidentally blocked pages or critical assets (CSS/JS)
-8. **XML sitemap** — present, submitted to Search Console, no 404s or noindex pages listed
-9. **Internal linking** — orphan pages (≤ 1 inbound link), anchor text diversity, key pages linked from nav
-10. **Duplicate content** — www vs non-www, HTTP vs HTTPS, trailing slash inconsistency — all 301 consolidated
-11. **Schema markup** — structured data for page type (Article, Product, FAQ, LocalBusiness)
-12. **HTTPS** — served over HTTPS, no mixed content warnings
-13. **Redirect chains** — no chains longer than 1 hop; 301 (not 302) for permanent moves
-14. **Hreflang** — if multi-language, hreflang tags correct and reciprocal
-
-**Deliver:**
-- Technical issues table (issue → priority: P1/P2/P3 → specific fix)
-- Estimated effort per fix (< 1 hour / half day / sprint)
-- Quick wins list: P1 issues fixable in under 1 hour
-
-**Output:** `~/geo-seo-projects/[domain]/SEO-TECHNICAL-AUDIT.md`
 
 ---
 
-### Keyword Research & Content Gap Analysis (`/gteam seo keyword <domain>`)
+## Client Deliverables
+
+### Client-Ready Report (`/gteam seo report <url>`)
+
+Aggregate all audit data (run audit first if not done) into `~/geo-seo-projects/[domain]/SEO-GEO-CLIENT-REPORT.md`. Written for business owners and marketing leaders — no unexplained jargon, every finding connected to business impact.
+
+**Report structure:**
+1. **Executive Summary** — 4–6 sentences: what was analyzed, composite score, single most impactful finding, top 3 priorities, estimated business impact ($X/month)
+2. **Composite Score Dashboard** — overall score + 6 category breakdowns in a table
+3. **AI Visibility Dashboard** — per-platform scores (Google AIO, ChatGPT, Perplexity, Gemini, Bing Copilot)
+4. **AI Crawler Access** — table of each crawler: Allowed/Blocked, impact, recommendation
+5. **Brand Authority** — presence on Wikipedia, Reddit, YouTube, LinkedIn, Wikidata
+6. **Top 5 Most / Least Citable Pages** — URLs + why + one specific improvement each
+7. **Traditional SEO Summary** — Core Web Vitals, mobile, HTTPS, canonical, sitemap
+8. **Schema & Structured Data** — what's present, what's missing, ready-to-use JSON-LD if needed
+9. **llms.txt Status** — present/missing + generated file if needed
+10. **Keyword Opportunities** — quick wins (ranking 4–20), content gaps vs competitors
+11. **Prioritized Action Plan:**
+    - Quick Wins (this week, < 4 hours each): action, impact, effort, platforms affected
+    - Medium-Term (this month, days of work): action, impact, effort
+    - Strategic (this quarter, weeks of effort): action, impact, effort
+    - Estimated impact: score improvement + revenue value
+12. **Competitor Comparison** (if competitor URLs provided)
+13. **Appendix** — methodology, pages analyzed, data sources, glossary
+
+**Tone:** Confident and direct. "Your site does / does not…" not "it appears that…". Business-impact focus throughout.
+
+### PDF Report (`/gteam seo report-pdf <url>`)
+
+Generates a professional branded PDF. Run the audit and collect all scores into a JSON structure, then execute:
+
+```bash
+python3 ~/dev/1_myprojects/gteam/specialists/seo/scripts/generate_pdf_report.py data.json GEO-REPORT.pdf
+```
+
+**PDF includes:** Cover page with score gauge, score breakdown bar charts, AI platform readiness dashboard, crawler access status table, key findings by severity, prioritized action plan, methodology appendix.
+
+**Output:** `~/geo-seo-projects/[domain]/SEO-GEO-REPORT-[domain].pdf`
+
+### Client Proposal (`/gteam seo proposal <domain>`)
+
+Auto-generate a proposal from audit data. **Output:** `~/.geo-prospects/proposals/[domain]-proposal-[date].md`
+
+**Proposal structure:** Executive summary of findings → proposed scope of work → deliverables and timeline → investment (tiered pricing) → ROI projection → next steps.
+
+### Monthly Delta Report (`/gteam seo compare <domain>`)
+
+Compare current audit to previous report in `~/geo-seo-projects/[domain]/`. Show score movements, ranking wins/losses, and new/resolved issues. **Output:** `~/geo-seo-projects/[domain]/SEO-GEO-DELTA-[YYYY-MM].md`
+
+
+---
+
+## Full Site Audit — SEO + GEO (`/gteam seo audit <url>`)
+
+This is the flagship command. Combines traditional SEO depth with GEO's AI-visibility analysis. Produces a composite 0–100 score and a client-ready deliverable.
+
+### Phase 1: Discovery (Sequential)
+
+1. Fetch homepage (WebFetch or `$B goto <url> && $B snapshot`)
+2. Detect business type from signals:
+
+| Business Type | Detection Signals |
+|---|---|
+| **SaaS** | Pricing page, "Sign up"/"Free trial", app.domain.com, feature tables, integration pages |
+| **Local Business** | Physical address, Google Maps embed, "Near me" content, LocalBusiness schema |
+| **E-commerce** | Product listings, shopping cart, price displays, "Add to cart" |
+| **Publisher** | Blog-heavy nav, article schema, author pages, date archives, RSS |
+| **Agency** | Case studies, portfolio, client logos, service pages, team page |
+| **Hybrid** | Classify by dominant pattern |
+
+3. Crawl sitemap (`/sitemap.xml`, `/sitemap_index.xml`) or follow homepage links up to 2 levels deep. Max 50 pages. Respect robots.txt. Record per page: URL, title, meta description, canonical, H1–H6, word count, schema types, image alt coverage, internal/external link counts, response status.
+
+### Phase 2: Parallel Analysis (Delegate to GEO Subagents)
+
+Launch these 5 subagents simultaneously via Agent tool. Pass each subagent: the target URL, list of crawled pages, and detected business type.
+
+| Subagent | Agent File | Responsibility |
+|---|---|---|
+| geo-ai-visibility | `~/dev/1_myprojects/gteam/specialists/seo/geo-agents/geo-ai-visibility.md` | Citability scoring, AI crawler access, llms.txt, brand mentions |
+| geo-platform-analysis | `~/dev/1_myprojects/gteam/specialists/seo/geo-agents/geo-platform-analysis.md` | Platform-specific optimization (ChatGPT, Perplexity, Google AIO, Gemini, Bing Copilot) |
+| geo-technical | `~/dev/1_myprojects/gteam/specialists/seo/geo-agents/geo-technical.md` | Technical SEO: Core Web Vitals, crawlability, mobile, security, SSR |
+| geo-content | `~/dev/1_myprojects/gteam/specialists/seo/geo-agents/geo-content.md` | Content quality, E-E-A-T, readability, freshness, original data |
+| geo-schema | `~/dev/1_myprojects/gteam/specialists/seo/geo-agents/geo-schema.md` | Schema.org detection, validation, JSON-LD generation |
+
+### Phase 3: Traditional SEO Layer
+
+While subagents run (or after collecting results), apply traditional SEO depth:
+- Full 14-point technical checklist (see Technical SEO Audit section below)
+- Keyword gap analysis against 2–3 key competitors via WebSearch
+- Internal linking audit — identify orphan pages, anchor text diversity
+- Link profile assessment — estimate authority, check for thin or duplicate-content issues
+
+### Phase 4: Score Aggregation + Report
+
+Collect all subagent results, combine with traditional SEO findings, compute composite score (see Scoring Methodology), and write output to `~/geo-seo-projects/[domain]/SEO-GEO-AUDIT-REPORT.md`.
+
+
+---
+
+## Keyword Research & Content Gap Analysis (`/gteam seo keyword <domain>`)
 
 **Gather:** Domain, primary topic/niche, target audience, 3–5 competitor domains if known. Use WebSearch to research competitor content.
 
@@ -211,36 +218,10 @@ Score each platform 0–100 and flag the top action for each.
 - Content gap list (topics competitors cover that the site doesn't)
 - Cannibalisation issues (pages to merge or differentiate)
 
----
-
-### On-Page Optimisation (`/gteam seo page <url>`)
-
-**Gather:** URL(s) to optimise, target keyword per page, existing content. Load with `$B goto <url>` if available.
-
-**For each page:**
-
-1. **Title tag** — keyword in first 60 chars; power word (ultimate, complete, guide); year if time-sensitive
-2. **Meta description** — include keyword naturally; add a benefit; soft CTA ("Learn more", "See examples")
-3. **H1** — matches page intent; contains primary keyword; one H1 only
-4. **Content structure:**
-   - Opening paragraph: answer the query directly in first 100 words (featured snippet targeting)
-   - H2s: cover related questions and subtopics (check People Also Ask: WebSearch `"<keyword>" people also ask`)
-   - Word count: match top-ranking pages ± 20% — don't pad, don't under-serve
-5. **Keyword placement:** title, H1, first 100 words, one H2, image alt text, naturally throughout
-6. **Internal links:** 2–4 contextual links to related content; descriptive anchor text (not "click here")
-7. **External links:** 1–2 outbound links to authoritative sources (supports E-E-A-T)
-8. **Images:** descriptive alt text, compressed (WebP), filename includes keyword
-9. **Schema:** FAQ schema for Q&A sections; HowTo for step-by-step content
-10. **E-E-A-T signals:** author byline with credentials, publication date, last-reviewed date, cited sources
-
-**Deliver:**
-- Copy-ready title tag and meta description
-- Suggested H2 structure (outline) for the page
-- Specific optimisation actions per element (with file:line if code is provided)
 
 ---
 
-### Link Building Strategy (`/gteam seo links <domain>`)
+## Link Building Strategy (`/gteam seo links <domain>`)
 
 **Gather:** Domain, niche, current authority level if known, content assets available (tools, studies, guides), budget (organic only vs outreach).
 
@@ -296,60 +277,10 @@ Use these search patterns to surface link opportunities at scale. Run in Google 
 - Pitch template for guest post or niche edit outreach
 - Anchor text guidance for the domain
 
----
-
-### Client Deliverables
-
-#### Client-Ready Report (`/gteam seo report <url>`)
-
-Aggregate all audit data (run audit first if not done) into `~/geo-seo-projects/[domain]/SEO-GEO-CLIENT-REPORT.md`. Written for business owners and marketing leaders — no unexplained jargon, every finding connected to business impact.
-
-**Report structure:**
-1. **Executive Summary** — 4–6 sentences: what was analyzed, composite score, single most impactful finding, top 3 priorities, estimated business impact ($X/month)
-2. **Composite Score Dashboard** — overall score + 6 category breakdowns in a table
-3. **AI Visibility Dashboard** — per-platform scores (Google AIO, ChatGPT, Perplexity, Gemini, Bing Copilot)
-4. **AI Crawler Access** — table of each crawler: Allowed/Blocked, impact, recommendation
-5. **Brand Authority** — presence on Wikipedia, Reddit, YouTube, LinkedIn, Wikidata
-6. **Top 5 Most / Least Citable Pages** — URLs + why + one specific improvement each
-7. **Traditional SEO Summary** — Core Web Vitals, mobile, HTTPS, canonical, sitemap
-8. **Schema & Structured Data** — what's present, what's missing, ready-to-use JSON-LD if needed
-9. **llms.txt Status** — present/missing + generated file if needed
-10. **Keyword Opportunities** — quick wins (ranking 4–20), content gaps vs competitors
-11. **Prioritized Action Plan:**
-    - Quick Wins (this week, < 4 hours each): action, impact, effort, platforms affected
-    - Medium-Term (this month, days of work): action, impact, effort
-    - Strategic (this quarter, weeks of effort): action, impact, effort
-    - Estimated impact: score improvement + revenue value
-12. **Competitor Comparison** (if competitor URLs provided)
-13. **Appendix** — methodology, pages analyzed, data sources, glossary
-
-**Tone:** Confident and direct. "Your site does / does not…" not "it appears that…". Business-impact focus throughout.
-
-#### PDF Report (`/gteam seo report-pdf <url>`)
-
-Generates a professional branded PDF. Run the audit and collect all scores into a JSON structure, then execute:
-
-```bash
-python3 ~/.claude/skills/gteam/specialists/seo/scripts/generate_pdf_report.py data.json GEO-REPORT.pdf
-```
-
-**PDF includes:** Cover page with score gauge, score breakdown bar charts, AI platform readiness dashboard, crawler access status table, key findings by severity, prioritized action plan, methodology appendix.
-
-**Output:** `~/geo-seo-projects/[domain]/SEO-GEO-REPORT-[domain].pdf`
-
-#### Client Proposal (`/gteam seo proposal <domain>`)
-
-Auto-generate a proposal from audit data. **Output:** `~/.geo-prospects/proposals/[domain]-proposal-[date].md`
-
-**Proposal structure:** Executive summary of findings → proposed scope of work → deliverables and timeline → investment (tiered pricing) → ROI projection → next steps.
-
-#### Monthly Delta Report (`/gteam seo compare <domain>`)
-
-Compare current audit to previous report in `~/geo-seo-projects/[domain]/`. Show score movements, ranking wins/losses, and new/resolved issues. **Output:** `~/geo-seo-projects/[domain]/SEO-GEO-DELTA-[YYYY-MM].md`
 
 ---
 
-### SEO Reporting & Tracking (`/gteam seo reporting`)
+## SEO Reporting & Tracking (`/gteam seo reporting`)
 
 **Gather:** Tools in use (Google Search Console, GA4, Ahrefs, SEMrush, etc.), reporting period, KPIs the team cares about.
 
@@ -383,186 +314,76 @@ Compare current audit to previous report in `~/geo-seo-projects/[domain]/`. Show
 
 ---
 
+## On-Page Optimisation (`/gteam seo page <url>`)
+
+**Gather:** URL(s) to optimise, target keyword per page, existing content. Load with `$B goto <url>` if available.
+
+**For each page:**
+
+1. **Title tag** — keyword in first 60 chars; power word (ultimate, complete, guide); year if time-sensitive
+2. **Meta description** — include keyword naturally; add a benefit; soft CTA ("Learn more", "See examples")
+3. **H1** — matches page intent; contains primary keyword; one H1 only
+4. **Content structure:**
+   - Opening paragraph: answer the query directly in first 100 words (featured snippet targeting)
+   - H2s: cover related questions and subtopics (check People Also Ask: WebSearch `"<keyword>" people also ask`)
+   - Word count: match top-ranking pages ± 20% — don't pad, don't under-serve
+5. **Keyword placement:** title, H1, first 100 words, one H2, image alt text, naturally throughout
+6. **Internal links:** 2–4 contextual links to related content; descriptive anchor text (not "click here")
+7. **External links:** 1–2 outbound links to authoritative sources (supports E-E-A-T)
+8. **Images:** descriptive alt text, compressed (WebP), filename includes keyword
+9. **Schema:** FAQ schema for Q&A sections; HowTo for step-by-step content
+10. **E-E-A-T signals:** author byline with credentials, publication date, last-reviewed date, cited sources
+
+**Deliver:**
+- Copy-ready title tag and meta description
+- Suggested H2 structure (outline) for the page
+- Specific optimisation actions per element (with file:line if code is provided)
+
+
+---
+
+## Technical SEO Audit (`/gteam seo technical <url>`)
+
+**Gather:** URL of the site. Use `$B goto <url>` then `$B snapshot` to inspect rendering. If not browseable, ask user to paste page source or describe the stack.
+
+**Technical audit checklist:**
+
+1. **Title tags** — 50–60 chars, primary keyword near front, unique per page, no truncation
+2. **Meta descriptions** — 150–160 chars, compelling copy with implicit CTA, unique per page
+3. **Heading structure** — single H1, logical H2/H3 hierarchy, keywords in headings naturally
+4. **Core Web Vitals** — LCP < 2.5s, CLS < 0.1, INP < 200ms. Search for PageSpeed report if URL available: `WebSearch "<url> PageSpeed Core Web Vitals"`
+5. **Mobile** — viewport meta present, tap targets ≥ 48px, no horizontal scroll, readable font size
+6. **Canonical tags** — self-referencing on primary pages, no conflicting canonicals, correct on paginated content
+7. **Robots.txt** — accessible at /robots.txt, no accidentally blocked pages or critical assets (CSS/JS)
+8. **XML sitemap** — present, submitted to Search Console, no 404s or noindex pages listed
+9. **Internal linking** — orphan pages (≤ 1 inbound link), anchor text diversity, key pages linked from nav
+10. **Duplicate content** — www vs non-www, HTTP vs HTTPS, trailing slash inconsistency — all 301 consolidated
+11. **Schema markup** — structured data for page type (Article, Product, FAQ, LocalBusiness)
+12. **HTTPS** — served over HTTPS, no mixed content warnings
+13. **Redirect chains** — no chains longer than 1 hop; 301 (not 302) for permanent moves
+14. **Hreflang** — if multi-language, hreflang tags correct and reciprocal
+
+**Deliver:**
+- Technical issues table (issue → priority: P1/P2/P3 → specific fix)
+- Estimated effort per fix (< 1 hour / half day / sprint)
+- Quick wins list: P1 issues fixable in under 1 hour
+
+**Output:** `~/geo-seo-projects/[domain]/SEO-TECHNICAL-AUDIT.md`
+
+
+---
+
 ## Step 2: Content Creation
 
 Using the keyword opportunities and search intent from Step 1, produce the full content piece.
 
-### Browse Setup
-
-When researching competitors or checking live content, run this setup block:
-
-```bash
-export PATH="$HOME/.bun/bin:$PATH"
-B=~/.claude/skills/gteam/browse/dist/browse
-[ -x "$B" ] && echo "READY: $B" || echo "BROWSE NOT AVAILABLE"
-```
-
-If `BROWSE NOT AVAILABLE`: skip all `$B` steps and use WebSearch + WebFetch instead.
-
----
-
-### Content Creation
-
-**Gather:** Topic, target audience, content goal (inform/convert/rank/entertain), target keywords if known, preferred format (blog post, landing page, newsletter, long-form guide).
-
-**Research phase:**
-1. Identify search intent for the primary keyword
-2. Review top 3 ranking pages: WebSearch `"<keyword>"` and browse/fetch the top results
-3. Find angles those pages miss — specific data, a contrarian view, a more practical how-to — that's the differentiation
-
-**Structure:**
-- **Hook:** first sentence earns the second. Open with a specific claim, surprising fact, or vivid scenario — not "In today's world..."
-- **Subheadings:** every H2 is a complete thought, not a label. "Why Conversion Rates Drop at Checkout" not "Conversion Issues"
-- **Proof points:** data, examples, case studies — one per major claim
-- **CTA:** single, clear, matches reader intent at this point in the funnel
-
-**Writing checklist:**
-- Flesch reading ease ≥ 60 (conversational, not academic)
-- No paragraph longer than 4 lines
-- Internal linking: 2–4 links to related content (placeholder links if URLs unknown)
-- Keyword density: primary keyword in title, H1, first 100 words, one H2, naturally throughout
-- Meta title (50–60 chars) and meta description (150–160 chars) included
-
-**E-E-A-T checklist** (Google Experience, Expertise, Authoritativeness, Trustworthiness):
-- Named author with credentials relevant to the topic — not "Editorial Team"
-- Firsthand experience signals: original examples, specific unexpected details, real outcomes/numbers
-- All factual claims cited with primary source link
-- Publish date and last-reviewed date visible on the page
-- For YMYL topics (health, finance, legal, safety): flag as "needs expert review before publishing"
-- If AI-assisted: mark sections needing firsthand specifics as "needs owner input"
-
-**Deliver:**
-- Full content piece (publish-ready)
-- Meta title and description
-- Social media pull-quotes (3 × tweet-length excerpts)
-- E-E-A-T notes: sections where firsthand sourcing is thin
-
----
-
-### Content Audit & Gap Analysis
-
-**Gather:** Domain or list of existing content URLs. If browseable, load the site and crawl key content pages. Otherwise work from a spreadsheet or list the user provides.
-
-**Audit each piece:**
-
-1. **Traffic performance:** is it getting organic traffic? (ask user for GA4 data, or estimate from ranking position)
-2. **Ranking position:** what keyword is it ranking for? Position 1–10 / 11–20 / not ranking
-3. **Search intent match:** does the content format match the intent? (informational keyword → how-to article ✓; transactional keyword → product page ✓; mismatch → fix)
-4. **Age:** last updated? Content > 18 months old in fast-moving topics needs a refresh
-5. **Quality score (1–5):**
-   - 5: comprehensive, well-cited, distinctive angle, E-E-A-T signals present
-   - 3: covers the topic but generic, no differentiation
-   - 1: thin, stub, no real value
-6. **Action:** Keep / Update / Merge / Delete / Redirect
-
-**Decision rules:**
-- Ranking 1–10 + quality 4–5 → Keep, minor refresh only
-- Ranking 11–20 + quality 3+ → Update to push into top 10 (quick win)
-- Ranking 20+ + quality 1–2 → Merge with a stronger related piece, or delete + redirect
-- Cannibalisation (2+ pieces targeting same keyword) → Consolidate into one authoritative page
-- Zero traffic + zero ranking + thin content → Delete + 301 redirect to nearest relevant page
-
-**Deliver:**
-- Content audit spreadsheet: URL → keyword → position → quality score → action
-- Priority update list: top 5 pieces to refresh for quick ranking gains
-- Consolidation plan: pages to merge with redirect mapping
-- Gap list: topics needed based on keyword research that don't exist yet
-
----
-
-### Pillar & Cluster Content Strategy
-
-**Gather:** Primary topic area, existing content inventory (from audit above), target audience job-to-be-done, domain authority level (rough estimate).
-
-**Topic cluster model:**
-
-```
-Pillar page (broad topic, 3,000–5,000 words)
-├── Cluster article 1 (specific subtopic, 1,000–2,000 words)
-├── Cluster article 2 (specific subtopic)
-├── Cluster article 3 (related question / comparison)
-└── Cluster article 4 (use case or example)
-```
-
-**Step 1 — Choose pillar topics:**
-- High search volume + high business relevance
-- Broad enough to spawn 8–15 cluster articles
-- Example pillar: "Email Marketing" spawns clusters: deliverability, subject lines, segmentation, welcome sequences, A/B testing, list building...
-
-**Step 2 — Map cluster articles:**
-- Each cluster targets a specific long-tail keyword
-- Cluster articles link back to the pillar page
-- Pillar page links out to all cluster articles
-- Internal link anchor text must use the cluster article's target keyword
-
-**Step 3 — Build in priority order:**
-1. Create or upgrade the pillar page first (signals topic authority)
-2. Publish cluster articles one at a time (each strengthens the pillar)
-3. Add internal links from existing content to new cluster articles
-
-**Pillar page anatomy:**
-- Comprehensive overview of the topic (not a deep dive — clusters do that)
-- Table of contents (improves dwell time + featured snippet eligibility)
-- Links to all cluster articles as "deep dives"
-- Clear target keyword + related terms throughout
-
-**Deliver:**
-- Pillar + cluster map (topic → pillar → list of 8–12 cluster articles with keywords)
-- Content brief for the pillar page
-- Publication roadmap: order to create content + estimated effort per piece
-- Internal linking plan: which existing pages to update with new links
-
----
-
-### Content Repurposing
-
-**Gather:** Source content (blog post, guide, webinar transcript, podcast episode, research report), target platforms, content production capacity.
-
-**Repurposing hierarchy (one long-form piece → many formats):**
-
-```
-Long-form article / Guide (source of truth)
-├── LinkedIn carousel (10 slides: one insight per slide)
-├── Twitter/X thread (10 tweets: one point per tweet)
-├── Email newsletter (key insight + link back to full article)
-├── Short video script (60–90 second "key takeaway" video)
-├── Infographic brief (3–5 statistics or steps visualised)
-├── Podcast talking points (if the brand has a podcast)
-└── FAQ page (extract Q&A pairs for schema + featured snippets)
-```
-
-**Repurposing principles:**
-- Each format needs a native rewrite — not copy-paste from the blog post
-- Lead with the best insight for that platform's audience; they may not read the original
-- Always link back to the source article (drives traffic + internal linking)
-- Update the source article with embeds of the repurposed content (adds media richness)
-
-**LinkedIn carousel formula:**
-- Slide 1: bold contrarian claim or surprising stat (the hook)
-- Slides 2–8: one actionable insight per slide; short sentence + supporting detail
-- Slide 9: the "what most people miss" slide
-- Slide 10: CTA (follow for more, link in bio, comment your question)
-
-**Email newsletter from long-form:**
-- Subject line: the most surprising insight from the article
-- 150–200 words max: context → key insight → why it matters → link to read more
-- Don't give everything away — make the click worth it
-
-**Deliver:**
-- Repurposing plan: source piece → list of formats with brief per format
-- Copy-ready versions for 3 formats (chosen based on active platforms)
-- Visual brief for any graphics needed (carousel, infographic)
-- Publishing schedule across channels
-
----
-
-### AI-Assisted Content Quality Control
+## AI-Assisted Content Quality Control
 
 **Use when:** Content is AI-generated or AI-assisted and must pass Google's quality standards, E-E-A-T signals, and avoid patterns that reduce credibility or ranking.
 
 **The core problem:** AI-generated content is detectable by both humans and Google's quality systems — not necessarily because it's wrong, but because it lacks the markers of genuine firsthand experience. The fix is to add specificity, not to "humanise" the writing.
 
-**Check `references/ai-writing-patterns.md` before reviewing or publishing any AI-assisted piece.** Work through all 5 categories.
+**Before reviewing or publishing:** `Grep {{GTEAM_DIR}}/specialists/content-creator/references/ai-writing-patterns.md` for the specific patterns you need to check. Work through all 5 categories below.
 
 **Category 1 — Remove hollow opener patterns:**
 
@@ -625,134 +446,174 @@ For health, finance, legal, or safety content:
 
 ---
 
+## Content Audit & Gap Analysis
+
+**Gather:** Domain or list of existing content URLs. If browseable, load the site and crawl key content pages. Otherwise work from a spreadsheet or list the user provides.
+
+**Audit each piece:**
+
+1. **Traffic performance:** is it getting organic traffic? (ask user for GA4 data, or estimate from ranking position)
+2. **Ranking position:** what keyword is it ranking for? Position 1–10 / 11–20 / not ranking
+3. **Search intent match:** does the content format match the intent? (informational keyword → how-to article ✓; transactional keyword → product page ✓; mismatch → fix)
+4. **Age:** last updated? Content > 18 months old in fast-moving topics needs a refresh
+5. **Quality score (1–5):**
+   - 5: comprehensive, well-cited, distinctive angle, E-E-A-T signals present
+   - 3: covers the topic but generic, no differentiation
+   - 1: thin, stub, no real value
+6. **Action:** Keep / Update / Merge / Delete / Redirect
+
+**Decision rules:**
+- Ranking 1–10 + quality 4–5 → Keep, minor refresh only
+- Ranking 11–20 + quality 3+ → Update to push into top 10 (quick win)
+- Ranking 20+ + quality 1–2 → Merge with a stronger related piece, or delete + redirect
+- Cannibalisation (2+ pieces targeting same keyword) → Consolidate into one authoritative page
+- Zero traffic + zero ranking + thin content → Delete + 301 redirect to nearest relevant page
+
+**Deliver:**
+- Content audit spreadsheet: URL → keyword → position → quality score → action
+- Priority update list: top 5 pieces to refresh for quick ranking gains
+- Consolidation plan: pages to merge with redirect mapping
+- Gap list: topics needed based on keyword research that don't exist yet
+
+
+---
+
+## Content Creation
+
+**Gather:** Topic, target audience, content goal (inform/convert/rank/entertain), target keywords if known, preferred format (blog post, landing page, newsletter, long-form guide).
+
+**Research phase:**
+1. Identify search intent for the primary keyword
+2. Review top 3 ranking pages: WebSearch `"<keyword>"` and browse/fetch the top results
+3. Find angles those pages miss — specific data, a contrarian view, a more practical how-to — that's the differentiation
+
+**Structure:**
+- **Hook:** first sentence earns the second. Open with a specific claim, surprising fact, or vivid scenario — not "In today's world..."
+- **Subheadings:** every H2 is a complete thought, not a label. "Why Conversion Rates Drop at Checkout" not "Conversion Issues"
+- **Proof points:** data, examples, case studies — one per major claim
+- **CTA:** single, clear, matches reader intent at this point in the funnel
+
+**Writing checklist:**
+- Flesch reading ease ≥ 60 (conversational, not academic)
+- No paragraph longer than 4 lines
+- Internal linking: 2–4 links to related content (placeholder links if URLs unknown)
+- Keyword density: primary keyword in title, H1, first 100 words, one H2, naturally throughout
+- Meta title (50–60 chars) and meta description (150–160 chars) included
+
+**E-E-A-T checklist** (Google Experience, Expertise, Authoritativeness, Trustworthiness):
+- Named author with credentials relevant to the topic — not "Editorial Team"
+- Firsthand experience signals: original examples, specific unexpected details, real outcomes/numbers
+- All factual claims cited with primary source link
+- Publish date and last-reviewed date visible on the page
+- For YMYL topics (health, finance, legal, safety): flag as "needs expert review before publishing"
+- If AI-assisted: mark sections needing firsthand specifics as "needs owner input"
+
+**Deeper reference:** `Grep {{GTEAM_DIR}}/specialists/content-creator/references/content-frameworks.md` for hook types, subheading patterns, proof points, CTA patterns. `Grep {{GTEAM_DIR}}/specialists/content-creator/references/eeat-guide.md` for E-E-A-T implementation details on YMYL topics.
+
+**Deliver:**
+- Full content piece (publish-ready)
+- Meta title and description
+- Social media pull-quotes (3 × tweet-length excerpts)
+- E-E-A-T notes: sections where firsthand sourcing is thin
+
+
+---
+
+## Content Repurposing
+
+**Gather:** Source content (blog post, guide, webinar transcript, podcast episode, research report), target platforms, content production capacity.
+
+**Repurposing hierarchy (one long-form piece → many formats):**
+
+```
+Long-form article / Guide (source of truth)
+├── LinkedIn carousel (10 slides: one insight per slide)
+├── Twitter/X thread (10 tweets: one point per tweet)
+├── Email newsletter (key insight + link back to full article)
+├── Short video script (60–90 second "key takeaway" video)
+├── Infographic brief (3–5 statistics or steps visualised)
+├── Podcast talking points (if the brand has a podcast)
+└── FAQ page (extract Q&A pairs for schema + featured snippets)
+```
+
+**Repurposing principles:**
+- Each format needs a native rewrite — not copy-paste from the blog post
+- Lead with the best insight for that platform's audience; they may not read the original
+- Always link back to the source article (drives traffic + internal linking)
+- Update the source article with embeds of the repurposed content (adds media richness)
+
+**LinkedIn carousel formula:**
+- Slide 1: bold contrarian claim or surprising stat (the hook)
+- Slides 2–8: one actionable insight per slide; short sentence + supporting detail
+- Slide 9: the "what most people miss" slide
+- Slide 10: CTA (follow for more, link in bio, comment your question)
+
+**Email newsletter from long-form:**
+- Subject line: the most surprising insight from the article
+- 150–200 words max: context → key insight → why it matters → link to read more
+- Don't give everything away — make the click worth it
+
+**Video-to-blog repurposing:** `Grep {{GTEAM_DIR}}/specialists/content-creator/references/transcript-analysis.md` for yt-dlp / Whisper workflows and video-to-blog extraction patterns.
+
+**Deliver:**
+- Repurposing plan: source piece → list of formats with brief per format
+- Copy-ready versions for 3 formats (chosen based on active platforms)
+- Visual brief for any graphics needed (carousel, infographic)
+- Publishing schedule across channels
+
+
+---
+
+## Pillar & Cluster Content Strategy
+
+**Gather:** Primary topic area, existing content inventory (from audit above), target audience job-to-be-done, domain authority level (rough estimate).
+
+**Topic cluster model:**
+
+```
+Pillar page (broad topic, 3,000–5,000 words)
+├── Cluster article 1 (specific subtopic, 1,000–2,000 words)
+├── Cluster article 2 (specific subtopic)
+├── Cluster article 3 (related question / comparison)
+└── Cluster article 4 (use case or example)
+```
+
+**Step 1 — Choose pillar topics:**
+- High search volume + high business relevance
+- Broad enough to spawn 8–15 cluster articles
+- Example pillar: "Email Marketing" spawns clusters: deliverability, subject lines, segmentation, welcome sequences, A/B testing, list building...
+
+**Step 2 — Map cluster articles:**
+- Each cluster targets a specific long-tail keyword
+- Cluster articles link back to the pillar page
+- Pillar page links out to all cluster articles
+- Internal link anchor text must use the cluster article's target keyword
+
+**Step 3 — Build in priority order:**
+1. Create or upgrade the pillar page first (signals topic authority)
+2. Publish cluster articles one at a time (each strengthens the pillar)
+3. Add internal links from existing content to new cluster articles
+
+**Pillar page anatomy:**
+- Comprehensive overview of the topic (not a deep dive — clusters do that)
+- Table of contents (improves dwell time + featured snippet eligibility)
+- Links to all cluster articles as "deep dives"
+- Clear target keyword + related terms throughout
+
+**Deliver:**
+- Pillar + cluster map (topic → pillar → list of 8–12 cluster articles with keywords)
+- Content brief for the pillar page
+- Publication roadmap: order to create content + estimated effort per piece
+- Internal linking plan: which existing pages to update with new links
+
+
+---
+
 ## Step 3: Social Distribution
 
 Using the content from Step 2, produce platform-ready social posts and a distribution plan.
 
-### Browse Setup
-
-When a profile URL or competitor page is provided, run this setup block:
-
-```bash
-export PATH="$HOME/.bun/bin:$PATH"
-B=~/.claude/skills/gteam/browse/dist/browse
-[ -x "$B" ] && echo "READY: $B" || echo "BROWSE NOT AVAILABLE"
-```
-
-If `BROWSE NOT AVAILABLE`: skip all `$B` steps and use WebFetch instead.
-
----
-
-### Platform Strategy
-
-**Gather:** Brand/product description, target audience (age, interests, job title), current platforms (if any), primary goal (awareness / followers / leads / sales), content production capacity (how many hours/week).
-
-**Platform selection logic:**
-
-| Platform | Best for | Content type | Commitment |
-|---------|---------|-------------|------------|
-| LinkedIn | B2B, hiring, thought leadership | Articles, carousels, short posts | 3–5× per week |
-| Instagram | Consumer brand, visual product, lifestyle | Reels (primary), carousels, stories | 5–7× per week |
-| X (Twitter) | Tech, media, real-time commentary | Short takes, threads, replies | 5–10× per day |
-| TikTok | Consumer, entertainment, under-35 | Short-form video (15–60s) | 1–3× per day |
-| YouTube | Education, software demos, long-form | Videos 8–15 min | 1–2× per week |
-| Facebook | Local business, paid ads, events | Posts, groups, ads | 3–5× per week |
-
-**For each active platform, define:**
-- Primary content format (what dominates the feed right now)
-- Posting cadence (realistic given capacity)
-- Tone of voice (same brand, adapted to platform culture)
-- Key metric: impressions / followers / engagement rate / clicks
-
-**Content mix rule:** 60% educational/entertaining, 30% social proof/community, 10% promotional. Never lead with the pitch.
-
-**Deliver:**
-- Platform selection rationale (which to focus on + why to deprioritise others)
-- One-pager per active platform: format, cadence, tone, primary metric
-- 30-day content plan: topics by week with format notes
-
----
-
-### Content Creation
-
-**Gather:** Platform, topic or campaign theme, brand voice guide if available, any existing content assets (product screenshots, customer quotes, data).
-
-**Content formats by platform:**
-
-**LinkedIn:**
-- Opening line wins or loses the post — no preamble, no "I'm excited to announce"
-- Carousels: 8–10 slides, first slide = bold claim, last slide = CTA
-- Short posts: 3–5 punchy lines, white space between, hook → insight → takeaway → CTA
-
-**Instagram:**
-- Reels: hook in first 2 seconds (text overlay or action), value in 15–30 seconds, CTA at end
-- Carousels: swipe-worthy first slide, value builds across slides, last slide = save/share CTA
-- Caption: first line is the hook (displayed before "more"); hashtags in comment or at bottom
-
-**X (Twitter):**
-- Threads: opening tweet is the hook + promise ("I did X for Y months. Here's what I learned:")
-- Single tweet: one idea, one line, no filler
-- Reply strategy: meaningful replies to relevant accounts builds following faster than posting alone
-
-**TikTok:**
-- Hook formula: address the viewer directly ("If you're a [persona] who struggles with X...")
-- Native feel over polished production — trending audio, on-screen text captions, direct-to-camera
-- Pattern interrupt: change scene, add text pop, cut within first 3 seconds
-
-**Write for each piece:**
-- Platform-native draft (caption / script / carousel text)
-- Subject/hook variant (A/B)
-- Hashtag set: 3–5 max (1 broad, 2 niche, 1 branded) — not a wall of tags
-- Visual brief: what image, graphic, or b-roll supports this post
-
-**Deliver:**
-- 10 ready-to-post pieces (mix of formats)
-- Visual brief for each (what to create or source)
-- Hashtag strategy per platform
-- 3 content series concepts (recurring formats that build audience over time)
-
----
-
-### Community Management & Engagement
-
-**Gather:** Active platforms, typical comment/DM volume, brand voice guidelines, any sensitive topics or competitors not to engage with.
-
-**Daily engagement protocol (15–30 min per platform):**
-
-1. **Respond to all comments on own posts** within 24 hours:
-   - Genuine questions: answer fully
-   - Compliments: acknowledge + add value ("Thanks! The key thing that made X work was...")
-   - Criticism: acknowledge + take offline if needed ("DM us and we'll sort this out")
-   - Never delete negative comments (unless spam/offensive) — respond and resolve publicly
-
-2. **Proactive engagement (10 mins/day):**
-   - Reply meaningfully to 5–10 posts from target audience or complementary accounts
-   - Never generic ("Great post!") — add a specific point or question
-   - Engage before you post — warms algorithm and builds relationships
-
-3. **DM handling:**
-   - Respond within 4 hours during business hours
-   - Qualify leads: what's their problem? Do we solve it?
-   - Template library for: pricing questions, partnership requests, media enquiries, complaints
-
-**Response templates (adapt to brand voice):**
-
-| Scenario | Template |
-|---------|---------|
-| Positive comment | "Thanks [name]! [Specific observation about their comment]. [Value add]." |
-| Question | "[Answer directly]. Happy to go deeper — [resource or DM offer]." |
-| Complaint | "Sorry to hear this, [name]. [Acknowledge]. Can you DM us with [details]? We'll get this fixed." |
-| Spam/sales DM | Ignore or soft decline; do not engage with arguments |
-
-**Deliver:**
-- Engagement protocol document
-- DM response template library (5–8 scenarios)
-- Escalation criteria (when to involve a human senior team member)
-- Competitor monitoring list: 5–10 accounts to watch weekly
-
----
-
-### Analytics & Reporting
+## Analytics & Reporting
 
 **Gather:** Platforms, analytics access, reporting period, KPIs defined (or define them now), any previous benchmarks.
 
@@ -785,9 +646,49 @@ If `BROWSE NOT AVAILABLE`: skip all `$B` steps and use WebFetch instead.
 - Insights: 3 observations about what's working in this niche right now
 - Next month content recommendations (topics + formats based on performance data)
 
+
 ---
 
-### Campaign Planning
+## Audience Psychology & Messaging
+
+**Use when:** Content is technically correct but not resonating — good information, low engagement.
+
+**Why content fails to land:**
+Content fails not because it's wrong, but because it doesn't connect emotionally. Every piece of social content triggers one of these responses:
+
+| Response | Trigger | Action |
+|---|---|---|
+| "That's me" | Identity validation — content reflects who they are or aspire to be | Like, save |
+| "I need to remember this" | Utility — genuinely useful, reference-worthy | Save, bookmark |
+| "My network needs to see this" | Social currency — sharing makes them look smart/helpful | Share, retweet |
+| "I have something to say about this" | Debate — content invites opinion or challenges a belief | Comment, reply |
+| "I feel seen" | Empathy — content acknowledges a struggle or experience | Like, comment, follow |
+
+**Messaging framework per audience type:**
+
+| Audience | What resonates | What falls flat |
+|---|---|---|
+| Founders/entrepreneurs | Contrarian takes, revenue numbers, "here's what I learned" | Generic motivation, vague success stories |
+| Developers | Technical depth, honest trade-offs, "I built X, here's how" | Marketing-speak, oversimplification |
+| Marketers | Frameworks with examples, campaign results, benchmarks | Theory without data, outdated tactics |
+| Consumers (B2C) | Emotion, identity, entertainment, social proof | Feature lists, technical jargon |
+| Executives | Strategic implications, bottom-line impact, peer examples | Tactical details, how-to content |
+
+**Hot take formula (what makes a take actually hot):**
+A hot take is NOT just a strong opinion. It works when it:
+1. Challenges a widely-held belief ("Everyone says X, but actually Y")
+2. Is backed by specific evidence or experience ("I did X for 6 months and here's what happened")
+3. Has stakes — the reader gains something by changing their mind
+4. Is debatable but defensible — not just contrarian for attention
+
+**Before/after content improvement:**
+- Before: "Remote work has pros and cons" → flat, no engagement trigger
+- After: "I tracked my team's output for 6 months: remote engineers shipped 40% more code but creative collaboration dropped 60%. Here's how we fixed both." → specific, evidence-based, invites discussion
+
+
+---
+
+## Campaign Planning
 
 **Gather:** Campaign objective (awareness / launch / promotion / event), timeline, budget (organic or paid), target audience, any creative assets available.
 
@@ -825,9 +726,91 @@ If `BROWSE NOT AVAILABLE`: skip all `$B` steps and use WebFetch instead.
 - Success metrics: reach / engagement / click / conversion targets per phase
 - Budget allocation (if paid component)
 
+
 ---
 
-### Crisis Management
+## Community Management & Engagement
+
+**Gather:** Active platforms, typical comment/DM volume, brand voice guidelines, any sensitive topics or competitors not to engage with.
+
+**Daily engagement protocol (15–30 min per platform):**
+
+1. **Respond to all comments on own posts** within 24 hours:
+   - Genuine questions: answer fully
+   - Compliments: acknowledge + add value ("Thanks! The key thing that made X work was...")
+   - Criticism: acknowledge + take offline if needed ("DM us and we'll sort this out")
+   - Never delete negative comments (unless spam/offensive) — respond and resolve publicly
+
+2. **Proactive engagement (10 mins/day):**
+   - Reply meaningfully to 5–10 posts from target audience or complementary accounts
+   - Never generic ("Great post!") — add a specific point or question
+   - Engage before you post — warms algorithm and builds relationships
+
+3. **DM handling:**
+   - Respond within 4 hours during business hours
+   - Qualify leads: what's their problem? Do we solve it?
+   - Template library for: pricing questions, partnership requests, media enquiries, complaints
+
+**Response templates (adapt to brand voice):**
+
+| Scenario | Template |
+|---------|---------|
+| Positive comment | "Thanks [name]! [Specific observation about their comment]. [Value add]." |
+| Question | "[Answer directly]. Happy to go deeper — [resource or DM offer]." |
+| Complaint | "Sorry to hear this, [name]. [Acknowledge]. Can you DM us with [details]? We'll get this fixed." |
+| Spam/sales DM | Ignore or soft decline; do not engage with arguments |
+
+**Deliver:**
+- Engagement protocol document
+- DM response template library (5–8 scenarios)
+- Escalation criteria (when to involve a human senior team member)
+- Competitor monitoring list: 5–10 accounts to watch weekly
+
+
+---
+
+## Content Creation
+
+**Gather:** Platform, topic or campaign theme, brand voice guide if available, any existing content assets (product screenshots, customer quotes, data).
+
+**Content formats by platform:**
+
+**LinkedIn:**
+- Opening line wins or loses the post — no preamble, no "I'm excited to announce"
+- Carousels: 8–10 slides, first slide = bold claim, last slide = CTA
+- Short posts: 3–5 punchy lines, white space between, hook → insight → takeaway → CTA
+
+**Instagram:**
+- Reels: hook in first 2 seconds (text overlay or action), value in 15–30 seconds, CTA at end
+- Carousels: swipe-worthy first slide, value builds across slides, last slide = save/share CTA
+- Caption: first line is the hook (displayed before "more"); hashtags in comment or at bottom
+
+**X (Twitter):**
+- Threads: opening tweet is the hook + promise ("I did X for Y months. Here's what I learned:")
+- Single tweet: one idea, one line, no filler
+- Reply strategy: meaningful replies to relevant accounts builds following faster than posting alone
+
+**TikTok:**
+- Hook formula: address the viewer directly ("If you're a [persona] who struggles with X...")
+- Native feel over polished production — trending audio, on-screen text captions, direct-to-camera
+- Pattern interrupt: change scene, add text pop, cut within first 3 seconds
+
+**Write for each piece:**
+- Platform-native draft (caption / script / carousel text)
+- Subject/hook variant (A/B)
+- Hashtag set: 3–5 max (1 broad, 2 niche, 1 branded) — not a wall of tags
+- Visual brief: what image, graphic, or b-roll supports this post
+
+**Deliver:**
+- 10 ready-to-post pieces (mix of formats)
+- Visual brief for each (what to create or source)
+- Hashtag strategy per platform
+- 3 content series concepts (recurring formats that build audience over time)
+
+
+---
+
+## Crisis Management
 
 **Use when:** Negative content about the brand is gaining traction, a PR incident occurs, or community sentiment shifts sharply negative.
 
@@ -871,9 +854,10 @@ If `BROWSE NOT AVAILABLE`: skip all `$B` steps and use WebFetch instead.
 - Escalation contact list: who to call at each severity level
 - Platform-specific response templates (X character limit vs LinkedIn long-form)
 
+
 ---
 
-### Influencer & Partnership Strategy
+## Influencer & Partnership Strategy
 
 **Use when:** Brand wants to grow through creator collaborations rather than (or alongside) owned content.
 
@@ -907,47 +891,70 @@ If `BROWSE NOT AVAILABLE`: skip all `$B` steps and use WebFetch instead.
 - Campaign brief template
 - ROI tracking spreadsheet (creator → reach → clicks → conversions → cost per acquisition)
 
----
-
-### Audience Psychology & Messaging
-
-**Use when:** Content is technically correct but not resonating — good information, low engagement.
-
-**Why content fails to land:**
-Content fails not because it's wrong, but because it doesn't connect emotionally. Every piece of social content triggers one of these responses:
-
-| Response | Trigger | Action |
-|---|---|---|
-| "That's me" | Identity validation — content reflects who they are or aspire to be | Like, save |
-| "I need to remember this" | Utility — genuinely useful, reference-worthy | Save, bookmark |
-| "My network needs to see this" | Social currency — sharing makes them look smart/helpful | Share, retweet |
-| "I have something to say about this" | Debate — content invites opinion or challenges a belief | Comment, reply |
-| "I feel seen" | Empathy — content acknowledges a struggle or experience | Like, comment, follow |
-
-**Messaging framework per audience type:**
-
-| Audience | What resonates | What falls flat |
-|---|---|---|
-| Founders/entrepreneurs | Contrarian takes, revenue numbers, "here's what I learned" | Generic motivation, vague success stories |
-| Developers | Technical depth, honest trade-offs, "I built X, here's how" | Marketing-speak, oversimplification |
-| Marketers | Frameworks with examples, campaign results, benchmarks | Theory without data, outdated tactics |
-| Consumers (B2C) | Emotion, identity, entertainment, social proof | Feature lists, technical jargon |
-| Executives | Strategic implications, bottom-line impact, peer examples | Tactical details, how-to content |
-
-**Hot take formula (what makes a take actually hot):**
-A hot take is NOT just a strong opinion. It works when it:
-1. Challenges a widely-held belief ("Everyone says X, but actually Y")
-2. Is backed by specific evidence or experience ("I did X for 6 months and here's what happened")
-3. Has stakes — the reader gains something by changing their mind
-4. Is debatable but defensible — not just contrarian for attention
-
-**Before/after content improvement:**
-- Before: "Remote work has pros and cons" → flat, no engagement trigger
-- After: "I tracked my team's output for 6 months: remote engineers shipped 40% more code but creative collaboration dropped 60%. Here's how we fixed both." → specific, evidence-based, invites discussion
 
 ---
 
-### Real-Time Trend Capture
+## Paid-Organic Integration
+
+**Use when:** Budget is available and organic reach alone isn't achieving goals. This supplements (not replaces) organic strategy.
+
+**Note:** For full paid campaign design, audience targeting, and ad platform management, use the paid-media specialist. This section covers the organic-paid handshake only.
+
+**Rule: Only boost winners.** Never pay to amplify content that didn't perform organically.
+
+| Organic Performance | Paid Action |
+|---|---|
+| Engagement rate > 5% | Boost with £5-20/day budget — this content resonates |
+| Engagement rate 3-5% | Test boost with £5/day for 48 hours — evaluate |
+| Engagement rate < 3% | Do NOT boost — fix the content first |
+
+**Organic-to-paid repurposing workflow:**
+1. Identify top-performing organic posts (weekly review)
+2. Adapt for paid format: add CTA, tighten copy, improve visual
+3. Target: lookalike audience based on current followers/engagement
+4. Run for 3-7 days with daily budget, monitor CPA
+5. Kill if CPA exceeds target after 48 hours
+
+**Attribution basics:**
+- UTM tag all links from social: `?utm_source=linkedin&utm_medium=social&utm_campaign=q2-launch`
+- Track in GA4: Acquisition → Traffic Acquisition → filter by utm_source
+- Social-attributed conversions = last-touch attribution (imperfect but actionable)
+
+
+---
+
+## Platform Strategy
+
+**Gather:** Brand/product description, target audience (age, interests, job title), current platforms (if any), primary goal (awareness / followers / leads / sales), content production capacity (how many hours/week).
+
+**Platform selection logic:**
+
+| Platform | Best for | Content type | Commitment |
+|---------|---------|-------------|------------|
+| LinkedIn | B2B, hiring, thought leadership | Articles, carousels, short posts | 3–5× per week |
+| Instagram | Consumer brand, visual product, lifestyle | Reels (primary), carousels, stories | 5–7× per week |
+| X (Twitter) | Tech, media, real-time commentary | Short takes, threads, replies | 5–10× per day |
+| TikTok | Consumer, entertainment, under-35 | Short-form video (15–60s) | 1–3× per day |
+| YouTube | Education, software demos, long-form | Videos 8–15 min | 1–2× per week |
+| Facebook | Local business, paid ads, events | Posts, groups, ads | 3–5× per week |
+
+**For each active platform, define:**
+- Primary content format (what dominates the feed right now)
+- Posting cadence (realistic given capacity)
+- Tone of voice (same brand, adapted to platform culture)
+- Key metric: impressions / followers / engagement rate / clicks
+
+**Content mix rule:** 60% educational/entertaining, 30% social proof/community, 10% promotional. Never lead with the pitch.
+
+**Deliver:**
+- Platform selection rationale (which to focus on + why to deprioritise others)
+- One-pager per active platform: format, cadence, tone, primary metric
+- 30-day content plan: topics by week with format notes
+
+
+---
+
+## Real-Time Trend Capture
 
 **Use when:** A trending topic, breaking news, or viral moment is relevant to the brand. Speed matters — trends have a 2-6 hour window for maximum impact.
 
@@ -979,36 +986,6 @@ A hot take is NOT just a strong opinion. It works when it:
 - Tutorial: "How to [trend-related skill]" — works for educational accounts
 - Meme/humour: Remix the trend with brand relevance — works for consumer brands
 - Data: "We analysed [trend] and here's what we found" — works for analytical brands
-
----
-
-### Paid-Organic Integration
-
-**Use when:** Budget is available and organic reach alone isn't achieving goals. This supplements (not replaces) organic strategy.
-
-**Note:** For full paid campaign design, audience targeting, and ad platform management, use the paid-media specialist. This section covers the organic-paid handshake only.
-
-**Rule: Only boost winners.** Never pay to amplify content that didn't perform organically.
-
-| Organic Performance | Paid Action |
-|---|---|
-| Engagement rate > 5% | Boost with £5-20/day budget — this content resonates |
-| Engagement rate 3-5% | Test boost with £5/day for 48 hours — evaluate |
-| Engagement rate < 3% | Do NOT boost — fix the content first |
-
-**Organic-to-paid repurposing workflow:**
-1. Identify top-performing organic posts (weekly review)
-2. Adapt for paid format: add CTA, tighten copy, improve visual
-3. Target: lookalike audience based on current followers/engagement
-4. Run for 3-7 days with daily budget, monitor CPA
-5. Kill if CPA exceeds target after 48 hours
-
-**Attribution basics:**
-- UTM tag all links from social: `?utm_source=linkedin&utm_medium=social&utm_campaign=q2-launch`
-- Track in GA4: Acquisition → Traffic Acquisition → filter by utm_source
-- Social-attributed conversions = last-touch attribution (imperfect but actionable)
-
----
 
 
 ---

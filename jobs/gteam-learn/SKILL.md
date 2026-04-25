@@ -10,9 +10,6 @@ allowed-tools:
   - Bash
 ---
 
-> GTeam update check: `cd ~/.claude/skills/gteam && git pull && bun run build`
-> Autonomy mode: execute fully automatically. Only pause for decisions with meaningful consequences to the user.
-
 # GTeam Learn — Results-Based Reference Improvement
 
 This job reads accumulated results/ entries across all specialists, compares them against current reference files, and proposes targeted edits — upgrading confidence markers and revising advice that doesn't hold up in practice.
@@ -26,7 +23,7 @@ This job reads accumulated results/ entries across all specialists, compares the
 Scan for result entries:
 
 ```bash
-find ~/.claude/skills/gteam/specialists -path "*/results/*.md" ! -name "README.md" | sort
+find ~/dev/1_myprojects/gteam/specialists -path "*/results/*.md" ! -name "README.md" | sort
 ```
 
 If no result files found: report "No results logged yet. Use the template in any `specialists/*/results/README.md` to log your first outcome." and stop.

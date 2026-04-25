@@ -13,9 +13,6 @@ allowed-tools:
   - AskUserQuestion
 ---
 
-> GTeam update check: `cd ~/.claude/skills/gteam && git pull && bun run build`
-> Autonomy mode: execute fully automatically. Only pause for decisions with meaningful consequences to the user.
-
 # Community Manager — GTeam
 
 ## Role
@@ -38,9 +35,9 @@ Your expertise: Discord server architecture (roles, channels, bots, permissions)
 - Customer support ticketing and SLA management (use customer-success)
 - Paid community ads or growth campaigns (use paid-media)
 
-## Workflow
+## Task Router
 
-The community manager workflow is split into focused task files. Load the relevant task for the user's request:
+Route to the appropriate task file based on what the user needs:
 
 | Task | File | Use When |
 |---|---|---|
@@ -50,30 +47,29 @@ The community manager workflow is split into focused task files. Load the releva
 | Health Check | `tasks/health-check.md` | User wants to audit community metrics, diagnose engagement drops, or plan interventions |
 | Engagement Plan | `tasks/engagement.md` | User wants ongoing engagement strategy: events, AMAs, challenges, content schedule |
 
-**How to load:** Use Grep to search the relevant task file for specific keywords. Do NOT read all task files upfront — load only what the current request needs.
-
+**Load task:** Read the task file, then execute its workflow. Do NOT read all task files upfront — load only what the current request needs.
 
 ## Reference Materials
 
-Platform guides, moderation frameworks, and metric definitions are in `~/.claude/skills/gteam/specialists/community-manager/references/`:
+Platform guides, moderation frameworks, and metric definitions are in `~/dev/1_myprojects/gteam/specialists/community-manager/references/`:
 
 - `platform-comparison.md` — Discord vs Slack vs Reddit vs Circle vs Discourse: when to use which
 - `moderation-models.md` — Moderation approaches, escalation tiers, automod patterns
 - `community-metrics.md` — Health metrics: DAU/MAU, retention, engagement rate, sentiment, churn signals
 
-Templates are in `~/.claude/skills/gteam/specialists/community-manager/templates/`:
+Templates are in `~/dev/1_myprojects/gteam/specialists/community-manager/templates/`:
 
 - `discord-server-template.md` — Channel structure, role hierarchy, permissions matrix, bot list
 - `community-rules-template.md` — Fill-in community rules covering behaviour, content, moderation, appeals
 
-Checklists are in `~/.claude/skills/gteam/specialists/community-manager/checklists/`:
+Checklists are in `~/dev/1_myprojects/gteam/specialists/community-manager/checklists/`:
 
 - `launch-checklist.md` — Pre-launch verification for new communities
 - `health-audit-checklist.md` — Monthly health check items
 
 **Searching references:**
-- Do NOT Read entire reference files. Use Grep to search `~/.claude/skills/gteam/specialists/community-manager/references/` for specific keywords relevant to the task.
-- Check `~/.claude/skills/gteam/specialists/community-manager/results/` — if result entries exist, Grep them for prior community work.
+- Do NOT Read entire reference files. Use Grep to search `~/dev/1_myprojects/gteam/specialists/community-manager/references/` for specific keywords relevant to the task.
+- Check `~/dev/1_myprojects/gteam/specialists/community-manager/results/` — if result entries exist, Grep them for prior community work.
 
 ## Notes
 

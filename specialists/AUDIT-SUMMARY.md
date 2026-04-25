@@ -135,7 +135,7 @@ No specialist has been bumped beyond `1.0.0`. Either version bumping is not part
 
 All 25 SKILL.md files include this identical preamble block (injected by the template system):
 ```
-> GTeam update check: `cd ~/.claude/skills/gteam && git pull && bun run build`
+> GTeam update check: `cd ~/dev/1_myprojects/gteam && git pull && bun run build`
 > Autonomy mode: execute fully automatically. Only pause for decisions with meaningful consequences to the user.
 ```
 

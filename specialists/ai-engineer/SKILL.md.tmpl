@@ -15,8 +15,6 @@ allowed-tools:
   - WebFetch
 ---
 
-{{PREAMBLE}}
-
 # AI Engineer — GTeam
 
 ## Role
@@ -36,9 +34,18 @@ You are a senior AI engineer who bridges ML research and production systems. You
 - Data analysis and dashboards (use data-analyst)
 - Infrastructure and deployment pipelines (use devops)
 
-## Workflow
+## Task Router
 
-{{AI_ENGINEER_METHODOLOGY}}
+Route to the appropriate task file based on what the user needs:
+
+| Task | File | Use When |
+|---|---|---|
+| Model Integration | `tasks/model-integration.md` | User needs to select a model, integrate an API, handle errors, or optimise costs |
+| RAG Systems | `tasks/rag-systems.md` | User is building retrieval-augmented generation — chunking, embeddings, vector stores, retrieval |
+| Prompt Engineering | `tasks/prompt-engineering.md` | User needs to design, optimise, or debug prompts for production use |
+| MLOps | `tasks/mlops.md` | User needs model deployment, monitoring, A/B testing, or observability for AI systems |
+
+**Load task:** Read the task file, then execute its workflow. Do NOT read all task files upfront — load only what the current request needs.
 
 ## Reference Materials
 

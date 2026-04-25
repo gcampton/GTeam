@@ -2,7 +2,7 @@ import { expect, test, describe, beforeEach, afterEach } from 'bun:test'
 import { mkdtemp, writeFile, mkdir, rm } from 'node:fs/promises'
 import { join } from 'node:path'
 import { tmpdir } from 'node:os'
-import { resolvePreamble, resolveToken, processTemplate, PREAMBLE_TEXT } from '../scripts/gen-skill-docs'
+import { resolveToken, processTemplate } from '../scripts/gen-skill-docs'
 
 let tmp: string
 
@@ -12,20 +12,6 @@ beforeEach(async () => {
 
 afterEach(async () => {
   await rm(tmp, { recursive: true })
-})
-
-describe('resolvePreamble', () => {
-  test('returns string containing update check', () => {
-    expect(resolvePreamble()).toContain('GTeam update check')
-  })
-
-  test('returns string containing autonomy mode', () => {
-    expect(resolvePreamble()).toContain('Autonomy mode')
-  })
-
-  test('matches PREAMBLE_TEXT constant exactly', () => {
-    expect(resolvePreamble()).toBe(PREAMBLE_TEXT)
-  })
 })
 
 describe('resolveToken', () => {
@@ -52,7 +38,7 @@ describe('resolveToken', () => {
 
   test('resolves GTEAM_DIR to install path', async () => {
     const result = await resolveToken('GTEAM_DIR', tmp)
-    expect(result).toBe('~/.claude/skills/gteam')
+    expect(result).toBe('~/dev/1_myprojects/gteam')
   })
 
   test('throws on unknown token', async () => {
@@ -65,14 +51,6 @@ describe('resolveToken', () => {
 })
 
 describe('processTemplate', () => {
-  test('replaces {{PREAMBLE}} with preamble text', async () => {
-    const tmplPath = join(tmp, 'SKILL.md.tmpl')
-    await writeFile(tmplPath, '# Test\n\n{{PREAMBLE}}\n\nRest of skill.')
-    const result = await processTemplate(tmplPath, tmp)
-    expect(result).toContain('GTeam update check')
-    expect(result).not.toContain('{{PREAMBLE}}')
-  })
-
   test('replaces {{SEO_METHODOLOGY}} with file content', async () => {
     await mkdir(join(tmp, 'specialists', 'seo'), { recursive: true })
     await writeFile(join(tmp, 'specialists', 'seo', 'methodology.md'), '## SEO steps')

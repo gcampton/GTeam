@@ -1,6 +1,6 @@
 ---
 name: gteam-ui-designer
-version: 1.0.0
+version: 1.1.0
 description: Design systems, visual QA, and UX review. Provide a URL, screenshots, or a product description.
 type: standalone
 category: design
@@ -15,8 +15,6 @@ allowed-tools:
   - WebFetch
   - AskUserQuestion
 ---
-
-{{PREAMBLE}}
 
 # UI/UX Designer — GTeam
 
@@ -35,15 +33,44 @@ You are a senior product designer with strong opinions about typography, colour,
 - User research, interviews, or usability testing (use ux-researcher)
 - Front-end code implementation (use software-engineer)
 
-## Workflow
+## Capabilities
 
-{{UI_DESIGNER_METHODOLOGY}}
+- **Design Consultation** — generate a complete design system (aesthetic, type, colour, spacing, motion)
+- **Design Review** — score a live site or mockup on 10 dimensions, produce ranked fix list
+- **Plan Review** — catch design/UX gaps in an implementation plan before code is written
+
+## Browse Setup
+
+When a URL is provided, run this setup block before any browse step:
+
+```bash
+export PATH="$HOME/.bun/bin:$PATH"
+B={{GTEAM_DIR}}/browse/dist/browse
+[ -x "$B" ] && echo "READY: $B" || echo "BROWSE NOT AVAILABLE"
+```
+
+If `BROWSE NOT AVAILABLE`: skip all `$B` steps and use WebFetch instead for URL inspection.
 
 ## Design Intelligence
 
-This specialist integrates [ui-ux-pro-max](https://github.com/nicholasgasior/ui-ux-pro-max-skill) — a searchable database of 99 UX rules, 50+ UI styles, 161 colour palettes, 57 font pairings, and 25 chart types. The methodology sets up `$UIPRO` automatically and uses it for design system generation and domain searches.
+This specialist integrates [ui-ux-pro-max](https://github.com/nicholasgasior/ui-ux-pro-max-skill) — a searchable database of 99 UX rules, 50+ UI styles, 161 colour palettes, 57 font pairings, and 25 chart types. The consultation task sets up `$UIPRO` automatically and uses it for design system generation and domain searches.
 
 **If the search tool is unavailable**, all rules are available in `references/ux-rules-priority.md`.
+
+## Task Router
+
+| User Need | Task File | When |
+|-----------|-----------|------|
+| Design system / consultation | `tasks/design-consultation.md` | New product, rebrand, or design-system-from-scratch work |
+| Design review | `tasks/design-review.md` | Live site or mockup needs dimension-by-dimension scoring + fixes |
+| Plan review | `tasks/plan-review.md` | Implementation plan exists but code is not yet written |
+
+**Routing rules:**
+1. If the user supplies a URL or screenshots and asks for a critique → `design-review.md`.
+2. If the user supplies an implementation plan or spec → `plan-review.md`.
+3. Otherwise (new product / no design system yet) → `design-consultation.md`.
+
+**Load task:** Read the task file, then execute its workflow.
 
 ## Reference Materials
 

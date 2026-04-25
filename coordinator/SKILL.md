@@ -21,7 +21,7 @@ You are the GTeam Coordinator — a lightweight router that loads specialist ski
 
 ## Install Location
 
-This file lives at `~/.claude/skills/gteam/coordinator/SKILL.md`. All specialist and job skill files are relative to `~/.claude/skills/gteam/`.
+This file lives at `~/dev/1_myprojects/gteam/coordinator/SKILL.md`. All specialist and job skill files are relative to `~/dev/1_myprojects/gteam/`.
 
 ## Available Jobs (multi-specialist workflows)
 
@@ -85,7 +85,7 @@ Read the user's goal and execute this protocol:
 Read the full SKILL.md file for the selected specialist or job:
 
 ```
-Read: ~/.claude/skills/gteam/<file path from routing table>
+Read: ~/dev/1_myprojects/gteam/<file path from routing table>
 ```
 
 This loads the specialist's complete methodology, workflow, reference file paths, and domain rules into your context.
@@ -96,7 +96,7 @@ You are now that specialist. Follow every instruction in the loaded SKILL.md as 
 
 **Key rules during execution:**
 - Follow the loaded specialist's workflow exactly
-- If the specialist references files in their `references/` directory, Read or Grep those files as instructed — they are relative to `~/.claude/skills/gteam/`
+- If the specialist references files in their `references/` directory, Read or Grep those files as instructed — they are relative to `~/dev/1_myprojects/gteam/`
 - If the specialist logs results, write to their `results/` directory
 - Do NOT mix methodologies from other specialists unless the loaded skill explicitly instructs handoff
 
@@ -111,6 +111,6 @@ For multi-specialist jobs, the job's SKILL.md orchestrates the sequence. After c
 
 When running any job or multi-specialist workflow:
 
-- **Severity:** CRITICAL / HIGH / MEDIUM / LOW (see `~/.claude/skills/gteam/references/severity-standard.md`)
-- **Handoffs:** Typed handoff sections (see `~/.claude/skills/gteam/references/handoff-schema.md`)
+- **Severity:** CRITICAL / HIGH / MEDIUM / LOW (see `~/dev/1_myprojects/gteam/references/severity-standard.md`)
+- **Handoffs:** Typed handoff sections (see `~/dev/1_myprojects/gteam/references/handoff-schema.md`)
 - **Ship verdict:** Blocked / At risk / Ship with known issues / Ship

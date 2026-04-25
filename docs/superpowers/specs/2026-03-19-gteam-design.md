@@ -156,8 +156,8 @@ It only uses the browse source for `$B` command validation in Tier 1 tests — c
 ## Install Model
 
 ```bash
-git clone https://github.com/gcampton/GTeam ~/.claude/skills/gteam
-cd ~/.claude/skills/gteam
+git clone https://github.com/gcampton/GTeam ~/dev/1_myprojects/gteam
+cd ~/dev/1_myprojects/gteam
 git submodule update --init   # pulls gstack source (for browse binary)
 ./setup                        # builds browse + registers skills
 ```
@@ -169,7 +169,7 @@ git submodule update --init   # pulls gstack source (for browse binary)
    - If not found: build from submodule source via `bun build --compile`
 2. Verify SKILL.md files exist at `specialists/*/SKILL.md` and `jobs/*/SKILL.md` and print a summary. 
    - No explicit Claude Code registration is required 
-   - Claude Code reads skills directly from `~/.claude/skills/gteam/**/*.md` because the clone target is the install location.
+   - Claude Code reads skills directly from `~/dev/1_myprojects/gteam/**/*.md` because the clone target is the install location.
 
 This means users with gstack already installed skip the ~30s Bun compile step entirely.
 
@@ -188,7 +188,7 @@ No other tokens are defined in v1. `{{PREAMBLE}}` and `{{NAME_METHODOLOGY}}` var
 
 **`{{PREAMBLE}}` expands to:**
 ```
-> GTeam update check: `cd ~/.claude/skills/gteam && git pull && bun run build`
+> GTeam update check: `cd ~/dev/1_myprojects/gteam && git pull && bun run build`
 > Autonomy mode: execute fully automatically. Only pause for decisions with meaningful consequences to the user.
 ```
 

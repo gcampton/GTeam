@@ -1,13 +1,6 @@
 // scripts/gen-skill-docs.ts
-import { readFile, writeFile } from 'node:fs/promises'
+import { readFile, readdir, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-
-export const PREAMBLE_TEXT = `> GTeam update check: \`cd ~/.claude/skills/gteam && git pull && bun run build\`
-> Autonomy mode: execute fully automatically. Only pause for decisions with meaningful consequences to the user.`
-
-export function resolvePreamble(): string {
-  return PREAMBLE_TEXT
-}
 
 /** Convert token name back to specialist directory name.
  *  SEO_METHODOLOGY → seo
@@ -21,8 +14,7 @@ function tokenToDir(token: string): string | null {
 }
 
 export async function resolveToken(token: string, rootDir: string): Promise<string> {
-  if (token === 'PREAMBLE') return resolvePreamble()
-  if (token === 'GTEAM_DIR') return '~/.claude/skills/gteam'
+  if (token === 'GTEAM_DIR') return '~/dev/1_myprojects/gteam'
 
   const dir = tokenToDir(token)
   if (!dir) throw new Error(`Unknown token: ${token}`)
@@ -31,7 +23,19 @@ export async function resolveToken(token: string, rootDir: string): Promise<stri
   try {
     return await readFile(methodologyPath, 'utf-8')
   } catch {
-    throw new Error(`Cannot resolve {{${token}}}: file not found at ${methodologyPath}`)
+    const tasksDir = join(rootDir, 'specialists', dir, 'tasks')
+    try {
+      const entries = (await readdir(tasksDir))
+        .filter(f => f.endsWith('.md'))
+        .sort()
+      if (entries.length === 0) throw new Error('no task files')
+      const parts = await Promise.all(
+        entries.map(f => readFile(join(tasksDir, f), 'utf-8'))
+      )
+      return parts.join('\n\n---\n\n')
+    } catch {
+      throw new Error(`Cannot resolve {{${token}}}: no methodology.md or tasks/*.md at specialists/${dir}/`)
+    }
   }
 }
 

@@ -30,6 +30,19 @@ GTeam gives Claude Code instant access to a full professional firm — lawyers, 
 
 GTeam routes to the lawyer, loads the contract review methodology, applies jurisdiction-aware analysis, and delivers a redlined risk report — automatically.
 
+# WARNING - NEW UPDATES
+## Change directory structure.
+As nobody is using this I have changed directory links to personal folders inside Gteam for use with paperclip.
+Before use instruct Claude, Codex, Gemini etc to:
+Claude
+```
+Can you please search Gteam Repo and change all instances of ~/dev/1_myprojects/gteam to ~/.claude/skills/gteam
+```
+Codex
+```
+Can you please search Gteam Repo and change all instances of ~/dev/1_myprojects/gteam to ~/.codex/skills/gteam
+```
+
 ## Why GTeam?
 
 Most "prompt libraries" give you a paragraph of instructions and hope for the best. GTeam is different:
@@ -60,8 +73,8 @@ Every idea comes with a difficulty rating, estimated monthly revenue range, star
 ## Quick Start
 
 ```bash
-git clone https://github.com/gcampton/GTeam ~/.claude/skills/gteam
-cd ~/.claude/skills/gteam
+git clone https://github.com/gcampton/GTeam ~/dev/1_myprojects/gteam
+cd ~/dev/1_myprojects/gteam
 bun install
 ./setup lite    # Recommended: coordinator mode (~1,700 tokens)
 ```

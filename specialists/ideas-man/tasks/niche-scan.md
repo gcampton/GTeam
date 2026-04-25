@@ -4,7 +4,7 @@ Browse is essential for this specialist — checking YouTube channels, competito
 
 ```bash
 export PATH="$HOME/.bun/bin:$PATH"
-B=~/.claude/skills/gteam/browse/dist/browse
+B=~/dev/1_myprojects/gteam/browse/dist/browse
 [ -x "$B" ] && echo "READY: $B" || echo "BROWSE NOT AVAILABLE"
 ```
 
